@@ -114,7 +114,19 @@
           </span>
         </a>
         <nav class="nav" id="nav">
-          ${nav.map(([h, key, id]) => `<a href="${root}/${h}" class="${page === id ? "active" : ""}" data-i18n="${key}"></a>`).join("")}
+          ${nav.map(([h, key, id]) => {
+            if (id === "about") {
+              return `<div class="drop">
+                <a href="${root}/${h}" class="${page === "about" ? "active" : ""}" data-i18n="${key}"></a>
+                <div class="drop-menu">
+                  <a href="${root}/about.html">About Media Centre</a>
+                  <a href="${root}/team.html">Our Team</a>
+                  <a href="${root}/history.html">Ugandan History</a>
+                </div>
+              </div>`;
+            }
+            return `<a href="${root}/${h}" class="${page === id ? "active" : ""}" data-i18n="${key}"></a>`;
+          }).join("")}
         </nav>
         <div class="header-tools">
           <div class="lang-switch" role="group" aria-label="Language">
@@ -253,11 +265,15 @@
   });
 
   document.querySelectorAll("[data-filter]").forEach((btn) => {
+    if (btn.closest("[data-min-filters]")) return;
     btn.addEventListener("click", () => {
-      document.querySelectorAll("[data-filter]").forEach((b) => b.classList.remove("active"));
+      const group = btn.closest(".filters") || btn.parentElement;
+      group.querySelectorAll("[data-filter]").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       const f = btn.getAttribute("data-filter");
-      document.querySelectorAll("[data-cat]").forEach((card) => {
+      const scope = btn.closest("section") || document;
+      scope.querySelectorAll("[data-cat]").forEach((card) => {
+        if (card.classList.contains("min-card")) return;
         const show = f === "all" || card.getAttribute("data-cat") === f;
         card.style.display = show ? "" : "none";
         if (show) {
@@ -384,4 +400,62 @@
   window.addEventListener("scroll", () => {
     headerEl?.classList.toggle("compact", window.scrollY > 24);
   }, { passive: true });
+
+  function applyMinFilter() {
+    const q = (document.querySelector("[data-min-search]")?.value || "").toLowerCase();
+    const active = document.querySelector(".min-tools [data-filter].active, [data-min-filters] [data-filter].active")?.getAttribute("data-filter") || "all";
+    let n = 0;
+    document.querySelectorAll(".min-card").forEach((card) => {
+      const text = card.textContent.toLowerCase();
+      const cat = card.getAttribute("data-cat") || "";
+      const show = (active === "all" || cat === active) && (!q || text.includes(q));
+      card.style.display = show ? "" : "none";
+      if (show) n += 1;
+    });
+    const count = document.querySelector("[data-min-count]");
+    if (count) count.textContent = String(n);
+  }
+  document.querySelector("[data-min-search]")?.addEventListener("input", applyMinFilter);
+  document.querySelectorAll("[data-min-filters] [data-filter]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("[data-min-filters] [data-filter]").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      applyMinFilter();
+    });
+  });
+
+  document.querySelectorAll(".stream-pills button, .lang-pills button, .chat-langs button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.parentElement.querySelectorAll("button").forEach((b) => b.classList.remove("on"));
+      btn.classList.add("on");
+    });
+  });
+
+  document.querySelectorAll("[data-tabs]").forEach((rootEl) => {
+    const tabs = [...rootEl.querySelectorAll("[data-tab]")];
+    const panels = [...document.querySelectorAll("[data-tab-panel]")];
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.toggle("on", t === tab));
+        panels.forEach((p) => p.classList.toggle("on", p.getAttribute("data-tab-panel") === tab.getAttribute("data-tab")));
+      });
+    });
+  });
+
+  document.querySelector("[data-play]")?.addEventListener("click", (e) => {
+    const b = e.currentTarget;
+    b.classList.toggle("playing");
+    b.textContent = b.classList.contains("playing") ? "❚❚" : "▶";
+  });
+
+  document.querySelectorAll("[data-chapter]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("[data-chapter]").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const id = btn.getAttribute("data-chapter");
+      document.querySelectorAll("[data-plate]").forEach((p) => {
+        p.style.display = p.getAttribute("data-plate") === id ? "" : "none";
+      });
+    });
+  });
 })();

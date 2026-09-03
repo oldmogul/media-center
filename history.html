@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Ugandan History — Uganda Media Centre</title>
   <meta name="description" content="A national heritage timeline of Uganda — from pre-colonial kingdoms through independence in 1962 to Vision 2040.">
   <link rel="icon" href="img/coat.svg">
@@ -14,23 +14,82 @@
 <body data-page="about" data-root=".">
   <div id="site-header"></div>
   <main id="main">
-    <section class="page-hero">
+    <section class="hist-hero">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="birds" aria-hidden="true">˜ ˜ ˜</div>
       <div class="wrap">
-        <p class="crumb"><a href="index.html">Command Centre</a> / <a href="about.html">About</a> / History</p>
+        <p class="kicker-off">Heritage</p>
         <h1>A timeline of the Republic</h1>
-        <p class="lede">Key moments in Uganda’s journey — independence, institutions and the story of a nation. For God and my Country.</p>
+        <p class="lede">Key moments in Uganda’s journey — independence, institutions and the story of a nation.</p>
+        <div class="flag-rule" style="margin:28px 0 18px;max-width:360px"></div>
+        <div class="hist-meta">
+          <div><span>Chapters</span><b>7</b></div>
+          <div><span>Span</span><b>1k+ yrs</b></div>
+          <div><span>Edition</span><b>II</b></div>
+        </div>
       </div>
     </section>
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <div class="news-grid">
-          <article class="news-card"><small class="muted">Chapter 01 · Pre-1894</small><h3>Pre-colonial kingdoms</h3><p>Buganda, Bunyoro-Kitara, Toro, Ankole and other kingdoms and chiefdoms flourish across the region.</p></article>
-          <article class="news-card"><small class="muted">Chapter 02 · 1894</small><h3>British Protectorate</h3><p>Uganda is declared a British Protectorate, ushering in a period of colonial administration.</p></article>
-          <article class="news-card"><small class="muted">Chapter 03 · 9 Oct 1962</small><h3>Independence</h3><p>Uganda gains independence from Britain, with Milton Obote as the first Prime Minister.</p></article>
-          <article class="news-card"><small class="muted">Chapter 04 · 1971–1979</small><h3>Idi Amin era</h3><p>A period of military rule that ended with the Uganda–Tanzania war.</p></article>
-          <article class="news-card"><small class="muted">Chapter 05 · 1986</small><h3>NRM Government</h3><p>The National Resistance Movement, led by Yoweri Kaguta Museveni, takes power and begins national reconstruction.</p></article>
-          <article class="news-card"><small class="muted">Chapter 06 · 1995</small><h3>New Constitution</h3><p>Uganda adopts a new Constitution establishing the current framework of governance.</p></article>
-          <article class="news-card"><small class="muted">Chapter 07 · Today</small><h3>Vision 2040</h3><p>Uganda pursues a transformation agenda anchored in industrialisation, infrastructure, education and regional integration.</p></article>
+    <section class="section">
+      <div class="wrap timeline">
+        <nav class="t-nav" aria-label="Chapters">
+          <button class="active" type="button" data-chapter="1">Pre-1894 · Pre-colonial kingdoms</button>
+          <button type="button" data-chapter="2">1894 · British Protectorate</button>
+          <button type="button" data-chapter="3">9 Oct 1962 · Independence</button>
+          <button type="button" data-chapter="4">1971–1979 · Idi Amin era</button>
+          <button type="button" data-chapter="5">1986 · NRM Government</button>
+          <button type="button" data-chapter="6">1995 · New Constitution</button>
+          <button type="button" data-chapter="7">Today · Vision 2040</button>
+        </nav>
+        <div>
+          <article class="t-card" data-plate="1">
+            <p class="kicker-off">Chapter 01 · Pre-1894</p>
+            <div class="num">01</div>
+            <h3>Pre-colonial kingdoms</h3>
+            <p>Buganda, Bunyoro-Kitara, Toro, Ankole and other kingdoms and chiefdoms flourish across the region.</p>
+            <p class="muted" style="margin-top:16px">Plate 01 / 07</p>
+          </article>
+          <article class="t-card" data-plate="2" style="display:none">
+            <p class="kicker-off">Chapter 02 · 1894</p>
+            <div class="num">02</div>
+            <h3>British Protectorate</h3>
+            <p>Uganda is declared a British Protectorate, ushering in a period of colonial administration.</p>
+            <p class="muted" style="margin-top:16px">Plate 02 / 07</p>
+          </article>
+          <article class="t-card" data-plate="3" style="display:none">
+            <p class="kicker-off">Chapter 03 · 9 Oct 1962</p>
+            <div class="num">03</div>
+            <h3>Independence</h3>
+            <p>Uganda gains independence from Britain, with Milton Obote as the first Prime Minister.</p>
+            <p class="muted" style="margin-top:16px">Plate 03 / 07</p>
+          </article>
+          <article class="t-card" data-plate="4" style="display:none">
+            <p class="kicker-off">Chapter 04 · 1971–1979</p>
+            <div class="num">04</div>
+            <h3>Idi Amin era</h3>
+            <p>A period of military rule that ended with the Uganda–Tanzania war.</p>
+            <p class="muted" style="margin-top:16px">Plate 04 / 07</p>
+          </article>
+          <article class="t-card" data-plate="5" style="display:none">
+            <p class="kicker-off">Chapter 05 · 1986</p>
+            <div class="num">05</div>
+            <h3>NRM Government</h3>
+            <p>The National Resistance Movement, led by Yoweri Kaguta Museveni, takes power and begins national reconstruction.</p>
+            <p class="muted" style="margin-top:16px">Plate 05 / 07</p>
+          </article>
+          <article class="t-card" data-plate="6" style="display:none">
+            <p class="kicker-off">Chapter 06 · 1995</p>
+            <div class="num">06</div>
+            <h3>New Constitution</h3>
+            <p>Uganda adopts a new Constitution establishing the current framework of governance.</p>
+            <p class="muted" style="margin-top:16px">Plate 06 / 07</p>
+          </article>
+          <article class="t-card" data-plate="7" style="display:none">
+            <p class="kicker-off">Chapter 07 · Today</p>
+            <div class="num">07</div>
+            <h3>Vision 2040</h3>
+            <p>Uganda pursues a transformation agenda anchored in industrialisation, infrastructure, education and regional integration.</p>
+            <p class="muted" style="margin-top:16px">Plate 07 / 07 · For God and my Country.</p>
+          </article>
         </div>
       </div>
     </section>

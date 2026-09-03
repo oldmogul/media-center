@@ -5,48 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Ministries — Uganda Media Centre</title>
   <meta name="description" content="Directory of every Government of Uganda ministry, with mandate and leadership.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="home" data-root=".">
+<body data-page="ministries" data-root=".">
   <a class="skip" href="#main">Skip to main content</a>
   <div id="site-header"></div>
   <main id="main">
-    <section class="page-hero">
+    <section class="page-hero min-hero">
+      <img class="arms" src="img/coat-of-arms.png" alt="">
       <div class="wrap">
-        <p class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> / <span data-i18n="footer.ministries">Ministries</span></p>
+        <p class="kicker-off">All ministries</p>
         <h1 data-i18n="min.h1">Ministries of the Republic</h1>
-        <p class="lede" data-i18n="min.lede"></p>
+        <p class="lede" data-i18n="min.lede">Every ministry in one place. Mandates, leadership, latest announcements and how to get in touch.</p>
+        <div class="min-count"><b>29</b><span>Active ministries</span></div>
       </div>
     </section>
-    <section class="section" style="padding-top:0">
-      <div class="wrap min-grid">
-        <a class="min-card" href="news.html"><small>Governance</small><h3>Office of the President</h3><p class="muted">Hon. Babirye Milly Babalanda</p></a>
-        <a class="min-card" href="news.html"><small>Governance</small><h3>Office of the Prime Minister</h3><p class="muted">Rt. Hon. Robinah Nabbanja</p></a>
-        <a class="min-card" href="news.html"><small>Governance</small><h3>Office of the Vice President</h3><p class="muted">H.E. Jessica Alupo</p></a>
-        <a class="min-card" href="news.html"><small>Communications</small><h3>Ministry of ICT and National Guidance</h3><p class="muted">Hon. Justine Kasule Lumumba</p></a>
-        <a class="min-card" href="articles/ebola.html"><small>Social</small><h3>Ministry of Health</h3><p class="muted">Hon. Chris Baryomunsi</p></a>
-        <a class="min-card" href="articles/updf.html"><small>Security</small><h3>Ministry of Defence and Veteran Affairs</h3><p class="muted">Hon. Kiryowa Kiwanuka</p></a>
-        <a class="min-card" href="articles/coffee.html"><small>Economic</small><h3>Ministry of Agriculture, Animal Industry &amp; Fisheries</h3><p class="muted">Hon. Frank Tumwebaze</p></a>
-        <a class="min-card" href="news.html"><small>Social</small><h3>Ministry of Education and Sports</h3><p class="muted">Hon. Janet K. Museveni</p></a>
-        <a class="min-card" href="news.html"><small>Governance</small><h3>Ministry of Foreign Affairs</h3><p class="muted">Hon. Adonia Ayebare</p></a>
-        <a class="min-card" href="news.html"><small>Economic</small><h3>Ministry of Finance, Planning &amp; Economic Development</h3><p class="muted">Hon. Henry Musasizi</p></a>
-        <a class="min-card" href="news.html"><small>Infrastructure</small><h3>Ministry of Works and Transport</h3><p class="muted">Hon. Fred Byamukama</p></a>
-        <a class="min-card" href="news.html"><small>Infrastructure</small><h3>Ministry of Water and Environment</h3><p class="muted">Hon. Maj. Gen. (Rtd.) Kahinda Otafiire</p></a>
-        <a class="min-card" href="news.html"><small>Infrastructure</small><h3>Ministry of Lands, Housing &amp; Urban Development</h3><p class="muted">Hon. Judith Nabakooba</p></a>
-        <a class="min-card" href="news.html"><small>Security</small><h3>Ministry of Internal Affairs</h3><p class="muted">Hon. Prof. Ephraim Kamuntu</p></a>
-        <a class="min-card" href="news.html"><small>Economic</small><h3>Ministry of Energy and Mineral Development</h3><p class="muted">Hon. Dr. Monica Musenero Masanza</p></a>
-        <a class="min-card" href="news.html"><small>Economic</small><h3>Ministry of Trade, Industry &amp; Cooperatives</h3><p class="muted">Hon. Sanjay Tana</p></a>
-        <a class="min-card" href="news.html"><small>Economic</small><h3>Ministry of Tourism, Wildlife and Antiquities</h3><p class="muted">Hon. Tom Butime</p></a>
-        <a class="min-card" href="news.html"><small>Social</small><h3>Ministry of Gender, Labour &amp; Social Development</h3><p class="muted">Hon. Lt. Gen. Henry Tumukunde Kakurugu</p></a>
-        <a class="min-card" href="news.html"><small>Governance</small><h3>Ministry of Justice &amp; Constitutional Affairs</h3><p class="muted">Hon. Norbert Mao</p></a>
-        <a class="min-card" href="news.html"><small>Governance</small><h3>Ministry of Local Government</h3><p class="muted">Hon. Balaam Barugahara Ateenyi</p></a>
-        <a class="min-card" href="news.html"><small>Regional</small><h3>Kampala Capital City Authority</h3><p class="muted">Hon. Hajat Minsa Kabanda</p></a>
-        <a class="min-card" href="articles/karamoja.html"><small>Regional</small><h3>Ministry for Karamoja Affairs</h3><p class="muted">Hon. Davinia Anyakun</p></a>
-        <a class="min-card" href="languages.html"><small>Communications</small><h3>Dawati La Kiswahili</h3><p class="muted">Coordinator's Office</p></a>
+    <div class="flag-rule"></div>
+    <section class="section" style="padding-top:22px">
+      <div class="wrap">
+        <div class="min-tools">
+          <input type="search" data-min-search placeholder="Search ministry or minister…">
+          <div class="filters" data-min-filters>
+            <button class="filter active" data-filter="all">All sectors</button>
+            <button class="filter" data-filter="communications">Communications</button>
+            <button class="filter" data-filter="economic">Economic</button>
+            <button class="filter" data-filter="governance">Governance</button>
+            <button class="filter" data-filter="infrastructure">Infrastructure</button>
+            <button class="filter" data-filter="regional">Regional</button>
+            <button class="filter" data-filter="security">Security</button>
+            <button class="filter" data-filter="social">Social Services</button>
+          </div>
+        </div>
+        <p class="muted" style="margin:12px 0 18px">Showing <span data-min-count>29</span></p>
+        <div class="min-grid">
+          <a class="min-card" data-cat="communications" href="languages.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Communications</span><h3>Dawati La Kiswahili</h3><p class="muted">Coordinator's Office</p><p class="mandate">To coordinate the promotion and use of Kiswahili as an official language across government communication.</p></a>
+          <a class="min-card" data-cat="regional" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Regional</span><h3>Kampala Capital City Authority</h3><p class="muted">Hon. Hajat Minsa Kabanda</p><p class="mandate">To govern and manage the affairs of Kampala Capital City on behalf of the Central Government.</p></a>
+          <a class="min-card" data-cat="regional" href="articles/karamoja.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Regional</span><h3>Ministry for Karamoja Affairs</h3><p class="muted">Hon. Davinia Anyakun</p><p class="mandate">To coordinate the implementation of government programmes and development interventions in the Karamoja sub-region.</p></a>
+          <a class="min-card" data-cat="regional" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Regional</span><h3>Ministry for Northern Uganda</h3><p class="muted">Beatrice Okori Akello</p><p class="mandate">To coordinate recovery, peace and development programmes in Northern Uganda.</p></a>
+          <a class="min-card" data-cat="economic" href="articles/coffee.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Economic</span><h3>Ministry of Agriculture, Animal Industry &amp; Fisheries</h3><p class="muted">Hon. Frank Tumwebaze</p><p class="mandate">To transform subsistence agriculture into commercial agriculture for food security, employment and exports.</p></a>
+          <a class="min-card" data-cat="security" href="articles/updf.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Security</span><h3>Ministry of Defence and Veteran Affairs</h3><p class="muted">Hon. Kiryowa Kiwanuka</p><p class="mandate">To defend and protect the sovereignty and territorial integrity of Uganda.</p></a>
+          <a class="min-card" data-cat="security" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Security</span><h3>Ministry of Disaster Preparedness</h3><p class="muted">Hon. Sam Engola</p><p class="mandate">To prepare for, respond to and mitigate disasters, and coordinate humanitarian relief.</p></a>
+          <a class="min-card" data-cat="regional" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Regional</span><h3>Ministry of East African Community Affairs</h3><p class="muted">Hon. Rebecca Kadaga</p><p class="mandate">To coordinate Uganda’s participation in the East African Community integration agenda.</p></a>
+          <a class="min-card" data-cat="social" href="articles/afcon.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Social Services</span><h3>Ministry of Education and Sports</h3><p class="muted">Hon. Janet K. Museveni</p><p class="mandate">To provide, support, guide and regulate quality education, training and sports.</p></a>
+          <a class="min-card" data-cat="economic" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Economic</span><h3>Ministry of Energy and Mineral Development</h3><p class="muted">Hon. Dr. Monica Musenero Masanza</p><p class="mandate">To establish, promote and sustainably manage energy and mineral resources.</p></a>
+          <a class="min-card" data-cat="economic" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Economic</span><h3>Ministry of Finance, Planning &amp; Economic Development</h3><p class="muted">Hon. Henry Musasizi</p><p class="mandate">To formulate sound economic and fiscal policies and mobilise public resources.</p></a>
+          <a class="min-card" data-cat="governance" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Governance</span><h3>Ministry of Foreign Affairs</h3><p class="muted">Hon. Adonia Ayebare</p><p class="mandate">To promote and protect Uganda’s national interests abroad.</p></a>
+          <a class="min-card" data-cat="social" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Social Services</span><h3>Ministry of Gender, Labour &amp; Social Development</h3><p class="muted">Hon. Lt. Gen. Henry Tumukunde Kakurugu</p><p class="mandate">To promote gender equality, social protection and labour productivity.</p></a>
+          <a class="min-card" data-cat="social" href="articles/ebola.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Social Services</span><h3>Ministry of Health</h3><p class="muted">Hon. Chris Baryomunsi</p><p class="mandate">To provide the highest possible level of health services to all people in Uganda.</p></a>
+          <a class="min-card" data-cat="infrastructure" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Infrastructure</span><h3>Ministry of ICT and National Guidance</h3><p class="muted">Hon. Justine Kasule Lumumba</p><p class="mandate">To provide strategic and technical leadership on ICT and national guidance.</p></a>
+          <a class="min-card" data-cat="security" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Security</span><h3>Ministry of Internal Affairs</h3><p class="muted">Hon. Prof. Ephraim Kamuntu</p><p class="mandate">To secure life and property through coordinated internal security and immigration control.</p></a>
+          <a class="min-card" data-cat="governance" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Governance</span><h3>Ministry of Justice &amp; Constitutional Affairs</h3><p class="muted">Hon. Norbert Mao</p><p class="mandate">To provide legal advisory services to government and ensure access to justice.</p></a>
+          <a class="min-card" data-cat="infrastructure" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Infrastructure</span><h3>Ministry of Lands, Housing &amp; Urban Development</h3><p class="muted">Hon. Judith Nabakooba</p><p class="mandate">To ensure rational and sustainable use and orderly urban development.</p></a>
+          <a class="min-card" data-cat="governance" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Governance</span><h3>Ministry of Local Government</h3><p class="muted">Hon. Balaam Barugahara Ateenyi</p><p class="mandate">To guide, harmonise, mentor and advocate for all local governments.</p></a>
+          <a class="min-card" data-cat="governance" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Governance</span><h3>Ministry of Public Service</h3><p class="muted">General Edward Katumba Wamala</p><p class="mandate">To develop and manage a public service that is efficient, effective and accountable.</p></a>
+          <a class="min-card" data-cat="social" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Social Services</span><h3>Ministry of Refugees &amp; OPM Refugees Dept.</h3><p class="muted">Hon. Hilary Onek</p><p class="mandate">To coordinate refugee protection, settlement and integration.</p></a>
+          <a class="min-card" data-cat="infrastructure" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Infrastructure</span><h3>Ministry of Science, Technology &amp; Innovation</h3><p class="muted">Hon. Eng. Jonard Asiimwe Akiiki</p><p class="mandate">To lead innovation and value addition in scientific research.</p></a>
+          <a class="min-card" data-cat="economic" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Economic</span><h3>Ministry of Tourism, Wildlife and Antiquities</h3><p class="muted">Hon. Tom Butime</p><p class="mandate">To promote sustainable tourism, wildlife conservation and heritage preservation.</p></a>
+          <a class="min-card" data-cat="economic" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Economic</span><h3>Ministry of Trade, Industry &amp; Cooperatives</h3><p class="muted">Hon. Sanjay Tana</p><p class="mandate">To develop and promote a competitive and export-led private sector.</p></a>
+          <a class="min-card" data-cat="infrastructure" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Infrastructure</span><h3>Ministry of Water and Environment</h3><p class="muted">Hon. Maj. Gen. (Rtd.) Kahinda Otafiire</p><p class="mandate">To promote rational and sustainable use of water and environment resources.</p></a>
+          <a class="min-card" data-cat="infrastructure" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Infrastructure</span><h3>Ministry of Works and Transport</h3><p class="muted">Hon. Fred Byamukama</p><p class="mandate">To plan, develop and maintain economic transport infrastructure and services.</p></a>
+          <a class="min-card" data-cat="governance" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Governance</span><h3>Office of the President</h3><p class="muted">Hon. Babirye Milly Babalanda</p><p class="mandate">Provides leadership in the formulation and implementation of national policies.</p></a>
+          <a class="min-card" data-cat="governance" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Governance</span><h3>Office of the Prime Minister</h3><p class="muted">Rt. Hon. Robinah Nabbanja</p><p class="mandate">To lead public policy implementation, coordination and monitoring of government business.</p></a>
+          <a class="min-card" data-cat="governance" href="news.html"><img class="arms-sm" src="img/coat-of-arms.png" alt=""><span class="badge">Governance</span><h3>Office of the Vice President</h3><p class="muted">H.E. Jessica Alupo</p><p class="mandate">Supports the President in the execution of the constitutional mandate.</p></a>
+        </div>
       </div>
     </section>
   </main>

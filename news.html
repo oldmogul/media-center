@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Press Room — Uganda Media Centre</title>
   <meta name="description" content="Official press releases, media resources and journalist portal of the Government of Uganda.">
   <link rel="icon" href="img/coat.svg">
@@ -16,24 +16,63 @@
   <div id="site-header"></div>
   <main id="main">
     <section class="page-hero">
+      <div class="wrap hero-split">
+        <div>
+          <p class="kicker-off">Press Room</p>
+          <h1 data-i18n="news.h1">Press releases &amp; briefings</h1>
+          <p class="lede">Official statements, announcements and briefings from the Government of Uganda.</p>
+          <p class="hero-actions">
+            <a class="btn-gold" href="#releases">Browse releases →</a>
+            <a class="btn-outline" href="accreditation.html">Press accreditation</a>
+          </p>
+        </div>
+        <a class="hero-frame" href="articles/afcon.html">
+          <img src="img/explore-banner.jpg" alt="Latest government briefing">
+        </a>
+      </div>
+    </section>
+    <div class="flag-rule"></div>
+    <div class="stat-board">
+      <div class="stat"><b>162</b><span>Releases archived</span><p class="muted" style="margin-top:6px">Since 2014</p></div>
+      <div class="stat"><b>2</b><span>Media assets</span><p class="muted" style="margin-top:6px">Photo, video and b-roll</p></div>
+    </div>
+    <section class="section">
       <div class="wrap">
-        <p class="crumb"><a href="index.html" data-i18n="nav.home">Command Centre</a> / Press Room</p>
-        <h1 data-i18n="news.h1">Press releases &amp; briefings</h1>
-        <p class="lede">Official statements, announcements and briefings from the Government of Uganda.</p>
-        <p style="margin-top:18px">
-          <a class="btn-gold" href="#releases">Browse releases</a>
-          <a class="cta-mini" href="accreditation.html" style="margin-left:8px">Press accreditation</a>
-        </p>
-        <div class="stats">
-          <div class="stat"><b>162</b><span>Releases archived since 2014</span></div>
-          <div class="stat"><b>29</b><span>Ministries on the record</span></div>
-          <div class="stat"><b>2</b><span>Media assets — photo, video, b-roll</span></div>
-          <div class="stat"><b>3</b><span>Languages — EN, LG, SW</span></div>
+        <p class="kicker-off">Newsroom modes</p>
+        <h2 class="off-h2" style="font-size:clamp(28px,4vw,44px);margin-bottom:8px">Four ways into the record.</h2>
+        <p class="lede" style="margin-bottom:22px">Every public communication, organised by medium and indexed for speed.</p>
+        <div class="mode-grid">
+          <a class="mode-card" href="#releases">
+            <h3>Press Releases</h3>
+            <p class="muted">Searchable archive with ministry attribution.</p>
+            <b>162</b>
+            <span class="enter">Enter</span>
+          </a>
+          <a class="mode-card" href="videos.html">
+            <h3>Photo &amp; Video</h3>
+            <p class="muted">High-resolution official assets and broadcast-grade footage.</p>
+            <b>2</b>
+            <span class="enter">Enter</span>
+          </a>
+          <a class="mode-card" href="radio.html">
+            <h3>Audio &amp; Speeches</h3>
+            <p class="muted">Timestamped transcripts of presidential and cabinet addresses.</p>
+            <span class="enter">Enter</span>
+          </a>
+          <a class="mode-card" href="gallery.html">
+            <h3>Events Calendar</h3>
+            <p class="muted">Upcoming briefings, state functions and embargoed milestones.</p>
+            <b>20</b>
+            <span class="enter">Enter</span>
+          </a>
         </div>
       </div>
     </section>
     <section class="section" id="releases" style="padding-top:0">
       <div class="wrap">
+        <p class="kicker-off">Official record</p>
+        <h2 class="off-h2" style="font-size:clamp(28px,4vw,44px);margin-bottom:8px">Every release. Indexed.</h2>
+        <p class="lede" style="margin-bottom:18px">162 statements across 29 ministries, organised for fast retrieval.</p>
         <div class="filters">
           <button class="filter active" data-filter="all">All</button>
           <button class="filter" data-filter="education">Education</button>
@@ -43,60 +82,51 @@
           <button class="filter" data-filter="governance">Governance</button>
           <button class="filter" data-filter="foreign">Foreign affairs</button>
         </div>
-        <div class="news-grid">
-          <a class="news-card" data-cat="education" href="articles/afcon.html">
-            <div><span class="tag gold">Education</span></div>
-            <h3>Uganda LOC public update on TotalEnergies CAF AFCON PAMOJA 2027</h3>
-            <p>Nine months to kick-off. AKOS, Hoima City Stadium and Mandela National Stadium on course. Shs 135.7 billion for training facilities.</p>
-            <div class="foot"><span>Ministry of Education and Sports</span><span>2 Sep 2026</span></div>
+        <div class="release-list">
+          <a class="release-row" data-cat="education" href="articles/afcon.html">
+            <small>2 Sep 2026</small>
+            <div><span class="tag gold">Education</span><h3>Uganda LOC public update on TotalEnergies CAF AFCON PAMOJA 2027</h3><p class="muted">Ministry of Education and Sports</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="governance" href="articles/nin.html">
-            <div><span class="tag gold">Governance</span></div>
-            <h3>Inspection of government wealth-creation programmes in Teso and Lango</h3>
-            <p>Office of the President field inspections of wealth-creation programmes.</p>
-            <div class="foot"><span>Office of the President</span><span>2 Sep 2026</span></div>
+          <a class="release-row" data-cat="governance" href="articles/nin.html">
+            <small>2 Sep 2026</small>
+            <div><span class="tag gold">Governance</span><h3>Inspection of government wealth-creation programmes in Teso and Lango</h3><p class="muted">Office of the President</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="economy" href="articles/nin.html">
-            <div><span class="tag gold">Economy</span></div>
-            <h3>Cabinet adopts NIN as Tax Identification Number</h3>
-            <p>Hon. Justine Kasule Lumumba: NIRA NIN becomes the standard TIN to unify URA records.</p>
-            <div class="foot"><span>Ministry of ICT and National Guidance</span><span>1 Sep 2026</span></div>
+          <a class="release-row" data-cat="economy" href="articles/nin.html">
+            <small>1 Sep 2026</small>
+            <div><span class="tag gold">Economy</span><h3>Cabinet adopts NIN as Tax Identification Number</h3><p class="muted">Ministry of ICT and National Guidance</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="economy" href="articles/coffee.html">
-            <div><span class="tag gold">Economy</span></div>
-            <h3>Capital Markets Authority celebrates 30 years, targets one million investors</h3>
-            <p>Three decades of financial-market growth.</p>
-            <div class="foot"><span>Ministry of Trade</span><span>1 Sep 2026</span></div>
+          <a class="release-row" data-cat="economy" href="articles/coffee.html">
+            <small>1 Sep 2026</small>
+            <div><span class="tag gold">Economy</span><h3>Capital Markets Authority celebrates 30 years, targets one million investors</h3><p class="muted">Ministry of Trade, Industry &amp; Cooperatives</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="foreign" href="news.html">
-            <div><span class="tag gold">Foreign affairs</span></div>
-            <h3>President Museveni receives credentials from five new envoys</h3>
-            <p>State House, Entebbe.</p>
-            <div class="foot"><span>Office of the President</span><span>1 Sep 2026</span></div>
+          <a class="release-row" data-cat="foreign" href="news.html">
+            <small>1 Sep 2026</small>
+            <div><span class="tag gold">Foreign affairs</span><h3>President Museveni receives credentials from five new envoys</h3><p class="muted">Office of the President</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="health" href="articles/ebola.html">
-            <div><span class="tag red">Health</span></div>
-            <h3>Uganda declares the end of the 2026 Ebola disease outbreak</h3>
-            <p>42-day monitoring completed with no new confirmed cases. Toll-free 0800-100-066.</p>
-            <div class="foot"><span>Ministry of Health</span><span>28 Jul 2026</span></div>
+          <a class="release-row" data-cat="health" href="articles/ebola.html">
+            <small>28 Jul 2026</small>
+            <div><span class="tag red">Health</span><h3>Uganda declares the end of the 2026 Ebola disease outbreak</h3><p class="muted">Ministry of Health</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="security" href="articles/updf.html">
-            <div><span class="tag ink">Security</span></div>
-            <h3>UPDF recruitment kicks off at Kololo</h3>
-            <p>Hundreds of youths from Kampala Central, Makindye and Nakawa.</p>
-            <div class="foot"><span>Ministry of Defence</span><span>10 Aug 2026</span></div>
+          <a class="release-row" data-cat="security" href="articles/updf.html">
+            <small>10 Aug 2026</small>
+            <div><span class="tag ink">Security</span><h3>UPDF recruitment kicks off at Kololo</h3><p class="muted">Ministry of Defence and Veteran Affairs</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="governance" href="articles/karamoja.html">
-            <div><span class="tag gold">OPM</span></div>
-            <h3>Government launches emergency food relief for Karamoja</h3>
-            <p>9.4 million kg of maize flour and dry beans for 313,987 households.</p>
-            <div class="foot"><span>Office of the Prime Minister</span><span>20 Jul 2026</span></div>
+          <a class="release-row" data-cat="governance" href="articles/karamoja.html">
+            <small>20 Jul 2026</small>
+            <div><span class="tag gold">OPM</span><h3>Karamoja gets 9 million kilos of relief food</h3><p class="muted">Office of the Prime Minister</p></div>
+            <span class="muted">Read</span>
           </a>
-          <a class="news-card" data-cat="economy" href="articles/coffee.html">
-            <div><span class="tag gold">Agriculture</span></div>
-            <h3>Coffee export earnings hit USD 1.4 billion — highest on record</h3>
-            <p>UCDA confirms a 38% year-on-year increase. New processing in Mbale and Mbarara.</p>
-            <div class="foot"><span>MAAIF</span><span>24 May 2026</span></div>
+          <a class="release-row" data-cat="economy" href="articles/coffee.html">
+            <small>24 May 2026</small>
+            <div><span class="tag gold">Agriculture</span><h3>Coffee export earnings hit USD 1.4 billion — highest on record</h3><p class="muted">MAAIF</p></div>
+            <span class="muted">Read</span>
           </a>
         </div>
       </div>
