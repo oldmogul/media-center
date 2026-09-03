@@ -1,0 +1,12 @@
+{
+  "name": "umc-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Uganda Media Centre — Figma-to-web",
+  "scripts": {
+    "start": "npx --yes serve -l 5173 ."
+  },
+  "dependencies": {
+    "playwright": "^1.62.1"
+  }
+}
