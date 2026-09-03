@@ -6,81 +6,79 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>Radio — Uganda Media Centre</title>
-  <meta name="description" content="Live government radio programming, schedules, programmes and presenters from the Uganda Media Centre.">
+  <title>Podcasts — Uganda Media Centre</title>
+  <meta name="description" content="Live government podcasts and on-demand episodes from the Uganda Media Centre studio — English, Luganda and Kiswahili.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="radio" data-root=".">
   <div id="site-header"></div>
   <main id="main">
-    <section class="radio-hero">
-      <img class="arms" src="img/coat-of-arms.png" alt="">
+    <section class="pod-hero">
       <div class="wrap">
-        <p class="kicker-off">Government Radio</p>
-        <h1>Live from the Media Centre</h1>
-        <p class="lede">Schedules, presenters and programmes — broadcasting in English, Luganda and Kiswahili.</p>
-        <div class="player-card">
-          <div class="player-art">
-            <span class="onair"><i></i>On air</span>
-            <span aria-hidden="true">((((</span>
+        <p class="pod-kicker">UMC Studio · Radio &amp; podcasts</p>
+        <h1>Listen live. Rewind the Republic.</h1>
+        <p class="lede">The Media Centre desk — live briefings, call-in clinics and on-demand episodes in English, Luganda and Kiswahili.</p>
+
+        <article class="live-stage" id="live-stage">
+          <div class="live-art">
+            <img data-live-art src="img/alan-speaking.jpg" alt="Studio cover">
           </div>
-          <div>
-            <p class="kicker-off">Now on air</p>
-            <h2 style="font-family:var(--display);font-weight:400;font-size:clamp(22px,3vw,32px);margin:4px 0 6px">Off-air — automated music</h2>
-            <p class="muted" style="color:rgba(255,255,255,.7)">Live programming resumes shortly.</p>
-            <p class="kicker-off" style="margin-top:16px">Choose stream</p>
-            <div class="stream-pills">
-              <button class="on" type="button">English Service</button>
-              <button type="button">Luganda Service</button>
-              <button type="button">Kiswahili Desk</button>
+          <div class="live-copy">
+            <span data-live-badge class="pill-off">Studio off-air</span>
+            <p class="pod-kicker" style="margin-top:14px" data-live-kicker>Government podcasts</p>
+            <h2 data-live-title>The studio is quiet — catch up on the archive</h2>
+            <p data-live-blurb>When the desk goes live, this stage carries the National Bulletin, Health Line, Eddoboozi ly’Abalimi and Kiswahili Leo.</p>
+            <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="live-meta">
+              <span data-live-host>UMC Electronic Media desk</span>
+              <span><span data-ep-count>8</span> episodes in the archive</span>
+            </div>
+            <div class="live-actions">
+              <button class="btn-gold" type="button" id="live-listen" data-live-listen>Listen live</button>
+              <a class="btn-ghost" href="#archive">Browse episodes</a>
+              <a class="btn-ghost" href="admin.html">Studio desk</a>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:16px">
-            <button class="play-gold" type="button" data-play aria-label="Play">▶</button>
-            <input class="vol" type="range" min="0" max="100" value="72" aria-label="Volume">
-          </div>
-        </div>
+        </article>
       </div>
     </section>
-    <div class="flag-rule"></div>
-    <section class="section">
+
+    <section class="pod-section">
       <div class="wrap">
-        <p class="kicker-off">Up next</p>
-        <h2 class="off-h2" style="font-size:clamp(28px,4vw,40px);margin-bottom:18px">Coming up on English</h2>
-        <div class="news-grid">
-          <article class="news-card"><small class="muted">UMC · 13:00</small><h3>The National Bulletin</h3><p>Uganda’s flagship hourly news on the hour.</p></article>
-          <article class="news-card"><small class="muted">UMC · 19:00</small><h3>The National Bulletin</h3><p>Uganda’s flagship hourly news on the hour.</p></article>
-          <article class="news-card"><small class="muted">UMC · Fri 07:00</small><h3>The National Bulletin</h3><p>Uganda’s flagship hourly news on the hour.</p></article>
-        </div>
-        <div class="section-head" style="margin-top:48px">
-          <div>
-            <p class="kicker-off">Programmes</p>
-            <h2>Government shows</h2>
-          </div>
-        </div>
-        <div class="news-grid">
-          <article class="show-card"><small>English · News</small><h3>The National Bulletin</h3><p>Uganda’s flagship hourly news on the hour.</p><div class="with"><img src="img/alan-kasujja.jpg" alt="">with Alan Kasujja · Mon 07:00</div></article>
-          <article class="show-card"><small>English · Health</small><h3>Health Line Uganda</h3><p>Call-in clinic with the Ministry of Health.</p><div class="with">with Sarah Nanteza Kyobe · Tue 10:00</div></article>
-          <article class="show-card"><small>Luganda · Agriculture</small><h3>Eddoboozi ly’Abalimi</h3><p>Farmers’ Voice — markets, weather, extension.</p><div class="with"><img src="img/team-obed.jpg" alt="">with Obed Katureebe · Mon 05:30</div></article>
-          <article class="show-card"><small>English · Governance</small><h3>Citizen Line</h3><p>Citizens’ Q&amp;A with ministries.</p><div class="with"><img src="img/team-charles.jpg" alt="">with Charles Serugga Matovu · Wed 20:00</div></article>
-          <article class="show-card"><small>Kiswahili · News</small><h3>Kiswahili Leo</h3><p>EAC affairs in Kiswahili.</p><div class="with">with David Serumaga · Mon 18:00</div></article>
-          <article class="show-card"><small>English · Youth</small><h3>Youth Now</h3><p>Scholarships, jobs and innovation.</p><div class="with">with Kevin Seguya · Mon 16:00</div></article>
-          <article class="show-card"><small>English · Governance</small><h3>PDM Pulse</h3><p>Parish Development Model — week in review.</p><div class="with">with Joseph Okumu · Sat 09:00</div></article>
-          <article class="show-card"><small>English · Religious</small><h3>Faith &amp; Nation</h3><p>Inter-faith reflections.</p><div class="with"><img src="img/team-josepha.jpg" alt="">with Josepha Jabo · Sun 08:00</div></article>
-        </div>
-        <div class="section-head" style="margin-top:48px"><h2>Our presenters</h2></div>
-        <div class="team-grid">
-          <article class="person"><img src="img/alan-kasujja.jpg" alt=""><div class="txt"><h3>Alan Kasujja</h3><p>Executive Director &amp; Lead Anchor</p></div></article>
-          <article class="person"><img src="img/team-obed.jpg" alt=""><div class="txt"><h3>Obed Katureebe</h3><p>Head of Electronic Media</p></div></article>
-          <article class="person"><img src="img/team-charles.jpg" alt=""><div class="txt"><h3>Charles Serugga Matovu</h3><p>Talk-show Host &amp; Events Lead</p></div></article>
-          <article class="person"><img src="img/team-josepha.jpg" alt=""><div class="txt"><h3>Josepha Jabo</h3><p>Religious Affairs Host</p></div></article>
-        </div>
+        <p class="pod-kicker">Shows</p>
+        <h2>Eight desks. One studio.</h2>
+        <p class="lede" style="color:rgba(255,255,255,.65);margin:8px 0 18px">Tap a show to filter the archive.</p>
+        <div class="show-rail" id="show-rail"></div>
+      </div>
+    </section>
+
+    <section class="pod-section" id="archive" style="padding-top:0">
+      <div class="wrap">
+        <p class="pod-kicker">On demand</p>
+        <h2>Previous podcasts</h2>
+        <p class="lede" style="color:rgba(255,255,255,.65);margin:8px 0 0">Play any episode. Host, language, date and duration sit on the record.</p>
+        <div class="ep-list" id="ep-list"></div>
       </div>
     </section>
   </main>
+
+  <div class="pod-dock" id="pod-dock">
+    <div class="wrap inner">
+      <img data-dock-art src="img/alan-kasujja.jpg" alt="">
+      <div>
+        <strong data-dock-title>Ready</strong>
+        <small data-dock-sub>UMC Studio</small>
+        <input id="pod-seek" class="seek" type="range" min="0" max="100" value="0" aria-label="Seek">
+        <small id="pod-time">0:00 / 0:00</small>
+      </div>
+      <button class="ep-play" type="button" data-dock-play aria-label="Play or pause">▶</button>
+    </div>
+  </div>
+
   <div id="site-footer"></div>
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/podcasts.js"></script>
 </body>
 </html>

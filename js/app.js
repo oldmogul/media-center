@@ -127,6 +127,14 @@
             }
             return `<a href="${root}/${h}" class="${page === id ? "active" : ""}" data-i18n="${key}"></a>`;
           }).join("")}
+          <div class="nav-extra">
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" data-set-lang="en">EN</button>
+              <button type="button" data-set-lang="lg">LG</button>
+              <button type="button" data-set-lang="sw">SW</button>
+            </div>
+            <a class="cta-mini" href="${root}/accreditation.html" data-i18n="cta.accredit"></a>
+          </div>
         </nav>
         <div class="header-tools">
           <div class="lang-switch" role="group" aria-label="Language">
@@ -191,6 +199,7 @@
             <li><a href="${root}/team.html" data-i18n="footer.team"></a></li>
             <li><a href="${root}/accreditation.html" data-i18n="footer.accredit"></a></li>
             <li><a href="${root}/contact.html" data-i18n="footer.contact"></a></li>
+            <li><a href="${root}/admin.html">Studio desk</a></li>
           </ul>
         </div>
         <div>
@@ -228,7 +237,18 @@
 
   const burger = document.getElementById("burger");
   const navEl = document.getElementById("nav");
-  if (burger && navEl) burger.onclick = () => navEl.classList.toggle("open");
+  if (burger && navEl) {
+    burger.onclick = () => {
+      const open = navEl.classList.toggle("open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    navEl.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        navEl.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
 
   const search = document.getElementById("search");
   const searchBtn = document.getElementById("searchBtn");
