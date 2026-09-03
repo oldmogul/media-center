@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Press Accreditation — Uganda Media Centre</title>
+  <meta name="description" content="Apply for press accreditation through Uganda Media Centre and the Media Council of Uganda.">
+  <link rel="icon" href="img/coat.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="press" data-root=".">
+  <a class="skip" href="#main">Skip to main content</a>
+  <div id="site-header"></div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> / <span data-i18n="cta.accredit">Accreditation</span></p>
+        <h1 data-i18n="acc.h1">Apply for press accreditation.</h1>
+        <p class="lede" data-i18n="acc.lede"></p>
+        <div class="stats">
+          <div class="stat"><b>7 days</b><span data-i18n="acc.s1">Vetting period</span></div>
+          <div class="stat"><b>3 mo–2 yr</b><span data-i18n="acc.s2">Validity options</span></div>
+          <div class="stat"><b>USD 175</b><span data-i18n="acc.s3">Foreign, up to 30 days</span></div>
+          <div class="stat"><b>USD 325</b><span data-i18n="acc.s4">Foreign, up to 2 years</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="wrap split">
+        <div>
+          <div class="prose">
+            <h2 data-i18n="acc.who">Who may apply</h2>
+            <p data-i18n="acc.who.p"></p>
+            <h2 data-i18n="acc.local">Local journalists</h2>
+            <ul>
+              <li>Completed Media Council of Uganda registration form</li>
+              <li>Letter of introduction from the editor or employer</li>
+              <li>Employer identity card and National ID</li>
+              <li>Two colour passport-size photographs</li>
+              <li>Six by-lined published works from the past 12 months</li>
+              <li>Proof of payment of registration fees</li>
+            </ul>
+            <h2>The procedure</h2>
+          </div>
+          <div class="steps" style="margin-top:16px">
+            <div class="step"><div class="num">01</div><div><strong>Submit</strong><p class="muted">Email completed Form G with attachments to emma@mediacentre.go.ug.</p></div></div>
+            <div class="step"><div class="num">02</div><div><strong>Document review</strong><p class="muted">Communications House verifies completeness.</p></div></div>
+            <div class="step"><div class="num">03</div><div><strong>Internal processing</strong><p class="muted">Administrative Secretary and Research Officer review the file.</p></div></div>
+            <div class="step"><div class="num">04</div><div><strong>Vetting</strong><p class="muted">National Accreditation Committee, typically within seven working days.</p></div></div>
+            <div class="step"><div class="num">05</div><div><strong>Card issuance</strong><p class="muted">Collect your card once Form G is signed.</p></div></div>
+          </div>
+          <div class="notice" style="margin-top:22px">
+            Bank wire only to <strong>M/S Media Council</strong>, ABSA Bank (Uganda) Ltd, account <strong>0341419662</strong>, SWIFT <strong>BARCUGKX</strong>, Plot 16 Kampala Road. Cash, cheques and drafts are not accepted.
+          </div>
+        </div>
+        <aside>
+          <form class="panel" data-toast-key="acc.toast">
+            <h3 data-i18n="acc.form">Submit in four steps</h3>
+            <label for="path" data-i18n="acc.path">Pathway</label>
+            <select id="path" required>
+              <option value="">Select…</option>
+              <option>Local journalist</option>
+              <option>Foreign journalist</option>
+            </select>
+            <label for="aname" data-i18n="contact.name">Full name</label>
+            <input id="aname" required>
+            <label for="aemail" data-i18n="contact.email">Email</label>
+            <input id="aemail" type="email" required>
+            <label for="media" data-i18n="acc.media">Media house</label>
+            <input id="media" required>
+            <label for="notes" data-i18n="acc.notes">Notes</label>
+            <textarea id="notes" style="min-height:90px"></textarea>
+            <button class="btn-gold" type="submit" data-i18n="cta.submit">Submit application</button>
+            <p class="muted">Documents stored privately. Only reviewers can read them.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

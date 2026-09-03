@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Contact — Uganda Media Centre</title>
+  <meta name="description" content="Reach Uganda Media Centre in Kampala. Press desk, accreditation and general enquiries.">
+  <link rel="icon" href="img/coat.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contact" data-root=".">
+  <a class="skip" href="#main">Skip to main content</a>
+  <div id="site-header"></div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="crumb"><a href="index.html" data-i18n="crumb.home">Home</a> / <span data-i18n="nav.contact">Contact</span></p>
+        <h1 data-i18n="contact.h1">Write to the Centre.</h1>
+        <p class="lede" data-i18n="contact.lede"></p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="wrap split">
+        <form class="panel" data-toast-key="contact.toast">
+          <div class="form-row">
+            <div><label for="name" data-i18n="contact.name">Full name</label><input id="name" name="name" required></div>
+            <div><label for="email" data-i18n="contact.email">Email</label><input id="email" name="email" type="email" required></div>
+          </div>
+          <div class="form-row">
+            <div><label for="org" data-i18n="contact.org">Organisation</label><input id="org" name="org"></div>
+            <div>
+              <label for="topic" data-i18n="contact.desk">Desk</label>
+              <select id="topic" name="topic">
+                <option>Press Room</option>
+                <option>Accreditation</option>
+                <option>Languages Desk</option>
+                <option>General</option>
+              </select>
+            </div>
+          </div>
+          <div><label for="msg" data-i18n="contact.msg">Message</label><textarea id="msg" name="msg" required></textarea></div>
+          <button class="btn-gold" type="submit" data-i18n="cta.send">Send message</button>
+        </form>
+        <aside>
+          <div class="panel">
+            <h3 data-i18n="contact.kampala">Kampala</h3>
+            <p>Plot 36A, Nile Avenue / Clement Hill Road<br>P.O. Box 2665, Kampala, Uganda</p>
+            <p style="margin-top:12px">+256 414 237 141<br>+256 312 261 525<br>+256 414 254 461</p>
+            <p style="margin-top:12px"><a href="mailto:info@mediacentre.go.ug">info@mediacentre.go.ug</a><br>
+            <a href="mailto:mediacentre@mediacentre.go.ug">mediacentre@mediacentre.go.ug</a></p>
+            <p class="muted" style="margin-top:12px">Monday–Friday · 8:00–12:45 &amp; 14:00–17:00</p>
+          </div>
+          <div class="panel" style="margin-top:14px">
+            <h3>Accreditation</h3>
+            <p>Jackie R.N. Kasimbi · emma@mediacentre.go.ug</p>
+            <p style="margin-top:12px"><a class="btn-gold" href="accreditation.html">Apply</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
