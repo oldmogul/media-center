@@ -199,7 +199,7 @@
             <li><a href="${root}/team.html" data-i18n="footer.team"></a></li>
             <li><a href="${root}/accreditation.html" data-i18n="footer.accredit"></a></li>
             <li><a href="${root}/contact.html" data-i18n="footer.contact"></a></li>
-            <li><a href="${root}/admin.html">Studio desk</a></li>
+
           </ul>
         </div>
         <div>

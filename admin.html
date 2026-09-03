@@ -13,32 +13,22 @@
 </head>
 <body data-page="studio" data-root=".">
   <div id="site-header"></div>
-  <main id="main" class="pod-hero" style="min-height:70vh">
-    <div class="wrap">
-      <p class="pod-kicker">Electronic Media · Studio desk</p>
-      <h1>Go live. Keep the archive.</h1>
-      <p class="lede">Start a live podcast for the Radio page, then file it with the previous episodes. PIN is for this desk only.</p>
-
-      <div id="studio-gate" class="studio-gate">
-        <form class="studio-card" id="pin-form">
-          <h3>Unlock the desk</h3>
-          <p class="muted" style="color:rgba(255,255,255,.6);margin-bottom:12px">Default studio PIN for this site: <strong>2026</strong></p>
-          <label for="pin">PIN</label>
-          <input id="pin" type="password" inputmode="numeric" autocomplete="current-password" required>
-          <div class="studio-toolbar">
-            <button class="btn-gold" type="submit">Enter studio</button>
-            <a class="ghost" href="radio.html">Back to Radio</a>
-          </div>
-        </form>
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="kicker-off">Electronic Media</p>
+        <h1>Studio desk</h1>
+        <p class="lede">Start a live press briefing for the Radio page, then file it with previous podcasts. No login.</p>
       </div>
-
-      <div id="studio-app" class="studio-app" hidden>
-        <div class="studio-card">
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="wrap" id="studio-app">
+        <div class="panel">
           <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
             <h3 style="margin:0">Live session</h3>
             <span id="live-status" class="pill-off">Off-air</span>
           </div>
-          <p class="muted" style="color:rgba(255,255,255,.55);margin:8px 0 14px">Going live updates the Radio page in this browser (open it in another tab). Paste any https audio or stream URL listeners should hear.</p>
+          <p class="muted" style="margin:8px 0 14px">Going live updates Radio in this browser. Paste any https audio or stream URL.</p>
           <div class="studio-grid">
             <div>
               <label for="live-show">Show</label>
@@ -54,7 +44,7 @@
             </div>
             <div>
               <label for="live-title">On-air title</label>
-              <input id="live-title" placeholder="The National Bulletin — live">
+              <input id="live-title" placeholder="Live press briefing">
             </div>
             <div>
               <label for="live-host">Host</label>
@@ -64,19 +54,19 @@
           <label for="live-audio" style="margin-top:12px;display:block">Stream / audio URL</label>
           <input id="live-audio" placeholder="https://…mp3 or Icecast stream">
           <label for="live-blurb" style="margin-top:12px;display:block">What is this hour about?</label>
-          <textarea id="live-blurb" placeholder="Cabinet, AFCON, NIN as TIN…"></textarea>
-          <label style="display:flex;gap:8px;align-items:center;margin-top:12px;color:#ddd">
+          <textarea id="live-blurb" placeholder="Cabinet briefing…"></textarea>
+          <label style="display:flex;gap:8px;align-items:center;margin-top:12px">
             <input id="archive-live" type="checkbox" checked style="width:auto">
             When I end live, save it as a previous podcast
           </label>
           <div class="studio-toolbar">
             <button class="btn-gold" type="button" id="go-live">Go live</button>
             <button class="danger" type="button" id="end-live">End live</button>
-            <a class="ghost" href="radio.html" target="_blank" rel="noopener">Preview Radio</a>
+            <a class="btn-outline" href="radio.html">Open Radio</a>
           </div>
         </div>
 
-        <div class="studio-card" id="library">
+        <div class="panel" id="library" style="margin-top:18px">
           <h3>Previous podcasts</h3>
           <form id="ep-form">
             <input type="hidden" id="ep-id">
@@ -114,13 +104,13 @@
             <textarea id="ep-blurb" placeholder="What listeners will hear…"></textarea>
             <div class="studio-toolbar">
               <button class="btn-gold" type="submit">Save episode</button>
-              <button class="ghost" type="button" id="reset-lib">Reset library</button>
+              <button class="btn-outline" type="button" id="reset-lib">Reset library</button>
             </div>
           </form>
           <div id="ep-admin-list" style="margin-top:18px"></div>
         </div>
       </div>
-    </div>
+    </section>
   </main>
   <div id="site-footer"></div>
   <script src="js/i18n.js"></script>

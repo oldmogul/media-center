@@ -6,59 +6,77 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>Podcasts — Uganda Media Centre</title>
-  <meta name="description" content="Live government podcasts and on-demand episodes from the Uganda Media Centre studio — English, Luganda and Kiswahili.">
+  <title>Radio — Uganda Media Centre</title>
+  <meta name="description" content="Live press briefing and on-demand podcasts from the Uganda Media Centre.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="radio" data-root=".">
   <div id="site-header"></div>
   <main id="main">
-    <section class="pod-hero">
+    <div class="live-strip">
       <div class="wrap">
-        <p class="pod-kicker">UMC Studio · Radio &amp; podcasts</p>
-        <h1>Listen live. Rewind the Republic.</h1>
-        <p class="lede">The Media Centre desk — live briefings, call-in clinics and on-demand episodes in English, Luganda and Kiswahili.</p>
+        <span class="live-flag-inline"><i></i> Live press briefing</span>
+        <span data-strip-title>Cabinet desk with Alan Kasujja — listen now</span>
+      </div>
+    </div>
 
-        <article class="live-stage" id="live-stage">
-          <div class="live-art">
-            <img data-live-art src="img/alan-speaking.jpg" alt="Studio cover">
+    <section class="page-hero radio-hero-light">
+      <div class="wrap">
+        <p class="kicker-off">Government Radio</p>
+        <h1>Live from the Media Centre</h1>
+        <p class="lede">Press briefings, government shows and on-demand podcasts in English, Luganda and Kiswahili.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <article class="brief-card is-live" id="live-stage">
+          <div class="brief-art">
+            <img data-live-art src="img/alan-speaking.jpg" alt="Live press briefing">
+            <span class="live-flag" data-live-badge><i></i> Live press briefing</span>
+            <button class="play-xl" type="button" id="live-listen" data-live-listen aria-label="Play live briefing">▶</button>
           </div>
-          <div class="live-copy">
-            <span data-live-badge class="pill-off">Studio off-air</span>
-            <p class="pod-kicker" style="margin-top:14px" data-live-kicker>Government podcasts</p>
-            <h2 data-live-title>The studio is quiet — catch up on the archive</h2>
-            <p data-live-blurb>When the desk goes live, this stage carries the National Bulletin, Health Line, Eddoboozi ly’Abalimi and Kiswahili Leo.</p>
+          <div class="brief-copy">
+            <p class="kicker-off" data-live-kicker>Cabinet · English</p>
+            <h2 data-live-title>Live press briefing</h2>
+            <p class="lede" data-live-blurb>Cabinet and ministry statements, live from the Uganda Media Centre.</p>
             <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="live-meta">
-              <span data-live-host>UMC Electronic Media desk</span>
-              <span><span data-ep-count>8</span> episodes in the archive</span>
-            </div>
+            <p class="live-meta"><span data-live-host>Host · Alan Kasujja</span><span>UMC studio, Kampala</span></p>
             <div class="live-actions">
-              <button class="btn-gold" type="button" id="live-listen" data-live-listen>Listen live</button>
-              <a class="btn-ghost" href="#archive">Browse episodes</a>
-              <a class="btn-ghost" href="admin.html">Studio desk</a>
+              <button class="btn-gold" type="button" id="live-listen-2">Play live</button>
+              <a class="btn-outline" href="#archive">Previous podcasts</a>
             </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="pod-section">
+    <div class="flag-rule"></div>
+
+    <section class="section" id="archive">
       <div class="wrap">
-        <p class="pod-kicker">Shows</p>
-        <h2>Eight desks. One studio.</h2>
-        <p class="lede" style="color:rgba(255,255,255,.65);margin:8px 0 18px">Tap a show to filter the archive.</p>
-        <div class="show-rail" id="show-rail"></div>
+        <div class="rail" data-rail>
+          <div class="section-head">
+            <div>
+              <p class="kicker-off">On demand</p>
+              <h2>Previous podcasts</h2>
+            </div>
+            <div class="rail-nav">
+              <button class="rail-prev" type="button" aria-label="Previous">‹</button>
+              <button class="rail-next" type="button" aria-label="Next">›</button>
+            </div>
+          </div>
+          <div class="rail-track ep-slider" id="ep-list"></div>
+        </div>
       </div>
     </section>
 
-    <section class="pod-section" id="archive" style="padding-top:0">
+    <section class="section" style="padding-top:0">
       <div class="wrap">
-        <p class="pod-kicker">On demand</p>
-        <h2>Previous podcasts</h2>
-        <p class="lede" style="color:rgba(255,255,255,.65);margin:8px 0 0">Play any episode. Host, language, date and duration sit on the record.</p>
-        <div class="ep-list" id="ep-list"></div>
+        <p class="kicker-off">Shows</p>
+        <h2 class="off-h2" style="font-size:clamp(28px,4vw,40px);margin-bottom:14px">Listen by desk</h2>
+        <div class="show-pills" id="show-rail"></div>
       </div>
     </section>
   </main>
@@ -68,11 +86,11 @@
       <img data-dock-art src="img/alan-kasujja.jpg" alt="">
       <div>
         <strong data-dock-title>Ready</strong>
-        <small data-dock-sub>UMC Studio</small>
+        <small data-dock-sub>UMC Radio</small>
         <input id="pod-seek" class="seek" type="range" min="0" max="100" value="0" aria-label="Seek">
         <small id="pod-time">0:00 / 0:00</small>
       </div>
-      <button class="ep-play" type="button" data-dock-play aria-label="Play or pause">▶</button>
+      <button class="play-xl play-sm" type="button" data-dock-play aria-label="Play or pause">▶</button>
     </div>
   </div>
 
