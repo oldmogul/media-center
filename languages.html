@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Languages Desk — Uganda Media Centre</title>
-  <meta name="description" content="Government of Uganda communications in English, Luganda and Kiswahili.">
+  <meta name="description" content="Translate anything into the languages of Uganda — English, Kiswahili, Luganda and every regional tongue.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -15,94 +15,101 @@
   <a class="skip" href="#main">Skip to main content</a>
   <div id="site-header"></div>
   <main id="main">
-    <section class="radio-hero">
-      <img class="arms" src="img/coat-of-arms.png" alt="">
+    <div class="lang-strip">
       <div class="wrap">
-        <a class="back-link" href="index.html" style="color:rgba(255,255,255,.6)">← Back to Command Centre</a>
-        <p class="kicker-off">Dawati la Lugha</p>
-        <h1 data-i18n="lang.h1">Habari kwa Kiswahili</h1>
-        <p class="lede">Taarifa rasmi za Serikali ya Uganda kwa Kiswahili, Luganda na Kingereza.</p>
-        <div class="hero-split" style="margin-top:22px;align-items:center">
-          <p class="hero-actions" style="margin-top:0">
-            <a class="btn-gold" href="#translator">Tafsiri sasa · Translate now →</a>
-            <a class="btn-ghost" href="#learn">Jifunze · Learn</a>
-          </p>
-          <div class="panel" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);text-align:right">
-            <b class="yellow-stat">11</b>
-            <p class="kicker-off" style="margin:6px 0 0">Announcements tracked</p>
-          </div>
-        </div>
-        <p class="kicker-off" style="margin-top:28px">Translate into</p>
-        <div class="lang-pills">
-          <button class="on" type="button">Kiswahili <small>East Africa</small></button>
-          <button type="button">Oluganda <small>Central</small></button>
-          <button type="button">Runyankore-Rukiga <small>Western</small></button>
-          <button type="button">Leb Acholi <small>Northern</small></button>
-          <button type="button">Ateso <small>Eastern</small></button>
-          <button type="button">Lugbarati <small>West Nile</small></button>
-          <button type="button">Lusoga <small>Busoga</small></button>
-          <button type="button">English <small>Official</small></button>
-        </div>
+        <span class="lang-strip-count"><b>41</b> languages of Uganda</span>
+        <span>Translate anything · Official, regional and community tongues</span>
+      </div>
+    </div>
+
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="kicker-off">Dawati la Lugha · Languages Desk</p>
+        <h1>Every language of the Republic</h1>
+        <p class="lede">Type anything. Hear government in the language you speak — from Kiswahili and Luganda to Acholi, Ateso, Lugbara, Runyankore and more.</p>
+        <p class="hero-actions">
+          <a class="btn-gold" href="#translator">Translate now</a>
+          <a class="btn-outline" href="#tongues">Browse languages</a>
+        </p>
       </div>
     </section>
-    <section class="section">
+
+    <section class="section" id="translator" style="padding-top:0">
       <div class="wrap">
-        <div class="proverb">
-          <p class="kicker-off">Methali ya leo · Proverb of the day</p>
-          <q>Umoja ni nguvu, utengano ni udhaifu.</q>
-          <p>Unity is strength, division is weakness.</p>
-        </div>
-        <div id="translator" class="split" style="margin-top:28px">
-          <div class="panel">
-            <h3>Kiswahili Translator</h3>
-            <p class="muted">English → Kiswahili. Translation is verified by human officers of the Languages Desk.</p>
-            <label for="src">English</label>
-            <textarea id="src">Government commits to delivering free quality education for every Ugandan child by 2027.</textarea>
-            <button class="btn-gold" type="button">Translate with AI</button>
+        <article class="xlate-card">
+          <div class="xlate-top">
+            <span class="live-flag-inline"><i></i> Live translator</span>
+            <span class="muted">English, Kiswahili and Uganda’s regional languages</span>
           </div>
-          <div class="panel">
-            <h3>Kiswahili</h3>
-            <p>Serikali inajitolea kutoa elimu bora ya bure kwa kila mtoto wa Uganda ifikapo 2027.</p>
+          <div class="xlate-grid">
+            <div>
+              <div class="xlate-bar">
+                <label class="sr-only" for="lang-from">From</label>
+                <select id="lang-from"></select>
+              </div>
+              <textarea id="xlate-src" placeholder="Type or paste anything to translate…"></textarea>
+            </div>
+            <button class="xlate-swap" type="button" id="xlate-swap" aria-label="Swap languages">⇄</button>
+            <div>
+              <div class="xlate-bar">
+                <label class="sr-only" for="lang-to">To</label>
+                <select id="lang-to"></select>
+              </div>
+              <div class="xlate-out" id="xlate-out" aria-live="polite">Translation will appear here.</div>
+            </div>
           </div>
+          <div class="xlate-actions">
+            <button class="btn-gold" type="button" id="xlate-go">Translate</button>
+            <button class="btn-outline" type="button" id="xlate-copy">Copy</button>
+            <button class="btn-outline" type="button" id="xlate-speak">Listen</button>
+            <small class="muted" id="xlate-status">Ready</small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="flag-rule"></div>
+
+    <section class="section" id="tongues">
+      <div class="wrap">
+        <p class="kicker-off">The tongues of Uganda</p>
+        <h2 class="off-h2" style="font-size:clamp(28px,4vw,44px)">Forty-one living languages. One desk.</h2>
+        <p class="lede" style="margin-bottom:16px">Filter by region, then tap a language to set it as the translation target.</p>
+        <div class="show-pills" id="region-pills">
+          <button class="on" type="button" data-region="all">All</button>
+          <button type="button" data-region="official">Official</button>
+          <button type="button" data-region="central">Central</button>
+          <button type="button" data-region="western">Western</button>
+          <button type="button" data-region="eastern">Eastern</button>
+          <button type="button" data-region="northern">Northern</button>
+          <button type="button" data-region="westnile">West Nile</button>
+          <button type="button" data-region="karamoja">Karamoja</button>
         </div>
-        <div class="section-head" style="margin-top:48px">
+        <p class="muted" style="margin:12px 0 14px">Showing <span id="lang-count">41</span></p>
+        <div class="lang-mosaic" id="lang-mosaic"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <article class="proverb-card" id="proverb">
+          <p class="kicker-off">Proverb of the desk</p>
+          <q id="proverb-q">Umoja ni nguvu, utengano ni udhaifu.</q>
+          <p id="proverb-en">Unity is strength, division is weakness. · Kiswahili</p>
+        </article>
+        <div class="section-head" style="margin-top:36px">
           <div>
-            <p class="kicker-off">Kamusi ya raia · Civic glossary</p>
-            <h2>13 essential words every citizen should know.</h2>
+            <p class="kicker-off">Kamusi ya raia</p>
+            <h2>Words every citizen should know</h2>
           </div>
         </div>
-        <div class="glossary">
-          <button type="button"><b>Mwananchi</b><span>Citizen</span></button>
-          <button type="button"><b>Katiba</b><span>Constitution</span></button>
-          <button type="button"><b>Maendeleo</b><span>Development</span></button>
-          <button type="button"><b>Uchaguzi</b><span>Election</span></button>
-          <button type="button"><b>Serikali</b><span>Government</span></button>
-          <button type="button"><b>Bunge</b><span>Parliament</span></button>
-          <button type="button"><b>Amani</b><span>Peace</span></button>
-          <button type="button"><b>Huduma</b><span>Service</span></button>
-          <button type="button"><b>Kodi</b><span>Tax</span></button>
-          <button type="button"><b>Elimu</b><span>Education</span></button>
-          <button type="button"><b>Afya</b><span>Health</span></button>
-          <button type="button"><b>Haki</b><span>Justice</span></button>
-        </div>
-        <div id="learn" class="section-head" style="margin-top:48px">
-          <div>
-            <p class="kicker-off">Matangazo ya redio</p>
-            <h2>On air, every day.</h2>
-          </div>
-        </div>
-        <div class="progs">
-          <div class="prog"><small>06:00 · UBC 98.0</small><h3>Habari za Asubuhi</h3></div>
-          <div class="prog"><small>12:30 · Capital 91.3</small><h3>Tangazo la Serikali</h3></div>
-          <div class="prog"><small>18:00 · Radio Simba</small><h3>Habari za Jioni</h3></div>
-          <div class="prog"><small>21:00 · UBC</small><h3>Mahojiano ya Wiki</h3></div>
-        </div>
-        <p class="muted" style="margin-top:16px">kiswahili@mediacentre.go.ug</p>
+        <div class="glossary" id="glossary"></div>
       </div>
     </section>
   </main>
   <div id="site-footer"></div>
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/languages.js"></script>
 </body>
 </html>

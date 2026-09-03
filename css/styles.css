@@ -50,6 +50,10 @@ button { cursor: pointer; }
 ul { margin: 0; padding: 0; list-style: none; }
 h1, h2, h3, h4, p { margin: 0; }
 
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); border: 0;
+}
 .skip {
   position: absolute; left: -999px; top: 8px;
   background: var(--gold); color: var(--ink); padding: 8px 14px; z-index: 100;
@@ -1254,6 +1258,70 @@ body:not([data-page="home"]) .lede { font-size: 18px; color: #4a4a52; }
 }
 .ep-admin img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; }
 .danger { background: var(--red); color: #fff; border: 0; border-radius: 999px; padding: 10px 16px; font-weight: 800; }
+
+/* —— Languages Desk —— */
+.lang-strip { background: #111114; color: #fff; font-size: 13px; font-weight: 600; }
+.lang-strip .wrap { display: flex; align-items: center; gap: 14px; min-height: 42px; flex-wrap: wrap; }
+.lang-strip-count { color: var(--gold); letter-spacing: .04em; }
+.lang-strip-count b { font-family: var(--display); font-size: 22px; font-weight: 400; margin-right: 6px; }
+.xlate-card {
+  background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.xlate-top {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center;
+  background: #111114; color: #fff; padding: 14px 18px;
+}
+.xlate-grid {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; padding: 18px; align-items: start;
+}
+.xlate-bar select { border-radius: 999px; font-weight: 700; }
+.xlate-grid textarea, .xlate-out {
+  min-height: 180px; width: 100%; margin-top: 10px; border: 1px solid var(--line);
+  border-radius: 16px; padding: 14px; background: var(--cream); font-size: 16px;
+}
+.xlate-out { white-space: pre-wrap; color: var(--ink); }
+.xlate-swap {
+  width: 48px; height: 48px; border-radius: 50%; border: 0; margin-top: 42px;
+  background: var(--gold); color: #111; font-size: 20px; font-weight: 800;
+}
+.xlate-actions {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  padding: 0 18px 18px;
+}
+.lang-mosaic {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+.lang-tile {
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  padding: 14px 14px 16px; text-align: left;
+}
+.lang-tile small {
+  display: block; color: var(--red); font-size: 10px; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.lang-tile strong { display: block; margin: 6px 0 2px; font-size: 16px; }
+.lang-tile span { color: var(--muted); font-size: 13px; }
+.lang-tile:hover, .lang-tile.on { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+.proverb-card {
+  background: #111114; color: #fff; border-radius: 22px; padding: 28px;
+  border-top: 4px solid var(--gold);
+}
+.proverb-card .kicker-off { color: var(--red); }
+.proverb-card q {
+  font-family: var(--display); font-size: clamp(22px, 3.4vw, 36px);
+  letter-spacing: -.03em; display: block; margin: 10px 0 12px;
+}
+.proverb-card p { color: rgba(255,255,255,.7); }
+
+@media (max-width: 1024px) {
+  .lang-mosaic { grid-template-columns: 1fr 1fr; }
+  .xlate-grid { grid-template-columns: 1fr; }
+  .xlate-swap { margin: 0 auto; transform: rotate(90deg); }
+}
+@media (max-width: 640px) {
+  .lang-mosaic { grid-template-columns: 1fr; }
+}
 
 @media (max-width: 860px) {
   .brief-card { grid-template-columns: 1fr; }
