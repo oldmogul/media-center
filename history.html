@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Ugandan History — Uganda Media Centre</title>
-  <meta name="description" content="A timeline of the Republic — kingdoms of the lakes, independence on 9 October 1962, and the impressions of the pearl of Africa.">
+  <meta name="description" content="A timeline of the Republic — from the kingdoms of the lakes through independence on 9 October 1962 to Vision 2040.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -17,30 +17,70 @@
   <main id="main">
 
     <section class="hist-hero">
-      <div class="sun" aria-hidden="true"></div>
-      <svg class="birds" viewBox="0 0 120 40" aria-hidden="true">
-        <path d="M8 22c6-4 10-3 14 2-5-1-9 1-14-2zm28-8c7-5 12-3 16 3-6-1-10 2-16-3zm36 6c6-4 11-2 15 3-5-1-9 1-15-3z"/>
-      </svg>
-      <svg class="crane" viewBox="0 0 200 480" aria-hidden="true">
-        <g fill="#0b0a08">
-          <ellipse cx="68" cy="400" rx="62" ry="48"/>
-          <path d="M88 368c28-40 40-96 28-150-6-28-2-50 16-72l12 8c-14 20-18 40-12 68 12 52 0 104-28 142z"/>
-          <ellipse cx="154" cy="78" rx="18" ry="14"/>
-          <polygon points="170,78 204,84 170,90"/>
-          <rect x="78" y="390" width="7" height="78" rx="2"/>
-          <rect x="96" y="394" width="6" height="76" rx="2"/>
-        </g>
-        <g fill="#e8c430">
-          <polygon points="148,68 140,18 156,66"/>
-          <polygon points="156,64 164,8 168,66"/>
-          <polygon points="166,66 188,22 174,70"/>
-          <polygon points="142,70 126,32 150,72"/>
-        </g>
-      </svg>
-      <svg class="hills" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="#14110c" d="M0 220V118c120-48 240-20 360-44s240-52 400-18 280 10 400-28 180-8 280 22v170z"/>
-        <path fill="#0a0907" d="M0 220V150c160-36 320-8 480-32s300-40 460-8 280 4 500-24v134z"/>
-      </svg>
+      <div class="hist-hero-art" aria-hidden="true">
+        <svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="hero-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFE9A8"/>
+              <stop offset="50%" stop-color="#FFF6D6"/>
+              <stop offset="100%" stop-color="#FAFAF7"/>
+            </linearGradient>
+            <radialGradient id="hero-sun" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FCDC04" stop-opacity="1"/>
+              <stop offset="55%" stop-color="#FCDC04" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#FCDC04" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1600" height="600" fill="url(#hero-sky)"/>
+          <circle cx="1150" cy="280" r="360" fill="url(#hero-sun)"/>
+          <circle cx="1150" cy="280" r="92" fill="#FCDC04"/>
+          <path d="M0 440 C 200 380, 380 420, 560 400 S 940 410, 1140 390 S 1480 410, 1600 400 V600 H0 Z" fill="#16161A" opacity="0.10"/>
+          <path d="M0 478 C 220 410, 440 470, 660 450 S 1080 470, 1320 450 S 1540 470, 1600 460 V600 H0 Z" fill="#16161A" opacity="0.20"/>
+          <path d="M0 520 C 240 460, 520 530, 800 510 S 1240 530, 1480 510 S 1580 520, 1600 515 V600 H0 Z" fill="#16161A" opacity="0.42"/>
+          <path d="M0 555 C 280 510, 600 575, 900 555 S 1340 575, 1600 560 V600 H0 Z" fill="#0A0A0B"/>
+          <g stroke="#0A0A0B" stroke-width="2" fill="none" opacity="0.55" stroke-linecap="round">
+            <path d="M820 150 q 9 -8 18 0 q 9 -8 18 0"/>
+            <path d="M900 200 q 7 -6 14 0 q 7 -6 14 0"/>
+            <path d="M740 220 q 7 -6 14 0 q 7 -6 14 0"/>
+            <path d="M980 130 q 7 -6 14 0 q 7 -6 14 0"/>
+          </g>
+          <g transform="translate(290 400)">
+            <g transform="scale(1.6)">
+              <line x1="0" y1="120" x2="-6" y2="210" stroke="#0A0A0B" stroke-width="3" stroke-linecap="round"/>
+              <line x1="14" y1="120" x2="22" y2="210" stroke="#0A0A0B" stroke-width="3" stroke-linecap="round"/>
+              <path d="M-14 210 L 4 210" stroke="#0A0A0B" stroke-width="3" stroke-linecap="round"/>
+              <path d="M14 210 L 32 210" stroke="#0A0A0B" stroke-width="3" stroke-linecap="round"/>
+              <path d="M -40 95 Q -50 60 -10 50 Q 40 44 70 70 Q 80 90 70 110 Q 40 130 -10 128 Q -36 124 -40 95 Z" fill="#0A0A0B"/>
+              <path d="M 60 80 Q 100 60 118 95 Q 96 100 70 100 Z" fill="#0A0A0B" opacity="0.85"/>
+              <path d="M -28 60 Q -40 20 -30 -10 Q -22 -34 -2 -42 L 4 -36 Q -14 -28 -20 -8 Q -26 16 -16 56 Z" fill="#0A0A0B"/>
+              <ellipse cx="0" cy="-44" rx="9" ry="8" fill="#0A0A0B"/>
+              <ellipse cx="-4" cy="-41" rx="4" ry="3" fill="#FAFAF7"/>
+              <circle cx="-3" cy="-43" r="1.2" fill="#0A0A0B"/>
+              <path d="M 6 -44 L 22 -42 L 6 -39 Z" fill="#0A0A0B"/>
+              <ellipse cx="-2" cy="-34" rx="3" ry="4" fill="#D90000"/>
+              <g stroke="#FCDC04" stroke-width="1.6" stroke-linecap="round" fill="none">
+                <path d="M -2 -52 Q -10 -68 -16 -76"/>
+                <path d="M 0 -54 Q -4 -74 -8 -86"/>
+                <path d="M 2 -54 Q 2 -76 2 -90"/>
+                <path d="M 4 -54 Q 10 -74 14 -86"/>
+                <path d="M 6 -52 Q 16 -68 22 -76"/>
+                <path d="M -4 -50 Q -16 -60 -22 -64"/>
+                <path d="M 8 -50 Q 20 -60 26 -64"/>
+              </g>
+              <g fill="#FCDC04">
+                <circle cx="-16" cy="-76" r="2"/>
+                <circle cx="-8" cy="-86" r="2"/>
+                <circle cx="2" cy="-90" r="2"/>
+                <circle cx="14" cy="-86" r="2"/>
+                <circle cx="22" cy="-76" r="2"/>
+                <circle cx="-22" cy="-64" r="2"/>
+                <circle cx="26" cy="-64" r="2"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="hist-hero-shade"></div>
       <div class="wrap hist-hero-grid">
         <div>
           <p class="kicker-off">Heritage</p>
@@ -52,8 +92,164 @@
           <div class="hist-meta">
             <div><span>Chapters</span><b>7</b></div>
             <div><span>Span</span><b>1k+ yrs</b></div>
-            <div><span>Independence</span><b>9 Oct</b></div>
+            <div><span>Edition</span><b>II</b></div>
           </div>
+        </div>
+      </div>
+      <div class="flag-rule"></div>
+    </section>
+
+    <section class="hist-desk" id="record">
+      <div class="wrap hist-desk-grid">
+        <nav class="t-nav" aria-label="Chapters">
+          <p class="kicker-off">Chapters</p>
+          <button class="active" type="button" data-chapter="1"><span class="yr">Pre-1894</span><span>Pre-colonial kingdoms</span></button>
+          <button type="button" data-chapter="2"><span class="yr">1894</span><span>British Protectorate</span></button>
+          <button type="button" data-chapter="3"><span class="yr">9 Oct 1962</span><span>Independence</span></button>
+          <button type="button" data-chapter="4"><span class="yr">1971 – 1979</span><span>Idi Amin era</span></button>
+          <button type="button" data-chapter="5"><span class="yr">1986</span><span>NRM Government</span></button>
+          <button type="button" data-chapter="6"><span class="yr">1995</span><span>New Constitution</span></button>
+          <button type="button" data-chapter="7"><span class="yr">Today</span><span>Vision 2040</span></button>
+        </nav>
+
+        <div class="hist-story-col">
+          <article data-story="1">
+            <p class="kicker-off">Chapter 01 · Pre-1894</p>
+            <div class="num">01</div>
+            <div class="flag-rule mini"></div>
+            <h3>Pre-colonial kingdoms</h3>
+            <p>Buganda, Bunyoro-Kitara, Tooro, Ankole and Busoga flourished around Nalubaale — the lake the world would call Victoria. North of the Nile, Acholi, Langi and Alur built different polities; the Karimojong kept cattle; the Bakonzo held the Rwenzori.</p>
+            <p>The drum was the state. Barkcloth, salt from Kibiro and iron moved on paths older than any gazette.</p>
+            <div class="fact-row">
+              <span>Buganda · 52 clans</span>
+              <span>Babiito dynasty</span>
+              <span>Tooro · c. 1830</span>
+            </div>
+            <p class="hist-turn"><button type="button" data-hist-next>Next chapter →</button></p>
+          </article>
+          <article data-story="2" hidden>
+            <p class="kicker-off">Chapter 02 · 1894</p>
+            <div class="num">02</div>
+            <div class="flag-rule mini"></div>
+            <h3>British Protectorate</h3>
+            <p>On 18 June 1894 Uganda was declared a British Protectorate. The Buganda Agreement of 1900 locked mailo land into colonial law. The railway reached the lake in 1901; Makerere opened in 1922.</p>
+            <p>The Kabaka crisis of 1953–55 — Muteesa II exiled, then returned — taught the country that the throne and the governor would not share a house forever.</p>
+            <div class="fact-row">
+              <span>18 June 1894</span>
+              <span>Buganda Agreement 1900</span>
+              <span>Makerere 1922</span>
+            </div>
+            <p class="hist-turn"><button type="button" data-hist-prev>← Previous</button> <button type="button" data-hist-next>Next chapter →</button></p>
+          </article>
+          <article data-story="3" hidden>
+            <p class="kicker-off">Chapter 03 · 9 Oct 1962</p>
+            <div class="num">03</div>
+            <div class="flag-rule mini"></div>
+            <h3>Independence</h3>
+            <p>At midnight on 9 October 1962 the Union Jack came down over Kololo. Milton Obote became the first Prime Minister. A year later Sir Edward Muteesa II, Kabaka of Buganda, was the first President of the republic.</p>
+            <p>The flag — black, gold, red, the crested crane — and Kakoma’s anthem <em>Oh Uganda, Land of Beauty</em> are still the colours and the song.</p>
+            <div class="fact-row">
+              <span>9 Oct 1962</span>
+              <span>Obote · first PM</span>
+              <span>Muteesa II · 1963</span>
+            </div>
+            <p class="hist-turn"><button type="button" data-hist-prev>← Previous</button> <button type="button" data-hist-next>Next chapter →</button></p>
+          </article>
+          <article data-story="4" hidden>
+            <p class="kicker-off">Chapter 04 · 1971 – 1979</p>
+            <div class="num">04</div>
+            <div class="flag-rule mini"></div>
+            <h3>Idi Amin era</h3>
+            <p>On 25 January 1971 Idi Amin seized the state. In 1972 some 80,000 Asians were given 90 days to leave. The economy hollowed. The Uganda–Tanzania war ended with Kampala falling on 11 April 1979.</p>
+            <p>This plate is kept without a portrait. The record is the people who endured it.</p>
+            <div class="fact-row">
+              <span>25 Jan 1971</span>
+              <span>Expulsion 1972</span>
+              <span>11 Apr 1979</span>
+            </div>
+            <p class="hist-turn"><button type="button" data-hist-prev>← Previous</button> <button type="button" data-hist-next>Next chapter →</button></p>
+          </article>
+          <article data-story="5" hidden>
+            <p class="kicker-off">Chapter 05 · 1986</p>
+            <div class="num">05</div>
+            <div class="flag-rule mini"></div>
+            <h3>NRM Government</h3>
+            <p>From Luweero the National Resistance Army entered Kampala on 26 January 1986. Yoweri Kaguta Museveni became President. The Ten-Point Programme promised a country not organised by tribe or confession.</p>
+            <p>The impression of those years, for millions who remember them: the guns went quiet, and children walked to school.</p>
+            <div class="fact-row">
+              <span>26 Jan 1986</span>
+              <span>Ten-Point Programme</span>
+              <span>Reconstruction</span>
+            </div>
+            <p class="hist-turn"><button type="button" data-hist-prev>← Previous</button> <button type="button" data-hist-next>Next chapter →</button></p>
+          </article>
+          <article data-story="6" hidden>
+            <p class="kicker-off">Chapter 06 · 1995</p>
+            <div class="num">06</div>
+            <div class="flag-rule mini"></div>
+            <h3>New Constitution</h3>
+            <p>In 1993 the kingdoms returned as cultural institutions. On 8 October 1995 Uganda promulgated a new Constitution — a bill of rights, a directly elected president, 56 indigenous communities named in the Third Schedule.</p>
+            <p>Universal Primary Education began in 1997. A 2005 referendum restored multi-party politics.</p>
+            <div class="fact-row">
+              <span>Kingdoms 1993</span>
+              <span>8 Oct 1995</span>
+              <span>UPE 1997</span>
+            </div>
+            <p class="hist-turn"><button type="button" data-hist-prev>← Previous</button> <button type="button" data-hist-next>Next chapter →</button></p>
+          </article>
+          <article data-story="7" hidden>
+            <p class="kicker-off">Chapter 07 · Today</p>
+            <div class="num">07</div>
+            <div class="flag-rule mini"></div>
+            <h3>Vision 2040</h3>
+            <p>The 2024 census counted <strong>45,905,417</strong> people (UBOS). Half are under eighteen. Vision 2040 aims at an upper-middle-income country. The Parish Development Model reaches 10,594 parishes. Karuma, Isimba and Bujagali light the grid.</p>
+            <p>Bwindi keeps the gorilla. The Rwenzori keeps the snow. Jinja keeps the Nile. The charge of this Centre is to tell that story until the world can say it back.</p>
+            <div class="fact-row">
+              <span>45,905,417</span>
+              <span>10,594 parishes</span>
+              <span>Karuma 600 MW</span>
+            </div>
+            <p class="hist-turn"><button type="button" data-hist-prev>← Previous</button></p>
+          </article>
+        </div>
+
+        <div class="hist-frame-col">
+          <figure class="hist-frame" data-frame="1">
+            <img src="img/hist-drums.jpg" alt="Royal drums of the kingdoms">
+            <figcaption>Plate 01 / 07 · Engoma — the drum was the state</figcaption>
+          </figure>
+          <figure class="hist-frame" data-frame="2" hidden>
+            <div class="frame-map" aria-hidden="true">
+              <svg viewBox="0 0 200 240">
+                <text x="100" y="18" text-anchor="middle" font-size="11" fill="#6b6b75">N</text>
+                <path d="M100 22 L100 34" stroke="#151519" stroke-width="1.5"/>
+                <path d="M78 28 C 100 8, 130 22, 142 48 C 158 78, 168 110, 152 148 C 170 168, 158 198, 128 218 C 104 232, 78 222, 62 198 C 42 168, 38 128, 48 92 C 52 62, 60 40, 78 28 Z" fill="#f5d000" stroke="#151519" stroke-width="1.2"/>
+                <circle cx="96" cy="168" r="4" fill="#e11d2e"/>
+                <text x="108" y="172" font-size="9" fill="#151519">Kampala</text>
+              </svg>
+            </div>
+            <figcaption>Plate 02 / 07 · The protectorate, with Kampala marked</figcaption>
+          </figure>
+          <figure class="hist-frame" data-frame="3" hidden>
+            <img src="img/hist-mutesa.jpg" alt="Sir Edward Muteesa II inspects a guard of honour, 1962">
+            <figcaption>Plate 03 / 07 · Muteesa II, 1962 · public domain</figcaption>
+          </figure>
+          <figure class="hist-frame" data-frame="4" hidden>
+            <img src="img/rains.jpg" alt="">
+            <figcaption>Plate 04 / 07 · A chapter without a portrait</figcaption>
+          </figure>
+          <figure class="hist-frame" data-frame="5" hidden>
+            <img src="img/hist-guards.jpg" alt="Ugandan ceremonial guard on parade">
+            <figcaption>Plate 05 / 07 · The republic on parade</figcaption>
+          </figure>
+          <figure class="hist-frame" data-frame="6" hidden>
+            <img src="img/hist-monument.jpg" alt="Independence Monument">
+            <figcaption>Plate 06 / 07 · A nation reaching upward</figcaption>
+          </figure>
+          <figure class="hist-frame" data-frame="7" hidden>
+            <img src="img/hist-crane.jpg" alt="Grey crowned crane in papyrus">
+            <figcaption>Plate 07 / 07 · The crane still stands</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -71,7 +267,7 @@
       <div class="wrap">
         <p class="kicker-off">The land, in full</p>
         <h2 class="off-h2" style="font-size:clamp(28px,4vw,48px);margin-bottom:8px">What the world first sees</h2>
-        <p class="lede" style="margin-bottom:20px">From the source of the Nile to the Mountains of the Moon — the impressions that made a country, and still hold it.</p>
+        <p class="lede" style="margin-bottom:20px">From the source of the Nile to the Mountains of the Moon — impressions the official timeline does not hold. We do.</p>
         <div class="pearl-grid">
           <figure class="tall">
             <img src="img/hist-gorilla.jpg" alt="A mountain gorilla in Bwindi Impenetrable Forest">
@@ -83,31 +279,31 @@
           </figure>
           <figure>
             <img src="img/hist-crane.jpg" alt="Grey crowned crane in papyrus at sunset">
-            <figcaption><b>Crested crane</b> On the flag, the arms and the shilling. The bird that would not fly from a fight.</figcaption>
+            <figcaption><b>Crested crane</b> On the flag, the arms and the shilling.</figcaption>
           </figure>
           <figure class="wide">
             <img src="img/hist-falls.jpg" alt="The Nile thundering through Murchison Falls">
-            <figcaption><b>Murchison</b> The Nile forced through a seven-metre gorge. Spray, thunder, rainbow.</figcaption>
+            <figcaption><b>Murchison</b> The Nile forced through a seven-metre gorge.</figcaption>
           </figure>
           <figure>
-            <img src="img/hist-ankole.jpg" alt="Ankole longhorn cattle on a western Uganda grassland at sunset">
-            <figcaption><b>Ankole</b> Longhorn cattle of the west. The omugabe’s country, still walking.</figcaption>
+            <img src="img/hist-ankole.jpg" alt="Ankole longhorn cattle at sunset">
+            <figcaption><b>Ankole</b> Longhorn cattle of the west. The omugabe’s country.</figcaption>
           </figure>
           <figure>
-            <img src="img/hist-drums.jpg" alt="Royal drums in a courtyard">
-            <figcaption><b>Engoma</b> Royal drums of Buganda, Bunyoro, Tooro, Nkore, Busoga. Authority, heard.</figcaption>
+            <img src="img/hist-drums.jpg" alt="Royal drums">
+            <figcaption><b>Engoma</b> Royal drums of Buganda, Bunyoro, Tooro, Nkore, Busoga.</figcaption>
           </figure>
           <figure>
-            <img src="img/agriculture.jpg" alt="Coffee cherries harvested in the Ugandan highlands">
-            <figcaption><b>The garden</b> Coffee, tea, matooke, millet. The highlands that fed kingdoms.</figcaption>
+            <img src="img/agriculture.jpg" alt="Coffee cherries in the Ugandan highlands">
+            <figcaption><b>The garden</b> Coffee, tea, matooke, millet.</figcaption>
           </figure>
           <figure>
             <img src="img/hist-monument.jpg" alt="Independence Monument">
-            <figcaption><b>9 October</b> A nation reaching upward. Independence Day, 1962.</figcaption>
+            <figcaption><b>9 October</b> A nation reaching upward. 1962.</figcaption>
           </figure>
           <figure>
-            <img src="img/hist-guards.jpg" alt="Ugandan ceremonial guard">
-            <figcaption><b>The parade</b> Black, gold and red — the colours of the soil, the sun, and brotherhood.</figcaption>
+            <img src="img/hist-guards.jpg" alt="Ceremonial guard">
+            <figcaption><b>The parade</b> Black, gold and red.</figcaption>
           </figure>
         </div>
       </div>
@@ -130,162 +326,16 @@
           </article>
           <article>
             <b>The people</b>
-            <p>45,905,417 names in the 2024 census. Fifty-six indigenous communities in the Constitution. Forty-one languages on this desk.</p>
+            <p>45,905,417 names in the 2024 census. Fifty-six indigenous communities. Forty-one languages on this desk.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap timeline hist-stack">
-        <nav class="t-nav" aria-label="Chapters">
-          <p class="kicker-off">Chapters</p>
-          <button class="active" type="button" data-chapter="1">Pre-1894 · Kingdoms of the lakes</button>
-          <button type="button" data-chapter="2">1894–1962 · Protectorate</button>
-          <button type="button" data-chapter="3">9 Oct 1962 · Independence</button>
-          <button type="button" data-chapter="4">1966–1979 · Storm years</button>
-          <button type="button" data-chapter="5">1986 · Reconstruction</button>
-          <button type="button" data-chapter="6">1993–1995 · Constitution</button>
-          <button type="button" data-chapter="7">Today · Vision 2040</button>
-        </nav>
-        <div class="hist-plates">
-
-          <article class="t-card t-rich" data-plate="1" id="ch-1">
-            <p class="kicker-off">Chapter 01 · Before the protectorate</p>
-            <div class="num">01</div>
-            <h3>Kingdoms of the lakes</h3>
-            <p>Long before a border was drawn at the Nile, this country was a mosaic of kingdoms and chiefdoms. Bunyoro-Kitara — Bachwezi memory, then the Babiito dynasty — held the salt of Kibiro and the iron of the hills. Buganda, organised by clan and kabaka, grew from the kibuga at Mengo into the most centralised state on the northern shore of Nalubaale, the lake the world would call Victoria.</p>
-            <p>Tooro broke from Bunyoro around 1830 under Prince Kaboyo. Nkore (Ankole) kept the omugabe. Busoga was a confederation of chiefdoms, later a kyabazinga. North of the Nile, Luo-speaking Acholi, Langi and Alur built different polities; the Karimojong kept cattle on the eastern plains; Bakonzo held the Rwenzori. Barkcloth, ivory, iron and salt moved on paths older than any gazette.</p>
-            <div class="fact-row">
-              <span>Buganda · 52 clans</span>
-              <span>Bunyoro-Kitara · Babiito</span>
-              <span>Tooro · c. 1830</span>
-              <span>Nalubaale · Lake Victoria</span>
-            </div>
-            <figure class="plate-fig">
-              <img src="img/hist-drums.jpg" alt="Royal drums">
-              <figcaption>Plate 01 / 07 · The drum was the state. When it sounded, the kingdom was present.</figcaption>
-            </figure>
-          </article>
-
-          <article class="t-card t-rich" data-plate="2" id="ch-2">
-            <p class="kicker-off">Chapter 02 · 1894–1962</p>
-            <div class="num">02</div>
-            <h3>The British Protectorate</h3>
-            <p>On 18 June 1894 Uganda was declared a British Protectorate, after the Imperial British East Africa Company had already planted a flag. The Buganda Agreement of 10 March 1900 locked mailo land and a native government into colonial law. Toro and later Bunyoro signed their own agreements. The railway from Mombasa reached the lake in 1901; steamers finished the journey to Entebbe and Kampala.</p>
-            <p>Cotton (from 1903) and highland coffee paid the protectorate. Makerere Technical School opened in 1922 and became a university college in 1949 — the intellectual capital of East Africa. Politics arrived as parties: Uganda National Congress (1952), Democratic Party (1954), Uganda People’s Congress (1960), Kabaka Yekka. The Kabaka crisis of 1953–55 — Muteesa II exiled by Governor Andrew Cohen, then returned — taught the country that the throne and the governor would not share a house forever.</p>
-            <div class="fact-row">
-              <span>18 June 1894</span>
-              <span>Buganda Agreement 1900</span>
-              <span>Makerere 1922</span>
-              <span>Kabaka crisis 1953–55</span>
-            </div>
-            <figure class="plate-fig">
-              <img src="img/campus.jpg" alt="A Ugandan campus and lecture grounds">
-              <figcaption>Plate 02 / 07 · Makerere made a country that could argue with its governors.</figcaption>
-            </figure>
-          </article>
-
-          <article class="t-card t-rich" data-plate="3" id="ch-3">
-            <p class="kicker-off">Chapter 03 · 9 October 1962</p>
-            <div class="num">03</div>
-            <h3>Independence</h3>
-            <p>At midnight on 9 October 1962 the Union Jack came down over Kololo. Apolo Milton Obote, leader of the UPC in alliance with Kabaka Yekka, became the first Prime Minister. Sir Walter Coutts remained Governor-General for a year. On 9 October 1963 Uganda became a republic and Sir Edward Muteesa II, Kabaka of Buganda, the first President.</p>
-            <p>The flag — black, gold and red, the grey crowned crane in the centre — was the colour of the soil, the sun, and the blood of brotherhood. The anthem, <em>Oh Uganda, Land of Beauty</em>, was composed by George Wilberforce Kakoma: “Oh Uganda! May God uphold thee, we lay our future in thy hand.” Gregory Maloba’s Independence Monument still stands in Kampala: a nation lifting its child.</p>
-            <blockquote class="hist-quote">Oh Uganda, the land of freedom, our love and labour we give.</blockquote>
-            <div class="fact-row">
-              <span>9 Oct 1962</span>
-              <span>Obote · first PM</span>
-              <span>Muteesa II · first President, 1963</span>
-              <span>Anthem · G.W. Kakoma</span>
-            </div>
-            <figure class="plate-fig">
-              <img src="img/hist-mutesa.jpg" alt="Sir Edward Muteesa II inspects a guard of honour around independence in 1962">
-              <figcaption>Plate 03 / 07 · Sir Edward Muteesa II inspects a guard of honour, 1962. Photo: public domain, via Wikimedia Commons.</figcaption>
-            </figure>
-          </article>
-
-          <article class="t-card t-rich" data-plate="4" id="ch-4">
-            <p class="kicker-off">Chapter 04 · 1966–1979</p>
-            <div class="num">04</div>
-            <h3>The storm years</h3>
-            <p>The alliance did not last. In May 1966 the army stormed the Lubiri at Mengo. Muteesa fled. The 1967 Constitution abolished the kingdoms. On 25 January 1971, while Obote was in Singapore, Idi Amin Dada seized the state.</p>
-            <p>In August 1972 Amin ordered the expulsion of Uganda’s Asian community — some 80,000 people given 90 days to leave. The economy hollowed. In July 1976 Israeli commandos struck Entebbe. In October 1978 Amin’s army crossed into Tanzania’s Kagera salient; Tanzania and the Uganda National Liberation Front took Kampala on 11 April 1979. The storm did not end with Amin. It ended, years later, when a different army walked in from the bush.</p>
-            <div class="fact-row">
-              <span>Lubiri · 24 May 1966</span>
-              <span>Amin coup · 25 Jan 1971</span>
-              <span>Asian expulsion · 1972</span>
-              <span>Kampala falls · 11 Apr 1979</span>
-            </div>
-            <p class="muted" style="margin-top:16px">Plate 04 / 07 · A chapter kept without a portrait. The record is the people who endured it.</p>
-          </article>
-
-          <article class="t-card t-rich" data-plate="5" id="ch-5">
-            <p class="kicker-off">Chapter 05 · 26 January 1986</p>
-            <div class="num">05</div>
-            <h3>Reconstruction</h3>
-            <p>From 1981 the National Resistance Army fought a guerrilla war out of the Luweero Triangle. On 26 January 1986 it entered Kampala. Yoweri Kaguta Museveni became President. The Ten-Point Programme promised a country that would not again be organised by tribe or confession, and an economy rebuilt from wreckage.</p>
-            <p>Security returned in stages. Roads, schools and clinics followed. The Movement system governed without registered parties until the country was ready to argue again. The impression of those years, for millions who remember them, is simple: the guns went quiet, and children walked to school.</p>
-            <div class="fact-row">
-              <span>26 Jan 1986</span>
-              <span>Ten-Point Programme</span>
-              <span>Luweero to Kampala</span>
-              <span>NRM government</span>
-            </div>
-            <figure class="plate-fig">
-              <img src="img/hist-guards.jpg" alt="Ugandan ceremonial guard on parade in dress uniform">
-              <figcaption>Plate 05 / 07 · Ceremonial guard of the republic. Photo: Xinhua News, via the official Media Centre record.</figcaption>
-            </figure>
-          </article>
-
-          <article class="t-card t-rich" data-plate="6" id="ch-6">
-            <p class="kicker-off">Chapter 06 · 1993–1995</p>
-            <div class="num">06</div>
-            <h3>The Constitution, and the drums return</h3>
-            <p>In 1993 the Traditional Rulers (Restitution of Assets and Properties) Statute restored the kingdoms as cultural institutions. The kabaka returned to Mengo. Bunyoro, Tooro, Busoga and others followed. The drums were legal again — as heritage, not as rival states.</p>
-            <p>On 8 October 1995 Uganda promulgated a new Constitution: a bill of rights, a directly elected president, a parliament, and a Third Schedule naming 56 indigenous communities. The first direct presidential election followed in 1996. Universal Primary Education began in 1997. A 2005 referendum restored multi-party politics. Universal Secondary Education followed in 2007.</p>
-            <div class="fact-row">
-              <span>Kingdoms restored 1993</span>
-              <span>Constitution · 8 Oct 1995</span>
-              <span>UPE 1997</span>
-              <span>Multi-party 2005</span>
-            </div>
-            <figure class="plate-fig">
-              <img src="img/hist-monument.jpg" alt="Independence Monument">
-              <figcaption>Plate 06 / 07 · Independence Monument — the day of 1962, under the law of 1995.</figcaption>
-            </figure>
-          </article>
-
-          <article class="t-card t-rich" data-plate="7" id="ch-7">
-            <p class="kicker-off">Chapter 07 · This generation</p>
-            <div class="num">07</div>
-            <h3>Vision 2040, and 45.9 million names</h3>
-            <p>The National Population and Housing Census 2024 — Uganda’s first digital census, enumerated in May — counted <strong>45,905,417</strong> people (Uganda Bureau of Statistics, final report). That is 11.3 million more than 2014. Half are under eighteen. Wakiso is the most populous district; Kampala the capital of 1.9 million residents. English and Kiswahili are official languages; the Languages Desk of this Centre keeps forty-one tongues on the wire.</p>
-            <p>Vision 2040 aims at an upper-middle-income country. The Parish Development Model puts wealth creation in 10,594 parishes. The Albertine Graben holds oil — Tilenga, Kingfisher, the East African Crude Oil Pipeline. Karuma (600 MW), Isimba (183 MW) and Bujagali (250 MW) light the grid. Bwindi keeps the mountain gorilla; the Rwenzori keeps the snow; Jinja keeps the Nile. The Media Centre’s charge is not public relations. It is to tell that story until the world can say it back.</p>
-            <blockquote class="hist-quote">For God and my Country.</blockquote>
-            <div class="fact-row">
-              <span>45,905,417 · UBOS 2024</span>
-              <span>10,594 parishes · PDM</span>
-              <span>Karuma 600 MW</span>
-              <span>Vision 2040</span>
-            </div>
-            <figure class="plate-fig">
-              <img src="img/hist-crane.jpg" alt="Grey crowned crane in papyrus at sunset">
-              <figcaption>Plate 07 / 07 · The crane still stands in the papyrus. End of record.</figcaption>
-            </figure>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:0">
+    <section class="end-record">
       <div class="wrap">
-        <article class="proverb-card">
-          <p class="kicker-off">The anthem</p>
-          <q>Oh Uganda! May God uphold thee, we lay our future in thy hand.</q>
-          <p>George Wilberforce Kakoma · National Anthem, 1962 · For God and my Country.</p>
-        </article>
+        <p class="kicker-off">End of record</p>
+        <h2>For God and my Country.</h2>
       </div>
     </section>
   </main>
