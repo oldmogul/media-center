@@ -394,6 +394,13 @@
   }
   document.querySelectorAll("[data-slider]").forEach(initSlider);
 
+  const homeDate = document.querySelector("[data-home-date]");
+  if (homeDate) {
+    homeDate.textContent = new Date().toLocaleDateString("en-GB", {
+      weekday: "long", day: "numeric", month: "long", year: "numeric"
+    });
+  }
+
   /* Horizontal rails */
   document.querySelectorAll("[data-rail]").forEach((rail) => {
     const track = rail.querySelector(".rail-track");

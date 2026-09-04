@@ -2389,3 +2389,81 @@ body[data-page="accreditation"] .page-hero h1 { max-width: 12ch; }
   .radio-hero { padding: 32px 0 36px; }
   .radio-now { padding: 20px 18px 22px; }
 }
+
+/* Homepage — editorial command centre */
+body[data-page="home"] {
+  --home-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+body[data-page="home"] .kicker-off { margin-bottom: 8px; }
+.home-edition {
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  margin-top: 8px;
+}
+.home-edition .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px;
+  min-height: 48px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+  font-weight: 700; color: var(--muted);
+}
+.home-ed-mark {
+  color: var(--ink); background: var(--gold); padding: 4px 10px; border-radius: 4px;
+  letter-spacing: .12em;
+}
+.home-edition a {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 8px;
+  color: var(--red); letter-spacing: .14em;
+}
+.home-edition a i {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--red);
+  box-shadow: 0 0 0 0 rgba(225, 29, 46, .6); animation: pulse 1.6s infinite;
+}
+.home-quote {
+  padding: 56px 0; background: #fff; border-block: 1px solid var(--line);
+}
+.home-quote blockquote {
+  font-family: var(--home-serif, "Source Serif 4", Georgia, serif);
+  font-size: clamp(26px, 3.6vw, 40px); font-weight: 600; letter-spacing: -.03em;
+  line-height: 1.25; max-width: 22ch; margin: 8px 0 16px;
+  border-left: 4px solid var(--gold); padding-left: 18px;
+}
+.home-quote cite {
+  display: block; font-style: normal; font-size: 12px; letter-spacing: .14em;
+  text-transform: uppercase; font-weight: 700; color: var(--muted);
+}
+.home-pulse { background: #111114; color: #fff; }
+.home-pulse .wrap {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.home-pulse div { padding: 28px 8px; border-right: 1px solid rgba(255,255,255,.1); }
+.home-pulse div:last-child { border-right: 0; }
+.home-pulse b {
+  display: block; font-family: var(--display); font-size: clamp(28px, 4vw, 40px);
+  font-weight: 500; color: var(--gold); letter-spacing: -.03em;
+}
+.home-pulse span {
+  font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.5); font-weight: 700;
+}
+.home-close { padding: 48px 0 56px; text-align: center; }
+.home-close .flag-rule { width: min(220px, 40%); margin: 0 auto 22px; }
+.home-close p { color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+.home-close b {
+  display: block; margin-top: 8px;
+  font-family: var(--home-serif, "Source Serif 4", Georgia, serif);
+  font-size: clamp(22px, 3vw, 32px); font-weight: 600; letter-spacing: -.02em;
+}
+body[data-page="home"] .film a {
+  box-shadow: 0 22px 50px rgba(21, 21, 25, .12);
+}
+body[data-page="home"] .mosaic-card,
+body[data-page="home"] .news-card,
+body[data-page="home"] .newsroom-side,
+body[data-page="home"] .tool-chip {
+  box-shadow: 0 1px 0 rgba(21, 21, 25, .04);
+}
+body[data-page="home"] .section { padding: 56px 0; }
+@media (max-width: 860px) {
+  .home-edition a { margin-left: 0; }
+  .home-pulse .wrap { grid-template-columns: 1fr 1fr; }
+  .home-pulse div:nth-child(2) { border-right: 0; }
+  .home-quote blockquote { max-width: none; }
+}
