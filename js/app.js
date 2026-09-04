@@ -116,8 +116,9 @@
         <nav class="nav" id="nav">
           ${nav.map(([h, key, id]) => {
             if (id === "about") {
+              const aboutOn = ["about", "team", "history"].includes(page);
               return `<div class="drop">
-                <a href="${root}/${h}" class="${page === "about" ? "active" : ""}" data-i18n="${key}"></a>
+                <a href="${root}/${h}" class="${aboutOn ? "active" : ""}" data-i18n="${key}"></a>
                 <div class="drop-menu">
                   <a href="${root}/about.html">About Media Centre</a>
                   <a href="${root}/team.html">Our Team</a>
@@ -468,14 +469,16 @@
     b.textContent = b.classList.contains("playing") ? "❚❚" : "▶";
   });
 
-  document.querySelectorAll("[data-chapter]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll("[data-chapter]").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      const id = btn.getAttribute("data-chapter");
-      document.querySelectorAll("[data-plate]").forEach((p) => {
-        p.style.display = p.getAttribute("data-plate") === id ? "" : "none";
+  if (!document.querySelector(".hist-stack")) {
+    document.querySelectorAll("[data-chapter]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-chapter]").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const id = btn.getAttribute("data-chapter");
+        document.querySelectorAll("[data-plate]").forEach((p) => {
+          p.style.display = p.getAttribute("data-plate") === id ? "" : "none";
+        });
       });
     });
-  });
+  }
 })();
