@@ -2,16 +2,34 @@
   const KEY = "umc-radio-v2";
   const root = document.body.getAttribute("data-root") || ".";
 
+  const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const SHOWS = [
-    { id: "bulletin", name: "The National Bulletin", host: "Alan Kasujja", cover: root + "/img/alan-kasujja.jpg" },
-    { id: "health", name: "Health Line Uganda", host: "Sarah Nanteza Kyobe", cover: root + "/img/hospital.jpg" },
-    { id: "farmers", name: "Eddoboozi ly’Abalimi", host: "Obed Katureebe", cover: root + "/img/agriculture.jpg" },
-    { id: "citizen", name: "Citizen Line", host: "Charles Serugga Matovu", cover: root + "/img/team-charles.jpg" },
-    { id: "kiswahili", name: "Kiswahili Leo", host: "David Serumaga", cover: root + "/img/explore-banner.jpg" },
-    { id: "youth", name: "Youth Now", host: "Kevin Seguya", cover: root + "/img/campus.jpg" },
-    { id: "pdm", name: "PDM Pulse", host: "Joseph Okumu", cover: root + "/img/wealth.jpg" },
-    { id: "faith", name: "Faith & Nation", host: "Josepha Jabo", cover: root + "/img/team-josepha.jpg" }
+    { id: "bulletin", name: "The National Bulletin", host: "Alan Kasujja", cover: root + "/img/alan-kasujja.jpg", lang: "English", cat: "News", blurb: "Uganda’s flagship hourly news on the hour.", when: "Daily · 07:00" },
+    { id: "health", name: "Health Line Uganda", host: "Sarah Nanteza Kyobe", cover: root + "/img/team-sarah.jpg", lang: "English", cat: "Health", blurb: "Call-in clinic with the Ministry of Health.", when: "Tue · 10:00" },
+    { id: "farmers", name: "Eddoboozi ly’Abalimi", host: "Obed Katureebe", cover: root + "/img/team-obed.jpg", lang: "Luganda", cat: "Agriculture", blurb: "Farmers’ Voice — markets, weather, extension.", when: "Mon · 05:30" },
+    { id: "citizen", name: "Citizen Line", host: "Charles Serugga Matovu", cover: root + "/img/team-charles.jpg", lang: "English", cat: "Governance", blurb: "Citizens’ Q&A with ministries.", when: "Wed · 20:00" },
+    { id: "kiswahili", name: "Kiswahili Leo", host: "David Serumaga", cover: root + "/img/team-serumaga.jpg", lang: "Kiswahili", cat: "News", blurb: "EAC affairs in Kiswahili.", when: "Daily · 18:00" },
+    { id: "youth", name: "Youth Now", host: "Kevin Seguya", cover: root + "/img/team-kevin.jpg", lang: "English", cat: "Youth", blurb: "Scholarships, jobs and innovation.", when: "Fri · 16:00" },
+    { id: "pdm", name: "PDM Pulse", host: "Joseph Okumu", cover: root + "/img/team-joseph.jpg", lang: "English", cat: "Governance", blurb: "Parish Development Model — week in review.", when: "Sat · 09:00" },
+    { id: "faith", name: "Faith & Nation", host: "Josepha Jabo", cover: root + "/img/team-josepha.jpg", lang: "English", cat: "Religious", blurb: "Inter-faith reflections.", when: "Sun · 08:00" }
   ];
+  const SCHEDULE = (function () {
+    const rows = [];
+    for (let i = 1; i <= 7; i++) {
+      const d = i === 7 ? 0 : i;
+      if (d !== 0) rows.push({ day: d, time: "05:30", show: "farmers" });
+      rows.push({ day: d, time: "07:00", show: "bulletin" });
+      if (d === 0) rows.push({ day: d, time: "08:00", show: "faith" });
+      if (d === 6) rows.push({ day: d, time: "09:00", show: "pdm" });
+      if (d === 2 || d === 4) rows.push({ day: d, time: "10:00", show: "health" });
+      rows.push({ day: d, time: "13:00", show: "bulletin" });
+      if (d === 1 || d === 5) rows.push({ day: d, time: "16:00", show: "youth" });
+      rows.push({ day: d, time: "18:00", show: "kiswahili" });
+      rows.push({ day: d, time: "19:00", show: "bulletin" });
+      if (d === 3) rows.push({ day: d, time: "20:00", show: "citizen" });
+    }
+    return rows;
+  })();
 
   const BED = [
     "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
@@ -27,7 +45,8 @@
     blurb: "Cabinet and ministry statements, live from the Uganda Media Centre.",
     lang: "English",
     audio: BED[0],
-    cover: root + "/img/alan-speaking.jpg"
+    cover: root + "/img/alan-speaking.jpg",
+    onAir: false
   };
 
   const SEED_EPISODES = [
@@ -68,6 +87,34 @@
 
   function showById(id) {
     return SHOWS.find((s) => s.id === id) || SHOWS[0];
+  }
+
+  function isOnAir(live) {
+    if (!live) return false;
+    if (live.onAir === true) return true;
+    if (live.onAir === false) return false;
+    return Boolean(live.started);
+  }
+
+  function timeToMin(t) {
+    const p = (t || "00:00").split(":").map(Number);
+    return p[0] * 60 + (p[1] || 0);
+  }
+
+  function upcomingSlots(n) {
+    const now = new Date();
+    const curDay = now.getDay();
+    const curMin = now.getHours() * 60 + now.getMinutes();
+    const out = [];
+    for (let add = 0; add < 8 && out.length < n; add++) {
+      const day = (curDay + add) % 7;
+      SCHEDULE.filter((s) => s.day === day).forEach((s) => {
+        if (out.length >= n) return;
+        if (add === 0 && timeToMin(s.time) <= curMin) return;
+        out.push(s);
+      });
+    }
+    return out;
   }
 
   function fmtTime(sec) {
@@ -140,27 +187,59 @@
   audio.addEventListener("play", renderDock);
   audio.addEventListener("pause", renderDock);
 
+  let streamLang = "English";
+
   function paintPublic() {
     const data = load();
     const stage = document.getElementById("live-stage");
     if (!stage) return;
     const live = data.live || DEFAULT_LIVE;
     const show = showById(live.show);
-    stage.classList.add("is-live");
-    stage.querySelector("[data-live-art]").src = live.cover || show.cover;
+    const on = isOnAir(live);
+    const next = upcomingSlots(1)[0];
+    const nextShow = next ? showById(next.show) : null;
+    const nextLabel = nextShow ? "Up next · " + nextShow.name + " · " + DAY_NAMES[next.day] + " " + next.time : "";
+
+    stage.classList.toggle("is-live", on);
+    stage.classList.toggle("is-off", !on);
+    const art = stage.querySelector("[data-live-art]");
+    if (art) art.src = on ? (live.cover || show.cover) : (show.cover || live.cover);
     const badge = stage.querySelector("[data-live-badge]");
-    if (badge) badge.innerHTML = "<i></i> Live press briefing";
-    stage.querySelector("[data-live-kicker]").textContent = show.name + " · " + (live.lang || "English");
-    stage.querySelector("[data-live-title]").textContent = live.title || "Live press briefing";
-    stage.querySelector("[data-live-blurb]").textContent = live.blurb || ("On air with " + (live.host || show.host));
-    stage.querySelector("[data-live-host]").textContent = "Host · " + (live.host || show.host);
+    if (badge) badge.innerHTML = on ? "<i></i> Live press briefing" : "<i></i> Off-air";
+    const stripBadge = document.querySelector("[data-strip-badge]");
+    if (stripBadge) {
+      stripBadge.innerHTML = on ? "<i></i> Live press briefing" : "<i></i> Off-air";
+      stripBadge.classList.toggle("is-latest", !on);
+    }
+    stage.querySelector("[data-live-kicker]").textContent = on
+      ? (show.name + " · " + (live.lang || "English"))
+      : "Now on air";
+    stage.querySelector("[data-live-title]").textContent = on
+      ? (live.title || "Live press briefing")
+      : "Off-air — automated music";
+    stage.querySelector("[data-live-blurb]").textContent = on
+      ? (live.blurb || ("On air with " + (live.host || show.host)))
+      : "Live programming resumes shortly. Tune in for the next slot.";
+    stage.querySelector("[data-live-host]").textContent = on
+      ? ("Host · " + (live.host || show.host))
+      : "UMC studio, Kampala";
+    const nextEl = stage.querySelector("[data-live-next]");
+    if (nextEl) nextEl.textContent = nextLabel;
     const strip = document.querySelector("[data-strip-title]");
-    if (strip) strip.textContent = (live.title || "Live press briefing") + " — " + (live.host || show.host);
+    if (strip) {
+      strip.textContent = on
+        ? ((live.title || "Live press briefing") + " — " + (live.host || show.host))
+        : (nextLabel || "Live programming resumes shortly");
+    }
+
+    renderUpcoming();
+    renderSchedule();
+    renderShows();
 
     const rail = document.getElementById("show-rail");
     if (rail && !rail.dataset.ready) {
       rail.dataset.ready = "1";
-      rail.innerHTML = `<button class="on" data-show="all" type="button">All shows</button>` +
+      rail.innerHTML = `<button class="on" data-show="all" type="button">All programmes</button>` +
         SHOWS.map((s) => `<button data-show="${s.id}" type="button">${s.name}</button>`).join("");
       rail.addEventListener("click", (e) => {
         const b = e.target.closest("[data-show]");
@@ -170,6 +249,69 @@
       });
     }
     renderEps(document.querySelector("#show-rail button.on")?.getAttribute("data-show") || "all");
+  }
+
+  function renderUpcoming() {
+    const box = document.getElementById("up-next");
+    if (!box) return;
+    const slots = upcomingSlots(6).filter((s) => {
+      const sh = showById(s.show);
+      return streamLang === "all" || sh.lang === streamLang;
+    }).slice(0, 4);
+    box.innerHTML = slots.map((s) => {
+      const sh = showById(s.show);
+      return `<article class="radio-up-card" data-play-show="${sh.id}">
+        <img src="${sh.cover}" alt="">
+        <div>
+          <small>${DAY_NAMES[s.day]} · ${s.time}</small>
+          <h3>${sh.name}</h3>
+          <p>${sh.blurb}</p>
+        </div>
+      </article>`;
+    }).join("") || `<p class="muted">No upcoming slots on this stream.</p>`;
+  }
+
+  function renderSchedule() {
+    const list = document.getElementById("sked-list");
+    if (!list) return;
+    const day = document.getElementById("sked-day")?.value || "all";
+    const cat = document.getElementById("sked-cat")?.value || "all";
+    const lang = document.getElementById("sked-lang")?.value || "all";
+    const rows = SCHEDULE.filter((s) => {
+      const sh = showById(s.show);
+      if (day !== "all" && String(s.day) !== String(day)) return false;
+      if (cat !== "all" && sh.cat !== cat) return false;
+      if (lang !== "all" && sh.lang !== lang) return false;
+      return true;
+    });
+    list.innerHTML = rows.map((s) => {
+      const sh = showById(s.show);
+      return `<button class="radio-sked-row" type="button" data-play-show="${sh.id}">
+        <time>${DAY_NAMES[s.day]}<b>${s.time}</b></time>
+        <img src="${sh.cover}" alt="">
+        <span>
+          <strong>${sh.name}</strong>
+          <em>${sh.blurb}</em>
+        </span>
+        <small>${sh.lang}<i>${sh.cat}</i></small>
+      </button>`;
+    }).join("");
+  }
+
+  function renderShows() {
+    const grid = document.getElementById("show-grid");
+    if (!grid) return;
+    grid.innerHTML = SHOWS.map((s) => `<article class="radio-show">
+      <img src="${s.cover}" alt="${s.host}">
+      <p class="radio-show-meta">${s.lang} · ${s.cat}</p>
+      <h3>${s.name}</h3>
+      <p>${s.blurb}</p>
+      <p class="radio-show-host">with ${s.host}</p>
+      <div class="radio-show-actions">
+        <small>${s.when}</small>
+        <button type="button" data-play-show="${s.id}">Play latest</button>
+      </div>
+    </article>`).join("");
   }
 
   function renderEps(filter) {
@@ -188,6 +330,7 @@
           <small>${show.name}</small>
           <h3>${e.title}</h3>
           <p>${e.duration} · ${e.lang} · ${e.date}</p>
+          ${e.blurb ? `<p class="ep-blurb">${e.blurb}</p>` : ""}
         </div>
       </button>`;
     }).join("") || `<p class="muted">No episodes in this show yet.</p>`;
@@ -201,6 +344,13 @@
     });
   }
 
+  function playLatest(showId) {
+    const ep = load().episodes.find((e) => e.show === showId);
+    const show = showById(showId);
+    if (ep) playItem({ ...ep, cover: ep.cover || show.cover, live: false });
+    else playLive();
+  }
+
   function initPublic() {
     paintPublic();
     document.getElementById("live-listen")?.addEventListener("click", (e) => { e.stopPropagation(); playLive(); });
@@ -208,6 +358,29 @@
     document.querySelector("[data-dock-play]")?.addEventListener("click", togglePlay);
     document.getElementById("pod-seek")?.addEventListener("input", (e) => {
       if (audio.duration) audio.currentTime = (Number(e.target.value) / 100) * audio.duration;
+    });
+    const vol = document.getElementById("radio-vol");
+    if (vol) {
+      audio.volume = Number(vol.value);
+      vol.addEventListener("input", () => { audio.volume = Number(vol.value); });
+    }
+    document.getElementById("stream-pills")?.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-stream]");
+      if (!b) return;
+      streamLang = b.getAttribute("data-stream");
+      document.querySelectorAll("#stream-pills button").forEach((c) => c.classList.toggle("on", c === b));
+      const langSel = document.getElementById("sked-lang");
+      if (langSel) langSel.value = streamLang;
+      renderUpcoming();
+      renderSchedule();
+    });
+    ["sked-day", "sked-cat", "sked-lang"].forEach((id) => {
+      document.getElementById(id)?.addEventListener("change", renderSchedule);
+    });
+    document.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-play-show]");
+      if (!b) return;
+      playLatest(b.getAttribute("data-play-show"));
     });
     window.addEventListener("storage", (ev) => { if (ev.key === KEY) paintPublic(); });
     window.addEventListener("umc-studio", paintPublic);
@@ -239,7 +412,8 @@
         lang: document.getElementById("live-lang").value,
         audio: document.getElementById("live-audio").value.trim() || BED[0],
         cover: s.cover,
-        started: new Date().toISOString()
+        started: new Date().toISOString(),
+        onAir: true
       };
       save(data);
       paintAdmin();
@@ -263,10 +437,10 @@
           blurb: live.blurb || "Recorded live press briefing."
         });
       }
-      data.live = Object.assign({}, DEFAULT_LIVE);
+      data.live = Object.assign({}, DEFAULT_LIVE, { onAir: false });
       save(data);
       paintAdmin();
-      toast("Session ended. Default briefing restored.");
+      toast("Session ended. Radio is off-air.");
     });
 
     document.getElementById("ep-form")?.addEventListener("submit", (e) => {
@@ -308,10 +482,11 @@
   function paintAdmin() {
     const data = load();
     const live = data.live;
+    const on = isOnAir(live);
     const status = document.getElementById("live-status");
     if (status) {
-      status.className = live ? "pill-live" : "pill-off";
-      status.textContent = live ? "LIVE · " + live.title : "Off-air";
+      status.className = on ? "pill-live" : "pill-off";
+      status.textContent = on ? "LIVE · " + live.title : "Off-air";
     }
     if (live) {
       const el = (id) => document.getElementById(id);

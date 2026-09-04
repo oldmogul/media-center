@@ -7,76 +7,187 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Radio — Uganda Media Centre</title>
-  <meta name="description" content="Live press briefing and on-demand podcasts from the Uganda Media Centre.">
+  <meta name="description" content="Live press briefings, upcoming programmes and previous podcasts from Uganda Media Centre Radio — English, Luganda and Kiswahili.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="radio" data-root=".">
+  <a class="skip" href="#main">Skip to main content</a>
   <div id="site-header"></div>
   <main id="main">
     <div class="live-strip">
       <div class="wrap">
-        <span class="live-flag-inline"><i></i> Live press briefing</span>
-        <span data-strip-title>Cabinet desk with Alan Kasujja — listen now</span>
+        <span class="live-flag-inline" data-strip-badge><i></i> Off-air</span>
+        <span data-strip-title>Live programming resumes shortly</span>
+        <a class="strip-notify" href="#upcoming">Upcoming</a>
       </div>
     </div>
 
-    <section class="page-hero radio-hero-light">
+    <section class="radio-hero">
+      <img class="arms" src="img/coat-of-arms.png" alt="">
       <div class="wrap">
         <p class="kicker-off">Government Radio</p>
         <h1>Live from the Media Centre</h1>
-        <p class="lede">Press briefings, government shows and on-demand podcasts in English, Luganda and Kiswahili.</p>
-      </div>
-    </section>
+        <p class="lede">Press briefings, government shows and on-demand podcasts — live, upcoming and previous sessions in English, Luganda and Kiswahili.</p>
 
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <article class="brief-card is-live" id="live-stage">
-          <div class="brief-art">
-            <img data-live-art src="img/alan-speaking.jpg" alt="Live press briefing">
-            <span class="live-flag" data-live-badge><i></i> Live press briefing</span>
-            <button class="play-xl" type="button" id="live-listen" data-live-listen aria-label="Play live briefing">▶</button>
+        <article class="radio-player" id="live-stage">
+          <div class="radio-art">
+            <img data-live-art src="img/alan-speaking.jpg" alt="UMC Radio">
+            <span class="onair" data-live-badge><i></i> Off-air</span>
+            <button class="play-xl" type="button" id="live-listen" data-live-listen aria-label="Play stream">▶</button>
           </div>
-          <div class="brief-copy">
-            <p class="kicker-off" data-live-kicker>Cabinet · English</p>
-            <h2 data-live-title>Live press briefing</h2>
-            <p class="lede" data-live-blurb>Cabinet and ministry statements, live from the Uganda Media Centre.</p>
+          <div class="radio-now">
+            <p class="kicker-off" data-live-kicker>Now on air</p>
+            <h2 data-live-title>Off-air — automated music</h2>
+            <p class="lede" data-live-blurb>Live programming resumes shortly.</p>
             <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <p class="live-meta"><span data-live-host>Host · Alan Kasujja</span><span>UMC studio, Kampala</span></p>
+            <p class="live-meta"><span data-live-host>UMC studio, Kampala</span><span data-live-next>Up next · The National Bulletin</span></p>
             <div class="live-actions">
-              <button class="btn-gold" type="button" id="live-listen-2">Play live</button>
-              <a class="btn-outline" href="#archive">Previous podcasts</a>
+              <button class="btn-gold" type="button" id="live-listen-2">Listen now</button>
+              <a class="btn-ghost" href="#archive">Previous sessions</a>
+              <label class="vol-wrap">
+                <span>Vol</span>
+                <input id="radio-vol" class="vol" type="range" min="0" max="1" step="0.05" value="0.9" aria-label="Volume">
+              </label>
+            </div>
+            <p class="radio-choose">Choose stream</p>
+            <div class="show-pills stream-pills" id="stream-pills">
+              <button class="on" type="button" data-stream="English">English Service</button>
+              <button type="button" data-stream="Luganda">Luganda Service</button>
+              <button type="button" data-stream="Kiswahili">Kiswahili Desk</button>
             </div>
           </div>
         </article>
       </div>
     </section>
 
-    <div class="flag-rule"></div>
-
-    <section class="section" id="archive">
+    <section class="section" id="upcoming">
       <div class="wrap">
-        <div class="rail" data-rail>
-          <div class="section-head">
-            <div>
-              <p class="kicker-off">On demand</p>
-              <h2>Previous podcasts</h2>
-            </div>
-            <div class="rail-nav">
-              <button class="rail-prev" type="button" aria-label="Previous">‹</button>
-              <button class="rail-next" type="button" aria-label="Next">›</button>
-            </div>
+        <div class="section-head">
+          <div>
+            <p class="kicker-off">Upcoming</p>
+            <h2>Coming up on the desk</h2>
           </div>
-          <div class="rail-track ep-slider" id="ep-list"></div>
+          <a class="btn-outline" href="#schedule">Full schedule</a>
+        </div>
+        <div class="radio-up" id="up-next"></div>
+      </div>
+    </section>
+
+    <section class="section radio-sked-sec" id="schedule">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker-off">Weekly schedule</p>
+            <h2>Programme grid</h2>
+          </div>
+          <div class="radio-filters">
+            <label class="sr-only" for="sked-day">Day</label>
+            <select id="sked-day">
+              <option value="all">Every day</option>
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+              <option value="0">Sunday</option>
+            </select>
+            <label class="sr-only" for="sked-cat">Category</label>
+            <select id="sked-cat">
+              <option value="all">All desks</option>
+              <option>News</option>
+              <option>Health</option>
+              <option>Agriculture</option>
+              <option>Governance</option>
+              <option>Youth</option>
+              <option>Religious</option>
+            </select>
+            <label class="sr-only" for="sked-lang">Language</label>
+            <select id="sked-lang">
+              <option value="all">All languages</option>
+              <option>English</option>
+              <option>Luganda</option>
+              <option>Kiswahili</option>
+            </select>
+          </div>
+        </div>
+        <div class="radio-sked" id="sked-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="shows">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker-off">Programmes</p>
+            <h2>Government shows</h2>
+            <p class="lede">Every UMC-produced and ministry-partner programme on the air.</p>
+          </div>
+        </div>
+        <div class="radio-shows" id="show-grid"></div>
+      </div>
+    </section>
+
+    <section class="section radio-arch-sec" id="archive">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker-off">Catch-up radio</p>
+            <h2>Previous sessions</h2>
+            <p class="lede">On-demand podcasts from the studio — play any past briefing or show.</p>
+          </div>
+        </div>
+        <div class="show-pills" id="show-rail"></div>
+        <div class="radio-eps" id="ep-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="presenters">
+      <div class="wrap">
+        <p class="kicker-off">The voices</p>
+        <h2 class="off-h2" style="font-size:clamp(28px,4vw,40px);margin-bottom:18px">Our presenters</h2>
+        <div class="radio-hosts">
+          <article><img src="img/alan-kasujja.jpg" alt="Alan Kasujja"><h3>Alan Kasujja</h3><p>Executive Director &amp; Lead Anchor</p></article>
+          <article><img src="img/team-sarah.jpg" alt="Sarah Nanteza Kyobe"><h3>Sarah Nanteza Kyobe</h3><p>Health Desk Host</p></article>
+          <article><img src="img/team-obed.jpg" alt="Obed Katureebe"><h3>Obed Katureebe</h3><p>Head of Electronic Media</p></article>
+          <article><img src="img/team-charles.jpg" alt="Charles Serugga Matovu"><h3>Charles Serugga Matovu</h3><p>Talk-show Host &amp; Events Lead</p></article>
+          <article><img src="img/team-serumaga.jpg" alt="David Serumaga"><h3>David Serumaga</h3><p>Kiswahili Desk Lead</p></article>
+          <article><img src="img/team-kevin.jpg" alt="Kevin Seguya"><h3>Kevin Seguya</h3><p>Youth Programme Host</p></article>
+          <article><img src="img/team-joseph.jpg" alt="Joseph Okumu"><h3>Joseph Okumu</h3><p>PDM Field Correspondent</p></article>
+          <article><img src="img/team-josepha.jpg" alt="Josepha Jabo"><h3>Josepha Jabo</h3><p>Religious Affairs Host</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <p class="kicker-off">Shows</p>
-        <h2 class="off-h2" style="font-size:clamp(28px,4vw,40px);margin-bottom:14px">Listen by desk</h2>
-        <div class="show-pills" id="show-rail"></div>
+    <section class="section radio-talk-sec" id="talk">
+      <div class="wrap radio-talk">
+        <div>
+          <p class="kicker-off">Talk to the studio</p>
+          <h2 class="off-h2">Send a message or song request</h2>
+          <p class="lede">Your message reaches the studio control desk. The presenter on duty will read out selected messages on air.</p>
+        </div>
+        <form data-toast="Message queued for the studio. Selected notes are read on air.">
+          <div class="form-row">
+            <p>
+              <label for="onair-name">Name</label>
+              <input id="onair-name" required>
+            </p>
+            <p>
+              <label for="onair-desk">Desk</label>
+              <select id="onair-desk">
+                <option>English Service</option>
+                <option>Luganda Service</option>
+                <option>Kiswahili Desk</option>
+              </select>
+            </p>
+          </div>
+          <p>
+            <label for="onair-msg">Message</label>
+            <textarea id="onair-msg" required placeholder="A question for the ministry, or a song for the hour…"></textarea>
+          </p>
+          <button class="btn-gold" type="submit">Send to studio</button>
+        </form>
       </div>
     </section>
   </main>
