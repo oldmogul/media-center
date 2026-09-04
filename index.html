@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <title>Uganda Media Centre — One Government, One Voice</title>
   <meta name="description" content="The official communications command centre of the Government of Uganda. Live announcements from every ministry, in English, Luganda and Kiswahili.">
   <link rel="icon" href="img/coat.svg">
@@ -81,19 +81,24 @@
     <section class="tools">
       <div class="wrap tools-row">
         <a class="tool-chip" href="https://visas.immigration.go.ug/" target="_blank" rel="noopener">
-          <span><span data-i18n="tools.pass">Apply for Passport</span><small data-i18n="tools.pass.s">Immigration</small></span> ▾
+          <span><span data-i18n="tools.pass">Apply for Passport</span><small data-i18n="tools.pass.s">Immigration</small></span>
+          <i aria-hidden="true">▾</i>
         </a>
         <a class="tool-chip" href="https://ursb.go.ug/" target="_blank" rel="noopener">
-          <span><span data-i18n="tools.biz">Register a Business</span><small data-i18n="tools.biz.s">URSB</small></span> ▾
+          <span><span data-i18n="tools.biz">Register a Business</span><small data-i18n="tools.biz.s">URSB</small></span>
+          <i aria-hidden="true">▾</i>
         </a>
         <a class="tool-chip" href="https://www.ura.go.ug/" target="_blank" rel="noopener">
-          <span><span data-i18n="tools.tax">Pay Taxes</span><small data-i18n="tools.tax.s">URA</small></span> ▾
+          <span><span data-i18n="tools.tax">Pay Taxes</span><small data-i18n="tools.tax.s">URA</small></span>
+          <i aria-hidden="true">▾</i>
         </a>
         <a class="tool-chip" href="https://www.nira.go.ug/" target="_blank" rel="noopener">
-          <span><span data-i18n="tools.id">NIRA / National ID</span><small data-i18n="tools.id.s">Identity</small></span> ▾
+          <span><span data-i18n="tools.id">NIRA / National ID</span><small data-i18n="tools.id.s">Identity</small></span>
+          <i aria-hidden="true">▾</i>
         </a>
         <a class="tool-chip" href="accreditation.html">
-          <span><span data-i18n="tools.press">Press Desk</span><small data-i18n="tools.press.s">Accreditation</small></span> ▾
+          <span><span data-i18n="tools.press">Press Desk</span><small data-i18n="tools.press.s">Accreditation</small></span>
+          <i aria-hidden="true">▾</i>
         </a>
       </div>
     </section>
@@ -113,13 +118,17 @@
               <p class="muted">UCDA confirms a 38% year-on-year increase. New processing facilities opened in Mbale and Mbarara.</p>
             </div>
           </a>
-          <a class="mosaic-card feature" href="articles/afcon.html">
-            <img src="img/hoima.png" alt="">
+          <a class="mosaic-card feature" href="articles/karamoja.html">
+            <div class="mosaic-photo">
+              <img src="img/hospital.jpg" alt="">
+              <div class="mosaic-tags">
+                <span class="tag red">Health</span>
+                <span class="tag gold">Relief</span>
+              </div>
+            </div>
             <div class="txt">
-              <span class="tag red">Education</span>
-              <span class="tag gold">AFCON</span>
-              <h3>LOC public update on TotalEnergies CAF AFCON PAMOJA 2027</h3>
-              <p class="muted">Nine months to kick-off. Akii-Bua, Hoima City and Mandela National Stadium on course for December 2026. Government has availed 100% of stadium funds.</p>
+              <h3>Government launches emergency food relief for Karamoja</h3>
+              <p class="muted">9.4 million kilograms of maize flour and dry beans will reach 313,987 households across 480 parishes, coordinated by the Office of the Prime Minister.</p>
             </div>
           </a>
           <div class="list-stack">
@@ -170,8 +179,8 @@
             <span data-i18n="cta.enter">Enter →</span>
           </a>
           <a class="explore-card" href="radio.html">
-            <h3>Radio</h3>
-            <p>The National Bulletin, Health Line, Eddoboozi ly’Abalimi and Kiswahili Leo.</p>
+            <h3>Radio &amp; Video</h3>
+            <p>Broadcast-grade briefings, b-roll and the daily news at six.</p>
             <span data-i18n="cta.enter">Enter →</span>
           </a>
           <a class="explore-card" href="accreditation.html">
@@ -249,40 +258,46 @@
           <h2 data-i18n="home.newsroom">The Newsroom</h2>
           <a class="btn-gold" href="news.html" data-i18n="cta.viewAll">View all</a>
         </div>
-        <div class="rail" data-rail>
-          <div class="section-head" style="margin:0 0 12px; justify-content:flex-end">
-            <div class="rail-nav">
-              <button class="rail-prev" type="button" aria-label="Previous">‹</button>
-              <button class="rail-next" type="button" aria-label="Next">›</button>
-            </div>
-          </div>
-          <div class="rail-track">
-            <a class="photo-story" href="articles/coffee.html">
-              <img src="img/agriculture.jpg" alt="">
-              <span class="tag gold" style="margin-top:12px;display:inline-block">Agriculture</span>
-              <h3>Coffee export earnings hit USD 1.4 billion</h3>
+        <div class="newsroom-grid">
+          <a class="photo-story" href="articles/coffee.html">
+            <img src="img/agriculture.jpg" alt="">
+            <span class="tag gold">Agriculture</span>
+            <h3>Coffee export earnings hit USD 1.4 billion — highest on record</h3>
+          </a>
+          <a class="photo-story" href="articles/ebola.html">
+            <img src="img/hospital.jpg" alt="">
+            <span class="tag gold">Health</span>
+            <h3>From Gulu to the region: how Uganda’s outbreak teams closed the chain</h3>
+          </a>
+          <aside class="newsroom-side">
+            <a href="news.html">
+              <img src="img/cma.jpg" alt="">
+              <div>
+                <h3>Capital Markets Authority marks 30 years, targets one million investors</h3>
+                <small>31 Aug 2026</small>
+              </div>
             </a>
-            <a class="photo-story" href="articles/ebola.html">
-              <img src="img/hospital.jpg" alt="">
-              <span class="tag gold" style="margin-top:12px;display:inline-block">Health</span>
-              <h3>From Gulu to the region: outbreak teams close the chain</h3>
-            </a>
-            <a class="photo-story" href="articles/afcon.html">
-              <img src="img/hoima.png" alt="">
-              <span class="tag gold" style="margin-top:12px;display:inline-block">AFCON</span>
-              <h3>Hoima gears up for AFCON PAMOJA 2027</h3>
-            </a>
-            <a class="photo-story" href="news.html">
-              <img src="img/rains.jpg" alt="">
-              <span class="tag gold" style="margin-top:12px;display:inline-block">Environment</span>
-              <h3>Heavy rains expected as second season takes off late</h3>
-            </a>
-            <a class="photo-story" href="news.html">
+            <a href="news.html">
               <img src="img/ict-2.jpg" alt="">
-              <span class="tag gold" style="margin-top:12px;display:inline-block">ICT</span>
-              <h3>Free public Wi-Fi expansion in 14 new towns</h3>
+              <div>
+                <h3>Free public Wi-Fi expansion launches in 14 new towns</h3>
+                <small>24 May 2026</small>
+              </div>
             </a>
-          </div>
+            <a href="news.html">
+              <img src="img/rains.jpg" alt="">
+              <div>
+                <h3>Heavy rains expected as second season takes off late</h3>
+                <small>31 Aug 2026</small>
+              </div>
+            </a>
+          </aside>
+        </div>
+        <div class="channels">
+          <a href="news.html">Web</a>
+          <a href="radio.html">Radio</a>
+          <a href="videos.html">Television</a>
+          <a href="news.html">Social</a>
         </div>
       </div>
     </section>
@@ -317,11 +332,11 @@
           <h2 data-i18n="home.onair">On air</h2>
         </div>
         <div class="progs">
-          <a class="prog" href="radio.html"><small>07:00</small><h3>The National Bulletin</h3></a>
-          <a class="prog" href="radio.html"><small>10:00</small><h3>Health Line Uganda</h3></a>
-          <a class="prog" href="radio.html"><small>05:30</small><h3>Eddoboozi ly’Abalimi</h3></a>
-          <a class="prog" href="radio.html"><small>18:00</small><h3>Kiswahili Leo</h3></a>
-          <a class="prog" href="radio.html"><small>20:00</small><h3>Citizen Line</h3></a>
+          <a class="prog" href="radio.html"><small>07:00</small><h3>The National Bulletin</h3><span>Daily · English</span></a>
+          <a class="prog" href="radio.html"><small>Daily</small><h3>Health Line Uganda</h3><span>Tue · 10:00</span></a>
+          <a class="prog" href="radio.html"><small>Luganda</small><h3>Eddoboozi ly’Abalimi</h3><span>05:30</span></a>
+          <a class="prog" href="radio.html"><small>Kiswahili</small><h3>Kiswahili Leo</h3><span>18:00</span></a>
+          <a class="prog" href="radio.html"><small>Weekly</small><h3>Citizen Line</h3><span>Wed · 20:00</span></a>
         </div>
       </div>
     </section>
