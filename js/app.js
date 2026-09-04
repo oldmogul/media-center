@@ -413,6 +413,10 @@
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll(".reveal, .section, .explore, .page-hero, .mosaic-card, .news-card, .min-card, .person, .video-card, .prog").forEach((el) => {
     el.classList.add("reveal");
+    if (el.getBoundingClientRect().height > window.innerHeight * 0.85) {
+      el.classList.add("in");
+      return;
+    }
     io.observe(el);
   });
 
