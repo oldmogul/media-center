@@ -1,18 +1,36 @@
-(function () {
-  const buttons = [...document.querySelectorAll("[data-chapter]")];
-  const eras = [...document.querySelectorAll(".era")];
-  if (!buttons.length || !eras.length) return;
+(async function () {
+  const host = document.getElementById("umc-off");
+  if (!host) return;
+  const shadow = host.attachShadow({ mode: "open" });
 
-  function setActive(id) {
-    buttons.forEach((b) => b.classList.toggle("active", b.getAttribute("data-chapter") === id));
+  const [css, html] = await Promise.all([
+    fetch("css/history-official.css").then((r) => r.text()),
+    fetch("partials/history-official.html").then((r) => r.text()),
+  ]);
+
+  shadow.innerHTML =
+    `<style>
+      :host { display: block; background: hsl(var(--background)); color: hsl(var(--foreground)); }
+      ${css}
+    </style>` + html;
+
+  const buttons = [...shadow.querySelectorAll('nav[aria-label="Timeline chapters"] button')];
+  const eras = [...shadow.querySelectorAll("[data-era-index]")];
+
+  function setActive(i) {
+    buttons.forEach((b, n) => {
+      const on = n === i;
+      b.style.borderColor = on ? "rgb(217, 0, 0)" : "";
+      b.classList.toggle("text-foreground", on);
+      b.classList.toggle("text-muted-foreground", !on);
+    });
   }
 
-  buttons.forEach((btn) => {
+  buttons.forEach((btn, i) => {
     btn.addEventListener("click", () => {
-      const id = btn.getAttribute("data-chapter");
-      const era = document.getElementById("era-" + id);
+      const era = shadow.getElementById("era-" + i);
       if (era) era.scrollIntoView({ behavior: "smooth", block: "start" });
-      setActive(id);
+      setActive(i);
     });
   });
 
@@ -22,9 +40,11 @@
         .filter((e) => e.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (!vis) return;
-      setActive(vis.target.getAttribute("data-era"));
+      const i = Number(vis.target.getAttribute("data-era-index"));
+      if (!Number.isNaN(i)) setActive(i);
     },
-    { rootMargin: "-35% 0px -45% 0px", threshold: [0.15, 0.4, 0.6] }
+    { root: null, rootMargin: "-30% 0px -50% 0px", threshold: [0.15, 0.4] }
   );
   eras.forEach((e) => io.observe(e));
+  setActive(0);
 })();
