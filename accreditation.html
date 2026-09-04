@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <title>Press Accreditation — Uganda Media Centre</title>
-  <meta name="description" content="Apply for press accreditation through Uganda Media Centre and the Media Council of Uganda.">
+  <meta name="description" content="Apply for press accreditation through Uganda Media Centre and the Media Council of Uganda. Eligibility, requirements, fees and procedure for local and foreign journalists.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="press" data-root=".">
+<body data-page="accreditation" data-root=".">
   <a class="skip" href="#main">Skip to main content</a>
   <div id="site-header"></div>
   <main id="main">
-    <section class="page-hero">
+    <div class="live-strip">
+      <div class="wrap">
+        <span class="live-flag-inline"><i></i> Accreditation</span>
+        <span>Media Council of Uganda · Communications House, Colville Street</span>
+      </div>
+    </div>
+
+    <section class="page-hero acc-hero">
       <div class="wrap">
         <a class="back-link" href="news.html">← Press Room</a>
         <div class="hero-split">
@@ -24,7 +31,7 @@
             <h1 data-i18n="acc.h1">Apply for press accreditation</h1>
             <p class="lede" data-i18n="acc.lede">For journalists, photographers and producers covering Government of Uganda activities.</p>
             <p class="hero-actions">
-              <a class="cta-mini" href="#apply">Apply online</a>
+              <a class="btn-gold" href="#apply">Apply online</a>
               <a class="btn-outline" href="#track">Track my application</a>
               <a class="btn-outline" href="https://shorturl.at/OfQSS" target="_blank" rel="noopener">Download Form G</a>
             </p>
@@ -38,86 +45,342 @@
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="wrap hero-split">
+
+    <section class="section" id="eligibility">
+      <div class="wrap acc-elig">
         <div>
           <p class="kicker-off">Eligibility</p>
-          <h2 class="off-h2" style="font-size:clamp(32px,5vw,52px)">Who may apply</h2>
+          <h2 class="off-h2">Who may apply</h2>
           <p class="lede">Accreditation is open to a broad range of media practitioners, both local and foreign.</p>
         </div>
-        <div class="elig-grid">
-          <div><span class="icon-bubble">☰</span> Journalists in media enterprises</div>
-          <div><span class="icon-bubble">☺</span> Freelance journalists</div>
-          <div><span class="icon-bubble">▣</span> Photojournalists</div>
-          <div><span class="icon-bubble">◎</span> Bloggers</div>
-          <div><span class="icon-bubble">▶</span> Camera operators</div>
-          <div><span class="icon-bubble">✎</span> Journalism &amp; communication students</div>
+        <div class="acc-elig-grid">
+          <article><span class="acc-ico" aria-hidden="true"></span><b>Journalists in media enterprises</b></article>
+          <article><span class="acc-ico acc-ico-user" aria-hidden="true"></span><b>Freelance journalists</b></article>
+          <article><span class="acc-ico acc-ico-cam" aria-hidden="true"></span><b>Photojournalists</b></article>
+          <article><span class="acc-ico acc-ico-globe" aria-hidden="true"></span><b>Bloggers</b></article>
+          <article><span class="acc-ico acc-ico-play" aria-hidden="true"></span><b>Camera operators</b></article>
+          <article><span class="acc-ico acc-ico-pen" aria-hidden="true"></span><b>Journalism &amp; communication students</b></article>
         </div>
       </div>
     </section>
-    <section class="section" style="padding-top:0">
-      <div class="wrap split">
-        <div>
-          <p class="kicker-off">Requirements &amp; Fees</p>
-          <h2 class="off-h2" style="font-size:clamp(28px,4vw,40px)">Two pathways. One standard.</h2>
-          <div class="prose">
-            <h3>Local Journalists &amp; Editors</h3>
-            <ul>
-              <li>Fully completed Media Council of Uganda registration form</li>
-              <li>Letter of introduction from the editor or employer</li>
-              <li>Copy of identity card issued by the employer</li>
-              <li>National Identity Card</li>
-              <li>Two colour passport-size photographs</li>
-              <li>Six (6) by-lined published works from the past 12 months</li>
-              <li>Proof of payment of registration fees</li>
-            </ul>
-            <h3>The procedure</h3>
+
+    <section class="section acc-req-sec" id="requirements">
+      <div class="wrap">
+        <div class="acc-req-head">
+          <div>
+            <p class="kicker-off">Requirements &amp; Fees</p>
+            <h2 class="off-h2">Two pathways. One standard.</h2>
           </div>
-          <div class="steps" style="margin-top:16px">
-            <div class="step"><div class="num">01</div><div><strong>Submit application</strong><p class="muted">Scan and email completed Form G with all attachments to emma@mediacentre.go.ug.</p></div></div>
-            <div class="step"><div class="num">02</div><div><strong>Document review</strong><p class="muted">The review team at Communications House verifies completeness.</p></div></div>
-            <div class="step"><div class="num">03</div><div><strong>Internal processing</strong><p class="muted">Administrative Secretary, Research Officer and Secretary review the file.</p></div></div>
-            <div class="step"><div class="num">04</div><div><strong>Vetting</strong><p class="muted">National Accreditation Committee, typically within seven working days.</p></div></div>
-            <div class="step"><div class="num">05</div><div><strong>Card issuance</strong><p class="muted">On approval, Form G is signed and your card is prepared for collection.</p></div></div>
-          </div>
-          <div class="panel" style="margin-top:22px">
-            <h3>Bank wire only</h3>
-            <div class="pay-grid">
-              <div><small>Account name</small><b>M/S Media Council</b></div>
-              <div><small>Bank</small><b>ABSA Bank (Uganda) Ltd</b></div>
-              <div><small>Account number</small><b>0341419662</b></div>
-              <div><small>SWIFT</small><b>BARCUGKX</b></div>
-            </div>
-            <p class="muted" style="margin-top:12px">Plot 16 Kampala Road. Cash, cheques and drafts are not accepted.</p>
+          <div class="acc-tabs" role="tablist" aria-label="Accreditation pathway">
+            <button type="button" role="tab" aria-selected="true" data-path-tab="local">Local journalists</button>
+            <button type="button" role="tab" aria-selected="false" data-path-tab="foreign">Foreign journalists</button>
           </div>
         </div>
-        <aside>
-          <form class="panel" id="apply" data-toast-key="acc.toast">
-            <h3 data-i18n="acc.form">Submit in four steps</h3>
-            <p class="muted">Choose your pathway, share applicant details and review. You’ll receive a reference number you can use to track the file.</p>
-            <label for="path" data-i18n="acc.path">Pathway</label>
-            <select id="path" required>
-              <option value="">Select…</option>
-              <option>Local journalist</option>
-              <option>Foreign journalist</option>
-            </select>
-            <label for="aname" data-i18n="contact.name">Full name</label>
-            <input id="aname" required>
-            <label for="aemail" data-i18n="contact.email">Email</label>
-            <input id="aemail" type="email" required>
-            <label for="media" data-i18n="acc.media">Media house</label>
-            <input id="media" required>
-            <label for="notes" data-i18n="acc.notes">Notes</label>
-            <textarea id="notes" style="min-height:90px"></textarea>
-            <button class="btn-gold" type="submit" data-i18n="cta.submit">Submit application</button>
-            <p class="muted">Documents stored privately. Only reviewers can read them.</p>
-          </form>
-          <form class="panel" id="track" style="margin-top:14px" data-toast="Status: received. The Secretariat will email you within seven working days.">
-            <h3>Where is my application?</h3>
+
+        <div class="acc-path on" data-path-panel="local">
+          <div class="acc-path-grid">
+            <div class="acc-check-card">
+              <p class="acc-mini">Local journalists &amp; editors</p>
+              <ul>
+                <li>Fully completed Media Council of Uganda registration form</li>
+                <li>Letter of introduction from the editor or employer</li>
+                <li>Copy of identity card issued by the employer</li>
+                <li>National Identity Card</li>
+                <li>Two colour passport-size photographs</li>
+                <li>Six (6) by-lined published works from the past 12 months</li>
+                <li>Proof of payment of registration fees</li>
+              </ul>
+            </div>
+            <aside class="acc-fee-card">
+              <p class="acc-mini acc-mini-gold">Statutory fees</p>
+              <p>Local-journalist accreditation fees are set by the Media Council of Uganda and are not published here. Write to <a href="mailto:emma@mediacentre.go.ug">emma@mediacentre.go.ug</a> for the current schedule.</p>
+              <p class="acc-source">Source · mediacentre.go.ug/accreditation</p>
+            </aside>
+          </div>
+        </div>
+
+        <div class="acc-path" data-path-panel="foreign" hidden>
+          <div class="acc-path-grid">
+            <div class="acc-check-card">
+              <p class="acc-mini">Foreign journalists</p>
+              <ul>
+                <li>Fully completed Media Council of Uganda Form G</li>
+                <li>Clearance letter / Certificate of good conduct from Interpol in country of origin (where no active Interpol office exists, a National Police certificate plus a cover letter from your embassy in Uganda)</li>
+                <li>Letter of introduction from your employer</li>
+                <li>Copy of identity card issued by employer</li>
+                <li>National Identity Card (where applicable)</li>
+                <li>Copy of passport — with visa page — valid for the term of accreditation</li>
+                <li>Two colour passport-size photographs</li>
+                <li>Visa / Work Permit (Special Pass) — apply online at visas.immigration.go.ug</li>
+                <li>Proof of payment of accreditation fees</li>
+              </ul>
+            </div>
+            <aside class="acc-fee-card acc-fee-dark">
+              <p class="acc-mini acc-mini-gold">Statutory fees · Stay length</p>
+              <ul class="acc-fees">
+                <li><span>Up to 30 days</span><b>USD 175</b></li>
+                <li><span>Beyond 30 days – up to 6 months</span><b>USD 225</b></li>
+                <li><span>Beyond 6 months – up to 2 years</span><b>USD 325</b></li>
+              </ul>
+              <p class="acc-source">Source · mediacentre.go.ug/accreditation</p>
+            </aside>
+          </div>
+          <div class="acc-extra">
+            <p class="acc-mini">Work portfolio · Form G section</p>
+            <div class="acc-extra-grid">
+              <article>
+                <h3>Online media</h3>
+                <p>Verifiable street address, phone &amp; email; at least 60% original news content; updated minimum 3 times a week; six (6) by-lined articles in the past 12 months.</p>
+              </article>
+              <article>
+                <h3>Independent production</h3>
+                <p>Provide a letter from a broadcast organisation or film distributor committing to air or distribute the work.</p>
+              </article>
+              <article>
+                <h3>Freelancers</h3>
+                <p>Provide an assignment letter from a specific news organisation or publication, plus six (6) by-lined articles published in the past 12 months.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section acc-proc-sec" id="procedure">
+      <div class="wrap acc-proc">
+        <div>
+          <p class="kicker-off">The procedure</p>
+          <h2 class="off-h2">From application to card.</h2>
+          <p class="lede">A five-step pathway managed by the Secretariat at Communications House, vetted by the National Accreditation Committee.</p>
+          <p class="acc-turnaround">Total turnaround · ≈ 7 working days</p>
+        </div>
+        <ol class="acc-steps">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Submit application</h3>
+              <p>Scan and email completed Form G with all attachments to <a href="mailto:emma@mediacentre.go.ug">emma@mediacentre.go.ug</a> — or use the online form below.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Document review</h3>
+              <p>The review team at Communications House verifies completeness and contacts you for any clarifications needed.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Internal processing</h3>
+              <p>Administrative Secretary, Research &amp; Documentation Officer and Secretary review the file in turn.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <h3>Vetting</h3>
+              <p>The National Accreditation Committee vets the application, typically within seven (7) working days.</p>
+            </div>
+          </li>
+          <li>
+            <span>05</span>
+            <div>
+              <h3>Card issuance</h3>
+              <p>On approval, the Secretary signs Form G and your accreditation card is prepared for collection.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section acc-apply-sec" id="apply">
+      <div class="wrap acc-apply">
+        <div>
+          <p class="kicker-off">Apply online</p>
+          <h2 class="off-h2">Submit in four steps.</h2>
+          <p class="lede">Choose your pathway, share applicant details, attach supporting documents and review. You’ll receive a reference number you can use to track the file.</p>
+          <p class="acc-turnaround">Documents stored privately. Only reviewers can read them.</p>
+        </div>
+        <form class="acc-wiz" id="acc-form">
+          <ol class="acc-wiz-rail" aria-label="Application steps">
+            <li class="on" data-rail="0"><i>1</i> Pathway</li>
+            <li data-rail="1"><i>2</i> Applicant</li>
+            <li data-rail="2"><i>3</i> Documents</li>
+            <li data-rail="3"><i>4</i> Review</li>
+          </ol>
+
+          <div class="acc-wiz-pane on" data-pane="0">
+            <div class="acc-choice">
+              <label class="acc-choice-card">
+                <input type="radio" name="pathway" value="local" required>
+                <span class="acc-mini">Local journalist</span>
+                <b>I work for a Ugandan outlet</b>
+                <p>Routes you to the Media Council registration desk.</p>
+              </label>
+              <label class="acc-choice-card">
+                <input type="radio" name="pathway" value="foreign">
+                <span class="acc-mini">Foreign journalist</span>
+                <b>I am visiting Uganda for media work</b>
+                <p>Triggers the Form G review pathway and visa verification.</p>
+              </label>
+            </div>
+          </div>
+
+          <div class="acc-wiz-pane" data-pane="1" hidden>
+            <div class="form-row">
+              <p>
+                <label for="aname">Full name</label>
+                <input id="aname" name="name" autocomplete="name" required>
+              </p>
+              <p>
+                <label for="aemail">Email</label>
+                <input id="aemail" name="email" type="email" autocomplete="email" required>
+              </p>
+            </div>
+            <div class="form-row">
+              <p>
+                <label for="media">Media house</label>
+                <input id="media" name="media" required>
+              </p>
+              <p>
+                <label for="role">Role</label>
+                <select id="role" name="role">
+                  <option>Journalist</option>
+                  <option>Editor</option>
+                  <option>Photojournalist</option>
+                  <option>Producer</option>
+                  <option>Camera operator</option>
+                  <option>Blogger</option>
+                  <option>Student</option>
+                </select>
+              </p>
+            </div>
+            <p>
+              <label for="notes">Assignment / notes</label>
+              <textarea id="notes" name="notes" placeholder="What will you cover in Uganda?"></textarea>
+            </p>
+          </div>
+
+          <div class="acc-wiz-pane" data-pane="2" hidden>
+            <p class="muted" data-docs-intro>Tick each item you will attach. Files stay on this device until you submit.</p>
+            <div class="acc-docs" data-docs-local>
+              <label><input type="checkbox"> Media Council registration form</label>
+              <label><input type="checkbox"> Letter of introduction</label>
+              <label><input type="checkbox"> Employer identity card</label>
+              <label><input type="checkbox"> National Identity Card</label>
+              <label><input type="checkbox"> Two passport photographs</label>
+              <label><input type="checkbox"> Six by-lined works (12 months)</label>
+              <label><input type="checkbox"> Proof of payment</label>
+            </div>
+            <div class="acc-docs" data-docs-foreign hidden>
+              <label><input type="checkbox"> Form G</label>
+              <label><input type="checkbox"> Interpol / police clearance</label>
+              <label><input type="checkbox"> Employer introduction letter</label>
+              <label><input type="checkbox"> Passport with visa page</label>
+              <label><input type="checkbox"> Two passport photographs</label>
+              <label><input type="checkbox"> Visa / Special Pass</label>
+              <label><input type="checkbox"> Proof of payment</label>
+            </div>
+            <p>
+              <label for="bundle">Upload a zip or PDF bundle (optional)</label>
+              <input id="bundle" name="bundle" type="file" accept=".pdf,.zip,.jpg,.jpeg,.png">
+            </p>
+          </div>
+
+          <div class="acc-wiz-pane" data-pane="3" hidden>
+            <div class="acc-review" data-review></div>
+            <p class="muted">By submitting you confirm the information is true and that the Media Council may refuse or revoke accreditation.</p>
+          </div>
+
+          <div class="acc-wiz-nav">
+            <button class="btn-outline" type="button" data-wiz-back disabled>Back</button>
+            <button class="btn-gold" type="button" data-wiz-next>Continue</button>
+            <button class="btn-gold" type="submit" data-wiz-submit hidden>Submit application</button>
+          </div>
+          <div class="acc-success" data-success hidden>
+            <p class="acc-mini acc-mini-gold">Queued</p>
+            <h3>Application received</h3>
+            <p>Your reference is <b data-ref></b>. Keep it — you’ll need it to track the file. The Secretariat will email you within one working day.</p>
+            <p class="hero-actions">
+              <a class="btn-gold" href="#track">Track this file</a>
+              <button class="btn-outline" type="button" data-wiz-again>Start another</button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section acc-track-sec" id="track">
+      <div class="wrap acc-track">
+        <div>
+          <p class="kicker-off">Track status</p>
+          <h2 class="off-h2">Where is my application?</h2>
+          <p class="lede">Enter the reference number and the email used on the application to see notes from the Secretariat.</p>
+        </div>
+        <form class="acc-track-form" data-toast="Status: received. The Secretariat will email you within seven working days.">
+          <p>
             <label for="ref">Reference number</label>
-            <input id="ref" required placeholder="UMC-ACC-2026-…">
-            <button class="btn-outline" type="submit">Check status</button>
-          </form>
+            <input id="ref" name="ref" required placeholder="UMC-AC-YYYYMMDD-XXXXXX">
+          </p>
+          <p>
+            <label for="remail">Email used on application</label>
+            <input id="remail" name="remail" type="email" required>
+          </p>
+          <button class="btn-gold" type="submit">Check status</button>
+          <p class="muted">For privacy, both the reference and the email are required.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="acc-dark" id="payment">
+      <div class="wrap acc-dark-grid">
+        <div>
+          <p class="kicker-off">Payment details</p>
+          <h2>Bank wire only</h2>
+          <p>The Media Council does not accept cash, cheques or bank drafts. All fees must be wired to the official account below.</p>
+          <dl class="acc-bank">
+            <div><dt>Account name</dt><dd>M/S Media Council <button type="button" class="acc-copy" data-copy="M/S Media Council">Copy</button></dd></div>
+            <div><dt>Bank</dt><dd>ABSA Bank (Uganda) Ltd</dd></div>
+            <div><dt>Account number</dt><dd>0341419662 <button type="button" class="acc-copy" data-copy="0341419662">Copy</button></dd></div>
+            <div><dt>SWIFT</dt><dd>BARCUGKX</dd></div>
+            <div><dt>Branch</dt><dd>Plot No. 16, Kampala Road, Kampala</dd></div>
+          </dl>
+        </div>
+        <div>
+          <p class="kicker-off">Contacts</p>
+          <h2>Reach the Secretariat</h2>
+          <div class="acc-people">
+            <article>
+              <p class="acc-mini">Address</p>
+              <h3>Media Council of Uganda</h3>
+              <p>Communications House<br>Plot No. 1, Colville Street<br>Kampala, Uganda</p>
+            </article>
+            <article>
+              <p class="acc-mini">Secretary</p>
+              <h3>Kyetume Kasanga</h3>
+              <p><a href="tel:+256772516456">+256 772 516 456</a><br><a href="mailto:secretary@mediacouncil.go.ug">secretary@mediacouncil.go.ug</a></p>
+            </article>
+            <article>
+              <p class="acc-mini">Card collection</p>
+              <h3>Lillian</h3>
+              <p><a href="tel:+256772491335">+256 772 491 335</a></p>
+            </article>
+            <article>
+              <p class="acc-mini">Working hours</p>
+              <h3>Monday – Friday</h3>
+              <p>8:00 – 12:45 &amp; 14:00 – 17:00<br>Saturday &amp; Sunday · Closed</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section acc-notice-sec">
+      <div class="wrap">
+        <aside class="acc-notice">
+          <h3>Important notice</h3>
+          <p>The Media Council of Uganda reserves the right to refuse or revoke accreditation at any time. Publications which are communications outreach or advocacy publications of non-governmental or non-profit organisations do not qualify for media accreditation. Foreign work permits must clearly indicate that the applicant is coming to Uganda to do media work.</p>
         </aside>
       </div>
     </section>
@@ -125,5 +388,6 @@
   <div id="site-footer"></div>
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/accreditation.js"></script>
 </body>
 </html>
