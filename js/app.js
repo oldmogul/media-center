@@ -54,6 +54,7 @@
     lang = next;
     localStorage.setItem("umc-lang", lang);
     applyI18n();
+    document.dispatchEvent(new CustomEvent("umc:lang", { detail: { lang } }));
     if (toast) {
       const el = document.getElementById("toast");
       if (el) {
@@ -120,9 +121,9 @@
               return `<div class="drop">
                 <a href="${root}/${h}" class="${aboutOn ? "active" : ""}" data-i18n="${key}"></a>
                 <div class="drop-menu">
-                  <a href="${root}/about.html">About Media Centre</a>
-                  <a href="${root}/team.html">Our Team</a>
-                  <a href="${root}/history.html">Ugandan History</a>
+                  <a href="${root}/about.html" data-i18n="nav.about.centre">About Media Centre</a>
+                  <a href="${root}/team.html" data-i18n="nav.about.team">Our Team</a>
+                  <a href="${root}/history.html" data-i18n="nav.about.history">Ugandan History</a>
                 </div>
               </div>`;
             }
@@ -190,7 +191,7 @@
             <li><a href="${root}/languages.html" data-i18n="footer.languages"></a></li>
             <li><a href="${root}/radio.html" data-i18n="nav.radio"></a></li>
             <li><a href="${root}/engagement.html" data-i18n="nav.engagement"></a></li>
-            <li><a href="${root}/history.html">Ugandan History</a></li>
+            <li><a href="${root}/history.html" data-i18n="footer.history">Ugandan History</a></li>
           </ul>
         </div>
         <div>
@@ -235,6 +236,8 @@
   });
 
   applyI18n();
+  window.UMC = { t, applyI18n, getLang: () => lang, setLang };
+  document.dispatchEvent(new CustomEvent("umc:lang", { detail: { lang } }));
 
   const burger = document.getElementById("burger");
   const navEl = document.getElementById("nav");

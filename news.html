@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <title>Press Room — Uganda Media Centre</title>
   <meta name="description" content="Live press briefings from Uganda Media Centre on YouTube, plus official releases and social channels.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="press" data-root=".">
-  <a class="skip" href="#main">Skip to main content</a>
+<body data-page="press" data-root="." data-title-key="news.h1">
+  <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
   <div id="site-header"></div>
   <main id="main">
     <div class="live-strip" id="press-strip">
@@ -25,13 +25,13 @@
 
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker-off">Press Room</p>
-        <h1>Press releases &amp; briefings</h1>
-        <p class="lede">Live from the official Uganda Media Centre desk. Watch on YouTube, Facebook, X and Instagram — then read every release on the record.</p>
+        <p class="kicker-off" data-i18n="press.hero.k">Press Room</p>
+        <h1 data-i18n="news.h1">Press releases &amp; briefings</h1>
+        <p class="lede" data-i18n="news.lede">Live from the official Uganda Media Centre desk. Watch on YouTube, Facebook, X and Instagram — then read every release on the record.</p>
         <p class="hero-actions">
-          <a class="btn-gold" href="#live">Watch live</a>
-          <a class="btn-outline" href="#releases">Browse releases</a>
-          <a class="btn-outline" href="accreditation.html">Press accreditation</a>
+          <a class="btn-gold" href="#live" data-i18n="press.watch">Watch live</a>
+          <a class="btn-outline" href="#releases" data-i18n="press.browse">Browse releases</a>
+          <a class="btn-outline" href="accreditation.html" data-i18n="cta.accredit">Press accreditation</a>
         </p>
       </div>
     </section>

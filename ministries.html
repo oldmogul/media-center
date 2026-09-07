@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <title>Ministries — Uganda Media Centre</title>
   <meta name="description" content="Directory of every Government of Uganda ministry, with website, email and phone.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="ministries" data-root=".">
-  <a class="skip" href="#main">Skip to main content</a>
+<body data-page="ministries" data-root="." data-title-key="min.h1">
+  <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
   <div id="site-header"></div>
   <main id="main">
     <section class="page-hero min-hero">
       <img class="arms" src="img/coat-of-arms.png" alt="">
       <div class="wrap">
-        <p class="kicker-off">All ministries</p>
+        <p class="kicker-off" data-i18n="min.kicker">All ministries</p>
         <h1 data-i18n="min.h1">Ministries of the Republic</h1>
-        <p class="lede">Every ministry in one place — mandate, leadership, website, email and phone.</p>
+        <p class="lede" data-i18n="min.lede.full">Every ministry in one place — mandate, leadership, website, email and phone.</p>
         <div class="min-count"><b>29</b><span>Active ministries</span></div>
       </div>
     </section>
@@ -28,7 +28,7 @@
     <section class="section" style="padding-top:22px">
       <div class="wrap">
         <div class="min-tools">
-          <input type="search" data-min-search placeholder="Search ministry, minister, email or phone…">
+          <input type="search" data-min-search data-i18n-placeholder="min.search" placeholder="Search ministry, minister, email or phone…">
           <div class="filters" data-min-filters>
             <button class="filter active" data-filter="all">All sectors</button>
             <button class="filter" data-filter="communications">Communications</button>

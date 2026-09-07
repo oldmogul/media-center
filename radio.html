@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <title>Radio — Uganda Media Centre</title>
   <meta name="description" content="Live press briefings, upcoming programmes and previous podcasts from Uganda Media Centre Radio — English, Luganda and Kiswahili.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="radio" data-root=".">
-  <a class="skip" href="#main">Skip to main content</a>
+<body data-page="radio" data-root="." data-title-key="radio.hero.h1">
+  <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
   <div id="site-header"></div>
   <main id="main">
     <div class="live-strip">
@@ -26,9 +26,9 @@
     <section class="radio-hero">
       <img class="arms" src="img/coat-of-arms.png" alt="">
       <div class="wrap">
-        <p class="kicker-off">Government Radio</p>
-        <h1>Live from the Media Centre</h1>
-        <p class="lede">Press briefings, government shows and on-demand podcasts — live, upcoming and previous sessions in English, Luganda and Kiswahili.</p>
+        <p class="kicker-off" data-i18n="radio.hero.k">Government Radio</p>
+        <h1 data-i18n="radio.hero.h1">Live from the Media Centre</h1>
+        <p class="lede" data-i18n="radio.hero.lede">Press briefings, government shows and on-demand podcasts — live, upcoming and previous sessions in English, Luganda and Kiswahili.</p>
 
         <article class="radio-player" id="live-stage">
           <div class="radio-art">
