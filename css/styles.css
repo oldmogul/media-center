@@ -539,7 +539,7 @@ textarea { min-height: 140px; resize: vertical; }
 }
 
 /* Ministries directory */
-.min-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.min-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .min-card {
   background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 16px;
   min-height: 150px;
@@ -921,13 +921,58 @@ body:not([data-page="home"]) .lede { font-size: 18px; color: #4a4a52; }
 .min-hero .arms {
   position: absolute; right: 0; top: -20px; width: 420px; opacity: .08; pointer-events: none;
 }
-.min-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 18px 0 8px; }
-.min-tools input {
-  width: min(380px, 100%); border-radius: 999px; padding: 12px 16px;
+body[data-page="ministries"] .wrap { width: min(1320px, calc(100% - 48px)); }
+.min-bar {
+  position: sticky; top: 78px; z-index: 20;
+  background: rgba(249, 249, 246, .95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
 }
-.min-tools .filters { margin-bottom: 0; margin-left: auto; }
-@media (min-width: 1100px) {
+.min-dir { padding-top: 8px; }
+.min-tools {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 16px;
+  margin: 0;
+}
+.min-search {
+  position: relative; flex: 0 1 28rem; width: 100%; max-width: 28rem; display: block;
+}
+.min-search-ico {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  color: var(--muted); display: grid; place-items: center; pointer-events: none;
+}
+.min-tools input {
+  width: 100%; height: 42px; border: 1px solid #e0e0e0; background: #fff;
+  border-radius: 12px; padding: 10px 16px 10px 40px; font-size: 14px;
+}
+.min-tools input:focus {
+  outline: none; border-color: rgba(21,21,25,.35);
+  box-shadow: 0 0 0 3px rgba(21,21,25,.12);
+}
+.min-tools .filters {
+  margin: 0; flex: 1 1 auto; justify-content: flex-end;
+  gap: 6px; flex-wrap: wrap;
+}
+@media (min-width: 1280px) {
   .min-tools { flex-wrap: nowrap; }
+  .min-tools .filters { flex-wrap: nowrap; flex: 0 1 auto; }
+}
+body[data-page="ministries"] .filter {
+  text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 12px;
+  padding: 6px 12px; line-height: 1.2; background: transparent;
+  color: rgba(21,21,25,.7); border: 1px solid #e0e0e0;
+}
+body[data-page="ministries"] .filter:hover {
+  background: transparent; color: var(--ink); border-color: rgba(21,21,25,.4);
+}
+body[data-page="ministries"] .filter.active,
+body[data-page="ministries"] .filter.active:hover {
+  background: #151519; color: #f9f9f6; border-color: #151519;
+}
+.min-showing {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted); margin: 18px 0 16px;
 }
 .chat-shell {
   background: #111114; color: #fff; border-radius: 16px; overflow: hidden;
@@ -938,6 +983,9 @@ body:not([data-page="home"]) .lede { font-size: 18px; color: #4a4a52; }
 @media (max-width: 1024px) {
   .hero-split, .mission-grid, .elig-grid, .player-card { grid-template-columns: 1fr; }
   .min-hero .arms { display: none; }
+  .min-tools { flex-direction: column; align-items: stretch; }
+  .min-search { max-width: none; flex: none; }
+  .min-tools .filters { justify-content: flex-start; }
 }
 
 @media (max-width: 1024px) {
@@ -986,9 +1034,11 @@ body:not([data-page="home"]) .lede { font-size: 18px; color: #4a4a52; }
   .eng-tabs { overflow-x: auto; flex-wrap: nowrap; }
   .eng-tabs button { flex: 0 0 auto; }
   .chat-top, .chat-input { flex-direction: column; align-items: stretch; }
-  .min-tools { flex-direction: column; align-items: stretch; }
+  .min-bar { top: 62px; padding: 14px 0; }
+  .min-tools { flex-direction: column; align-items: stretch; flex-wrap: wrap; }
+  .min-search { max-width: none; flex: none; }
   .min-tools input { width: 100%; }
-  .min-tools .filters { margin-left: 0; }
+  .min-tools .filters { margin-left: 0; justify-content: flex-start; flex-wrap: wrap; }
   .hist-hero { padding: 40px 0 28px; }
   .hist-hero .sun { width: 120px; height: 120px; right: 8%; top: 18%; }
   .radio-hero { padding: 36px 0 28px; }
@@ -1045,12 +1095,20 @@ body:not([data-page="home"]) .lede { font-size: 18px; color: #4a4a52; }
 .min-card[data-cat="social"]::before { background: #3b82f6; }
 .min-card[data-cat="governance"]::before { background: #64748b; }
 .min-card[data-cat="infrastructure"]::before { background: #14b8a6; }
-.min-card .arms-sm { width: 36px; height: 36px; object-fit: contain; margin-bottom: 10px; }
+.min-card .arms-sm { width: 48px; height: 48px; object-fit: contain; margin-bottom: 12px; }
+.min-card h3 { font-size: 22px; font-weight: 500; letter-spacing: -.02em; margin: 4px 0 6px; line-height: 1.2; }
 .min-card .badge {
   position: absolute; top: 16px; right: 14px;
   font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
-  background: #f3f3ef; color: var(--muted); border-radius: 999px; padding: 4px 8px; font-weight: 800;
+  border-radius: 999px; padding: 4px 8px; font-weight: 700;
 }
+.min-card[data-cat="communications"] .badge { background: #ede9fe; color: #6d28d9; }
+.min-card[data-cat="regional"] .badge { background: #dcfce7; color: #15803d; }
+.min-card[data-cat="economic"] .badge { background: #fef9c3; color: #a16207; }
+.min-card[data-cat="security"] .badge { background: #fee2e2; color: #b91c1c; }
+.min-card[data-cat="social"] .badge { background: #dbeafe; color: #1d4ed8; }
+.min-card[data-cat="governance"] .badge { background: #e2e8f0; color: #475569; }
+.min-card[data-cat="infrastructure"] .badge { background: #ccfbf1; color: #0f766e; }
 .min-card p.mandate { color: var(--ink-2); font-size: 13px; margin-top: 8px; line-height: 1.45; }
 .min-contact { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .min-contact a {

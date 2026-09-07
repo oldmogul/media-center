@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <title>Ministries — Uganda Media Centre</title>
-  <meta name="description" content="Directory of every Government of Uganda ministry, with website, email and phone.">
+  <meta name="description" content="Directory of every Government of Uganda ministry, with mandate, leadership, live announcements and direct press-desk contact.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -20,27 +20,36 @@
       <div class="wrap">
         <p class="kicker-off" data-i18n="min.kicker">All ministries</p>
         <h1 data-i18n="min.h1">Ministries of the Republic</h1>
-        <p class="lede" data-i18n="min.lede.full">Every ministry in one place — mandate, leadership, website, email and phone.</p>
+        <p class="lede" data-i18n="min.lede">Every ministry in one place. Mandates, leadership, latest announcements and how to get in touch.</p>
         <div class="min-count"><b>29</b><span>Active ministries</span></div>
       </div>
     </section>
     <div class="flag-rule"></div>
-    <section class="section" style="padding-top:22px">
+    <section class="min-bar">
       <div class="wrap">
         <div class="min-tools">
-          <input type="search" data-min-search data-i18n-placeholder="min.search" placeholder="Search ministry, minister, email or phone…">
+          <label class="min-search">
+            <span class="min-search-ico" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </span>
+            <input type="search" data-min-search data-i18n-placeholder="min.search" data-i18n-aria="min.search" placeholder="Search ministry or minister…" aria-label="Search ministry or minister…">
+          </label>
           <div class="filters" data-min-filters>
-            <button class="filter active" data-filter="all">All sectors</button>
-            <button class="filter" data-filter="communications">Communications</button>
-            <button class="filter" data-filter="economic">Economic</button>
-            <button class="filter" data-filter="governance">Governance</button>
-            <button class="filter" data-filter="infrastructure">Infrastructure</button>
-            <button class="filter" data-filter="regional">Regional</button>
-            <button class="filter" data-filter="security">Security</button>
-            <button class="filter" data-filter="social">Social Services</button>
+            <button class="filter active" type="button" data-filter="all">All sectors</button>
+            <button class="filter" type="button" data-filter="communications">Communications</button>
+            <button class="filter" type="button" data-filter="economic">Economic</button>
+            <button class="filter" type="button" data-filter="governance">Governance</button>
+            <button class="filter" type="button" data-filter="infrastructure">Infrastructure</button>
+            <button class="filter" type="button" data-filter="regional">Regional</button>
+            <button class="filter" type="button" data-filter="security">Security</button>
+            <button class="filter" type="button" data-filter="social">Social Services</button>
           </div>
         </div>
-        <p class="muted" style="margin:12px 0 18px">Showing <span data-min-count>29</span> · Website · Email · Phone</p>
+      </div>
+    </section>
+    <section class="section min-dir">
+      <div class="wrap">
+        <p class="min-showing">Showing <span data-min-count>29</span></p>
         <div class="min-grid">
 
           <article class="min-card" data-cat="communications" data-id="kiswahili">
@@ -48,12 +57,6 @@
             <h3>Dawati La Kiswahili</h3>
             <p class="muted">Coordinator's Office</p>
             <p class="mandate">To coordinate the promotion and use of Kiswahili as an official language across government communication.</p>
-            <div class="min-contact">
-              <a class="web" href="languages.html">Desk</a>
-              <a class="mail" href="mailto:kiswahili@mediacentre.go.ug">Email</a>
-              <a class="tel" href="tel:+256414237141">+256 414 237 141</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="regional" data-id="kcca">
@@ -61,12 +64,6 @@
             <h3>Kampala Capital City Authority</h3>
             <p class="muted">Hon. Hajat Minsa Kabanda</p>
             <p class="mandate">To govern and manage the affairs of Kampala Capital City on behalf of the Central Government.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.kcca.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@kcca.go.ug">Email</a>
-              <a class="tel" href="tel:+256204660000">+256 204 660 000</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="regional" data-id="karamoja">
@@ -74,12 +71,6 @@
             <h3>Ministry for Karamoja Affairs</h3>
             <p class="muted">Hon. Davinia Anyakun</p>
             <p class="mandate">To coordinate the implementation of government programmes and development interventions in the Karamoja sub-region.</p>
-            <div class="min-contact">
-              <a class="web" href="https://opm.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:ps@opm.go.ug">Email</a>
-              <a class="tel" href="tel:+256417770500">+256 417 770 500</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="regional" data-id="northern">
@@ -87,12 +78,6 @@
             <h3>Ministry for Northern Uganda</h3>
             <p class="muted">Beatrice Okori Akello</p>
             <p class="mandate">To coordinate recovery, peace and development programmes in Northern Uganda.</p>
-            <div class="min-contact">
-              <a class="web" href="https://opm.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:ps@opm.go.ug">Email</a>
-              <a class="tel" href="tel:+256471432197">+256 471 432 197</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="economic" data-id="agriculture">
@@ -100,12 +85,6 @@
             <h3>Ministry of Agriculture, Animal Industry &amp; Fisheries</h3>
             <p class="muted">Hon. Frank Tumwebaze</p>
             <p class="mandate">To transform subsistence agriculture into commercial agriculture for food security, employment and exports.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.agriculture.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@agriculture.go.ug">Email</a>
-              <a class="tel" href="tel:+256414320006">+256 414 320 006</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="security" data-id="defence">
@@ -113,12 +92,6 @@
             <h3>Ministry of Defence and Veteran Affairs</h3>
             <p class="muted">Hon. Kiryowa Kiwanuka</p>
             <p class="mandate">To defend and protect the sovereignty and territorial integrity of Uganda.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.defence.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@defence.go.ug">Email</a>
-              <a class="tel" href="tel:+256414356000">+256 414 356 000</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="security" data-id="disaster">
@@ -126,12 +99,6 @@
             <h3>Ministry of Disaster Preparedness</h3>
             <p class="muted">Hon. Sam Engola</p>
             <p class="mandate">To prepare for, respond to and mitigate disasters, and coordinate humanitarian relief.</p>
-            <div class="min-contact">
-              <a class="web" href="https://opm.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:ps@opm.go.ug">Email</a>
-              <a class="tel" href="tel:0800177777">0800 177 777</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="regional" data-id="eac">
@@ -139,12 +106,6 @@
             <h3>Ministry of East African Community Affairs</h3>
             <p class="muted">Hon. Rebecca Kadaga</p>
             <p class="mandate">To coordinate Uganda’s participation in the East African Community integration agenda.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.meaca.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@meaca.go.ug">Email</a>
-              <a class="tel" href="tel:+256414348177">+256 414 348 177</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="social" data-id="education">
@@ -152,12 +113,6 @@
             <h3>Ministry of Education and Sports</h3>
             <p class="muted">Hon. Janet K. Museveni</p>
             <p class="mandate">To provide, support, guide and regulate quality education, training and sports.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.education.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@education.go.ug">Email</a>
-              <a class="tel" href="tel:+256414234451">+256 414 234 451</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="economic" data-id="energy">
@@ -165,12 +120,6 @@
             <h3>Ministry of Energy and Mineral Development</h3>
             <p class="muted">Hon. Dr. Monica Musenero Masanza</p>
             <p class="mandate">To establish, promote and sustainably manage energy and mineral resources.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.energyandminerals.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@energy.go.ug">Email</a>
-              <a class="tel" href="tel:+256414349342">+256 414 349 342</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="economic" data-id="finance">
@@ -178,12 +127,6 @@
             <h3>Ministry of Finance, Planning &amp; Economic Development</h3>
             <p class="muted">Hon. Henry Musasizi</p>
             <p class="mandate">To formulate sound economic and fiscal policies and mobilise public resources.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.finance.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@finance.go.ug">Email</a>
-              <a class="tel" href="tel:+256414707000">+256 414 707 000</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="governance" data-id="foreign">
@@ -191,12 +134,6 @@
             <h3>Ministry of Foreign Affairs</h3>
             <p class="muted">Hon. Adonia Ayebare</p>
             <p class="mandate">To promote and protect Uganda’s national interests abroad.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.mofa.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@mofa.go.ug">Email</a>
-              <a class="tel" href="tel:+256414345661">+256 414 345 661</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="social" data-id="gender">
@@ -204,12 +141,6 @@
             <h3>Ministry of Gender, Labour &amp; Social Development</h3>
             <p class="muted">Hon. Lt. Gen. Henry Tumukunde Kakurugu</p>
             <p class="mandate">To promote gender equality, social protection and labour productivity.</p>
-            <div class="min-contact">
-              <a class="web" href="https://mglsd.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:ps@mglsd.go.ug">Email</a>
-              <a class="tel" href="tel:+256414347854">+256 414 347 854</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="social" data-id="health">
@@ -217,12 +148,6 @@
             <h3>Ministry of Health</h3>
             <p class="muted">Hon. Chris Baryomunsi</p>
             <p class="mandate">To provide the highest possible level of health services to all people in Uganda.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.health.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@health.go.ug">Email</a>
-              <a class="tel" href="tel:+256414340872">+256 414 340 872</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="infrastructure" data-id="ict">
@@ -230,12 +155,6 @@
             <h3>Ministry of ICT and National Guidance</h3>
             <p class="muted">Hon. Justine Kasule Lumumba</p>
             <p class="mandate">To provide strategic and technical leadership on ICT and national guidance.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.ict.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@ict.go.ug">Email</a>
-              <a class="tel" href="tel:+256414237141">+256 414 237 141</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="security" data-id="internal">
@@ -243,12 +162,6 @@
             <h3>Ministry of Internal Affairs</h3>
             <p class="muted">Hon. Prof. Ephraim Kamuntu</p>
             <p class="mandate">To secure life and property through coordinated internal security and immigration control.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.mia.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@mia.go.ug">Email</a>
-              <a class="tel" href="tel:+256414231745">+256 414 231 745</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="governance" data-id="justice">
@@ -256,12 +169,6 @@
             <h3>Ministry of Justice &amp; Constitutional Affairs</h3>
             <p class="muted">Hon. Norbert Mao</p>
             <p class="mandate">To provide legal advisory services to government and ensure access to justice.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.justice.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@justice.go.ug">Email</a>
-              <a class="tel" href="tel:+256414230537">+256 414 230 537</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="infrastructure" data-id="lands">
@@ -269,12 +176,6 @@
             <h3>Ministry of Lands, Housing &amp; Urban Development</h3>
             <p class="muted">Hon. Judith Nabakooba</p>
             <p class="mandate">To ensure rational and sustainable use and orderly urban development.</p>
-            <div class="min-contact">
-              <a class="web" href="https://mlhud.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@mlhud.go.ug">Email</a>
-              <a class="tel" href="tel:+256414373511">+256 414 373 511</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="governance" data-id="local">
@@ -282,12 +183,6 @@
             <h3>Ministry of Local Government</h3>
             <p class="muted">Hon. Balaam Barugahara Ateenyi</p>
             <p class="mandate">To guide, harmonise, mentor and advocate for all local governments.</p>
-            <div class="min-contact">
-              <a class="web" href="https://molg.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@molg.go.ug">Email</a>
-              <a class="tel" href="tel:+256414341226">+256 414 341 226</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="governance" data-id="public">
@@ -295,12 +190,6 @@
             <h3>Ministry of Public Service</h3>
             <p class="muted">General Edward Katumba Wamala</p>
             <p class="mandate">To develop and manage a public service that is efficient, effective and accountable.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.publicservice.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:ps@publicservice.go.ug">Email</a>
-              <a class="tel" href="tel:+256414250534">+256 414 250 534</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="social" data-id="refugees">
@@ -308,12 +197,6 @@
             <h3>Ministry of Refugees &amp; OPM Refugees Dept.</h3>
             <p class="muted">Hon. Hilary Onek</p>
             <p class="mandate">To coordinate refugee protection, settlement and integration.</p>
-            <div class="min-contact">
-              <a class="web" href="https://opm.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:ps@opm.go.ug">Email</a>
-              <a class="tel" href="tel:+256414254252">+256 414 254 252</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="infrastructure" data-id="science">
@@ -321,12 +204,6 @@
             <h3>Ministry of Science, Technology &amp; Innovation</h3>
             <p class="muted">Hon. Eng. Jonard Asiimwe Akiiki</p>
             <p class="mandate">To lead innovation and value addition in scientific research.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.sti.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@sti.go.ug">Email</a>
-              <a class="tel" href="tel:+256414250499">+256 414 250 499</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="economic" data-id="tourism">
@@ -334,12 +211,6 @@
             <h3>Ministry of Tourism, Wildlife and Antiquities</h3>
             <p class="muted">Hon. Tom Butime</p>
             <p class="mandate">To promote sustainable tourism, wildlife conservation and heritage preservation.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.tourism.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@tourism.go.ug">Email</a>
-              <a class="tel" href="tel:+256414561700">+256 414 561 700</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="economic" data-id="trade">
@@ -347,12 +218,6 @@
             <h3>Ministry of Trade, Industry &amp; Cooperatives</h3>
             <p class="muted">Hon. Sanjay Tana</p>
             <p class="mandate">To develop and promote a competitive and export-led private sector.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.mtic.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@mtic.go.ug">Email</a>
-              <a class="tel" href="tel:+256312324000">+256 312 324 000</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="infrastructure" data-id="water">
@@ -360,12 +225,6 @@
             <h3>Ministry of Water and Environment</h3>
             <p class="muted">Hon. Maj. Gen. (Rtd.) Kahinda Otafiire</p>
             <p class="mandate">To promote rational and sustainable use of water and environment resources.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.mwe.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:mwe@mwe.go.ug">Email</a>
-              <a class="tel" href="tel:+256414505942">+256 414 505 942</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="infrastructure" data-id="works">
@@ -373,12 +232,6 @@
             <h3>Ministry of Works and Transport</h3>
             <p class="muted">Hon. Fred Byamukama</p>
             <p class="mandate">To plan, develop and maintain economic transport infrastructure and services.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.works.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@works.go.ug">Email</a>
-              <a class="tel" href="tel:+256414320101">+256 414 320 101</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="governance" data-id="president">
@@ -386,12 +239,6 @@
             <h3>Office of the President</h3>
             <p class="muted">Hon. Babirye Milly Babalanda</p>
             <p class="mandate">Provides leadership in the formulation and implementation of national policies.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.statehouse.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@statehouse.go.ug">Email</a>
-              <a class="tel" href="tel:+256414231900">+256 414 231 900</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="governance" data-id="opm">
@@ -399,12 +246,6 @@
             <h3>Office of the Prime Minister</h3>
             <p class="muted">Rt. Hon. Robinah Nabbanja</p>
             <p class="mandate">To lead public policy implementation, coordination and monitoring of government business.</p>
-            <div class="min-contact">
-              <a class="web" href="https://opm.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:ps@opm.go.ug">Email</a>
-              <a class="tel" href="tel:+256417770500">+256 417 770 500</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
           <article class="min-card" data-cat="governance" data-id="vp">
@@ -412,12 +253,6 @@
             <h3>Office of the Vice President</h3>
             <p class="muted">H.E. Jessica Alupo</p>
             <p class="mandate">Supports the President in the execution of the constitutional mandate.</p>
-            <div class="min-contact">
-              <a class="web" href="https://www.vicepresident.go.ug/" target="_blank" rel="noopener">Website</a>
-              <a class="mail" href="mailto:info@vicepresident.go.ug">Email</a>
-              <a class="tel" href="tel:+256414231900">+256 414 231 900</a>
-            </div>
-                      <span class="min-view">View ministry →</span>
           </article>
 
         </div>

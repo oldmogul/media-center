@@ -9,8 +9,7 @@
       b.textContent = n + (n === 1 ? " release" : " releases");
       card.querySelector("h3")?.after(b);
     }
-    card.addEventListener("click", (e) => {
-      if (e.target.closest(".min-contact a")) return;
+    card.addEventListener("click", () => {
       location.href = "ministry.html?id=" + encodeURIComponent(id);
     });
   });
