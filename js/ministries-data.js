@@ -1,5 +1,5 @@
 window.UMC_MINISTRIES = [
-  { id: "kiswahili", cat: "communications", code: "KD", name: "Dawati La Kiswahili", lead: "Coordinator's Office", mandate: "To coordinate the promotion and use of Kiswahili as an official language across government communication.", web: "languages.html", email: "kiswahili@mediacentre.go.ug", phone: "+256 414 237 141", year: "2024", reports: "Uganda Media Centre" },
+  { id: "kiswahili", cat: "communications", code: "KD", name: "Dawati La Kiswahili", lead: "Coordinator's Office", mandate: "To coordinate the promotion and use of Kiswahili as an official language across government communication.", web: "languages.html", email: "info@kiswahili.go.ug", phone: "+256 414 707 000", year: "2022", reports: "Ministry of ICT & National Guidance" },
   { id: "kcca", cat: "regional", code: "K", name: "Kampala Capital City Authority", lead: "Hon. Hajat Minsa Kabanda", mandate: "To govern and manage the affairs of Kampala Capital City on behalf of the Central Government.", web: "https://www.kcca.go.ug/", email: "info@kcca.go.ug", phone: "+256 204 660 000", year: "2010", reports: "Ministry of Kampala Capital City and Metropolitan Affairs" },
   { id: "karamoja", cat: "regional", code: "KA", name: "Ministry for Karamoja Affairs", lead: "Hon. Davinia Anyakun", mandate: "To coordinate the implementation of government programmes and development interventions in the Karamoja sub-region.", web: "https://opm.go.ug/", email: "ps@opm.go.ug", phone: "+256 417 770 500", year: "2002", reports: "Office of the Prime Minister" },
   { id: "northern", cat: "regional", code: "NU", name: "Ministry for Northern Uganda", lead: "Beatrice Okori Akello", mandate: "To coordinate recovery, peace and development programmes in Northern Uganda.", web: "https://opm.go.ug/", email: "ps@opm.go.ug", phone: "+256 471 432 197", year: "2007", reports: "Office of the Prime Minister" },
@@ -69,4 +69,15 @@ window.UMC_RELEASES = [
   { min: "disaster", urg: "important", date: "25 Aug 2026", cat: "security", title: "Flood preparedness bulletin for the Elgon and Teso sub-regions", p: "Disaster Preparedness issues a flood bulletin and pre-positions relief in Elgon and Teso.", href: "news.html", img: "img/rains.jpg", ch: ["SMS", "Radio"] },
   { min: "northern", urg: "standard", date: "28 Aug 2026", cat: "regional", title: "PRDP review: roads and livelihoods in Acholi and Lango", p: "Ministry for Northern Uganda reviews Peace Recovery and Development Plan projects in Acholi and Lango.", href: "news.html", img: "img/wealth.jpg", ch: ["Web"] },
   { min: "vp", urg: "standard", date: "30 Aug 2026", cat: "governance", title: "Vice President commissions a maternal health wing in Lira", p: "H.E. Jessica Alupo commissions a new maternal health wing and urges districts to protect the girl child.", href: "news.html", img: "img/hospital.jpg", ch: ["Web", "TV"] }
+];
+
+window.UMC_EVENTS = [
+  { min: "kiswahili", date: "Fri 22 May", title: "Dawati La Kiswahili — Walimu workshop", where: "Hotel Africana, Kampala" },
+  { min: "defence", date: "Sat 12 Sep", title: "CDF Interforces Drill Competition 2026", where: "Kololo Ceremonial Grounds, Kampala" },
+  { min: "health", date: "Wed 2 Sep", title: "4th Health Promotion Conference — abstracts close", where: "Kampala" },
+  { min: "education", date: "Jun 2027", title: "AFCON PAMOJA 2027 — nine months to kick-off", where: "AKOS · Hoima · Mandela National Stadium" },
+  { min: "ict", date: "Thu 18 Sep", title: "Posta Uganda Client Service Charter briefing", where: "Postel Building, Kampala" },
+  { min: "agriculture", date: "Tue 15 Sep", title: "Coffee season debrief with UCDA", where: "Ministry of Agriculture, Entebbe" },
+  { min: "karamoja", date: "Mon 21 Sep", title: "Karamoja food-relief field briefing", where: "Moroto" },
+  { min: "works", date: "Sat 12 Sep", title: "Jinja Road resurfacing — weekend closures", where: "Kampala" }
 ];
