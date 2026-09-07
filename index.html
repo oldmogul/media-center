@@ -161,49 +161,187 @@
     <section class="section feed-sec">
       <div class="wrap">
         <h2 class="feed-h" data-i18n="home.feed">Every voice of government, in one feed.</h2>
-        <div class="filters">
-          <button class="filter active" data-filter="all" data-i18n="filter.all">All</button>
-          <button class="filter" data-filter="health" data-i18n="filter.health">Health</button>
-          <button class="filter" data-filter="security" data-i18n="filter.security">Security</button>
-          <button class="filter" data-filter="economy" data-i18n="filter.economy">Economy</button>
-          <button class="filter" data-filter="governance" data-i18n="filter.governance">Governance</button>
+        <div class="feed-tools">
+          <div>
+            <span class="feed-lab" data-i18n="filter.urgency">Urgency</span>
+            <div class="filters" data-feed-urg>
+              <button class="filter active" type="button" data-filter="all" data-i18n="filter.all">All</button>
+              <button class="filter" type="button" data-filter="critical" data-i18n="filter.critical">Critical</button>
+              <button class="filter" type="button" data-filter="important" data-i18n="filter.important">Important</button>
+              <button class="filter" type="button" data-filter="standard" data-i18n="filter.standard">Standard</button>
+            </div>
+          </div>
+          <div>
+            <span class="feed-lab" data-i18n="filter.language">Language</span>
+            <div class="filters" data-feed-lang>
+              <button class="filter active" type="button" data-filter="all" data-i18n="filter.all">All</button>
+              <button class="filter" type="button" data-filter="en" data-i18n="filter.en">English</button>
+              <button class="filter" type="button" data-filter="lg" data-i18n="filter.lg">Luganda</button>
+              <button class="filter" type="button" data-filter="sw" data-i18n="filter.sw">Kiswahili</button>
+            </div>
+          </div>
+          <p class="feed-count"><b data-feed-n>16</b> <span data-i18n="home.feed.n">announcements</span></p>
         </div>
-        <div class="news-grid">
-          <a class="news-card" data-cat="security" href="articles/updf.html">
-            <div><span class="urg critical" data-i18n="home.urg.critical">Critical</span><span class="tag gold" data-i18n="tag.defence">Defence</span></div>
-            <h3 data-i18n="card.updf.t">UPDF recruitment kicks off at Kololo</h3>
-            <p data-i18n="card.updf.p">Hundreds of youths from Kampala Central, Makindye and Nakawa are taking part in the recruitment exercise at Kololo Ceremonial Grounds.</p>
-            <div class="foot"><span>Ministry of Defence</span><span>10 Aug 2026</span></div>
+        <div class="voice-feed">
+          <a class="voice-item" href="articles/updf.html" data-urg="critical" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg critical" data-i18n="filter.critical">Critical</span><time>10 Aug 2026</time><span>Defence · English</span></p>
+              <h3 data-i18n="card.updf.t">UPDF recruitment kicks off at Kololo</h3>
+              <p data-i18n="card.updf.p">Hundreds of youths from Kampala Central, Makindye and Nakawa are taking part in the recruitment exercise at Kololo Ceremonial Grounds.</p>
+              <p class="voice-ch"><span>Web</span><span>SMS</span><span>USSD</span><span>Radio</span><span>Social</span><span>WhatsApp</span></p>
+            </div>
+            <img class="voice-thumb" src="img/defence.jpg" alt="">
           </a>
-          <a class="news-card" data-cat="health" href="articles/ebola.html">
-            <div><span class="urg important" data-i18n="home.urg.important">Important</span><span class="tag gold" data-i18n="tag.health">Health</span></div>
-            <h3 data-i18n="card.ebola.t">Uganda declares the end of the 2026 Ebola disease outbreak</h3>
-            <p data-i18n="card.ebola.p">The mandatory 42-day monitoring period closed with no new confirmed cases. Toll-free 0800-100-066.</p>
-            <div class="foot"><span>Ministry of Health</span><span>28 Jul 2026</span></div>
+          <a class="voice-item" href="news.html" data-urg="important" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg important" data-i18n="filter.important">Important</span><time>8 Aug 2026</time><span>Health · English</span></p>
+              <h3 data-i18n="card.abstracts.t">Last call for abstracts — 4th Health Promotion Conference</h3>
+              <p data-i18n="card.abstracts.p">Don't miss your chance to present. Submission deadline: 31 August 2026.</p>
+              <p class="voice-ch"><span>Web</span><span>USSD</span><span>TV</span><span>Radio</span><span>SMS</span><span>Social</span></p>
+            </div>
+            <img class="voice-thumb" src="img/health-2.jpg" alt="">
           </a>
-          <a class="news-card" data-cat="economy" href="articles/nin.html">
-            <div><span class="urg important" data-i18n="home.urg.important">Important</span><span class="tag gold" data-i18n="tag.ict">ICT</span></div>
-            <h3 data-i18n="home.nin">Cabinet adopts NIN as Tax Identification Number</h3>
-            <p data-i18n="card.ict.p">Rt Hon. Justine Kasule Lumumba launches the Posta Uganda Client Service Charter and announces Cabinet decisions on digital identity.</p>
-            <div class="foot"><span>Min. of ICT</span><span>1 Sep 2026</span></div>
+          <a class="voice-item" href="articles/ebola.html" data-urg="important" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg important" data-i18n="filter.important">Important</span><time>28 Jul 2026</time><span>Health · English</span></p>
+              <h3 data-i18n="card.ebola.t">Uganda declares the end of the 2026 Ebola disease outbreak</h3>
+              <p data-i18n="card.ebola.p">The mandatory 42-day monitoring period closed with no new confirmed cases. Toll-free 0800-100-066.</p>
+              <p class="voice-ch"><span>Web</span><span>SMS</span><span>TV</span><span>Social</span><span>WhatsApp</span></p>
+            </div>
+            <img class="voice-thumb" src="img/hospital.jpg" alt="">
           </a>
-          <a class="news-card" data-cat="governance" href="articles/karamoja.html">
-            <div><span class="urg important" data-i18n="home.urg.important">Important</span><span class="tag gold" data-i18n="tag.opm">OPM</span></div>
-            <h3 data-i18n="card.kar.t">Government launches emergency food relief for Karamoja</h3>
-            <p data-i18n="card.kar.p">9.4 million kilograms of maize flour and dry beans for 313,987 households across 480 parishes.</p>
-            <div class="foot"><span>Office of the Prime Minister</span><span>20 Jul 2026</span></div>
+          <a class="voice-item" href="news.html" data-urg="important" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg important" data-i18n="filter.important">Important</span><time>21 Jul 2026</time><span>ICT · English</span></p>
+              <h3 data-i18n="card.ict.t">Ministry of ICT press briefing</h3>
+              <p data-i18n="card.ict.p">Rt Hon. Justine Kasule Lumumba launches the Posta Uganda Client Service Charter and announces Cabinet decisions on digital identity.</p>
+              <p class="voice-ch"><span>Web</span></p>
+            </div>
+            <img class="voice-thumb" src="img/ict-1.jpg" alt="">
           </a>
-          <a class="news-card" data-cat="economy" href="articles/coffee.html">
-            <div><span class="tag gold" data-i18n="tag.agri">Agriculture</span></div>
-            <h3 data-i18n="home.coffee.t">Coffee export earnings hit USD 1.4 billion — highest on record</h3>
-            <p data-i18n="home.coffee.p">UCDA confirms a 38% year-on-year increase. New processing facilities in Mbale and Mbarara.</p>
-            <div class="foot"><span>MAAIF</span><span>24 May 2026</span></div>
+          <a class="voice-item" href="articles/karamoja.html" data-urg="important" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg important" data-i18n="filter.important">Important</span><time>20 Jul 2026</time><span>OPM · English</span></p>
+              <h3 data-i18n="card.kar.t">Government launches emergency food relief for Karamoja</h3>
+              <p data-i18n="card.kar.p">9.4 million kilograms of maize flour and dry beans for 313,987 households across 480 parishes.</p>
+              <p class="voice-ch"><span>Web</span><span>Radio</span><span>Social</span><span>WhatsApp</span></p>
+            </div>
+            <img class="voice-thumb" src="img/food.jpg" alt="">
           </a>
-          <a class="news-card" data-cat="security" href="articles/afcon.html">
-            <div><span class="tag gold" data-i18n="tag.edu">Education</span></div>
-            <h3 data-i18n="hero.afcon.t">LOC public update on AFCON PAMOJA 2027</h3>
-            <p>Nine months to kick-off. AKOS, Hoima and Mandela National Stadium on course.</p>
-            <div class="foot"><span>Min. of Education</span><span>2 Sep 2026</span></div>
+          <a class="voice-item" href="articles/ebola.html" data-urg="critical" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg critical" data-i18n="filter.critical">Critical</span><time>16 Jul 2026</time><span>Health · English</span></p>
+              <h3 data-i18n="card.last.t">Uganda discharges last Ebola patient, begins 42-day countdown</h3>
+              <p data-i18n="card.last.p">The public is urged to remain vigilant and report fever, vomiting, diarrhoea or unexplained bleeding to the nearest health facility.</p>
+              <p class="voice-ch"><span>Web</span><span>Radio</span><span>Social</span><span>WhatsApp</span></p>
+            </div>
+            <img class="voice-thumb" src="img/health-1.jpg" alt="">
+          </a>
+          <a class="voice-item" href="articles/nin.html" data-urg="important" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg important" data-i18n="filter.important">Important</span><time>1 Sep 2026</time><span>ICT · English</span></p>
+              <h3 data-i18n="home.nin">Cabinet adopts NIN as Tax Identification Number</h3>
+              <p>Hon. Justine Kasule Lumumba: NIRA NIN becomes the standard TIN to unify URA records.</p>
+              <p class="voice-ch"><span>Web</span><span>SMS</span><span>Social</span></p>
+            </div>
+            <img class="voice-thumb" src="img/nin.jpg" alt="">
+          </a>
+          <a class="voice-item" href="articles/afcon.html" data-urg="important" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg important" data-i18n="filter.important">Important</span><time>2 Sep 2026</time><span>Education · English</span></p>
+              <h3 data-i18n="hero.afcon.t">LOC public update on AFCON PAMOJA 2027</h3>
+              <p>Nine months to kick-off. AKOS, Hoima and Mandela National Stadium on course. Shs 135.7 billion for training facilities.</p>
+              <p class="voice-ch"><span>Web</span><span>TV</span><span>Social</span></p>
+            </div>
+            <img class="voice-thumb" src="img/hoima.png" alt="">
+          </a>
+          <a class="voice-item" href="news.html" data-urg="standard" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg standard" data-i18n="filter.standard">Standard</span><time>24 May 2026</time><span>ICT · English</span></p>
+              <h3 data-i18n="home.wifi">Free public Wi-Fi expansion launches in 14 new towns</h3>
+              <p data-i18n="card.wifi.p">Connectivity now reaches 96 public hotspots across the country. Speeds upgraded to 100 Mbps.</p>
+              <p class="voice-ch"><span>Twitter/X</span><span>Facebook</span><span>Website</span></p>
+            </div>
+            <img class="voice-thumb" src="img/ict-2.jpg" alt="">
+          </a>
+          <a class="voice-item" href="news.html" data-urg="standard" data-lang="lg">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg standard" data-i18n="filter.standard">Standard</span><time>24 May 2026</time><span>Education · Luganda</span></p>
+              <h3 data-i18n="card.uce.t">Ekiragiro: Ssemateeka w'okuyimirizaawo essomero erya UCE okuva ku 12 February</h3>
+              <p data-i18n="card.uce.p">Minisitule y'Ebyenjigiriza eraze emirimu egijja okutuukirizibwa mu nnaku ettaano ezijja.</p>
+              <p class="voice-ch"><span>Radio</span><span>Website</span></p>
+            </div>
+            <img class="voice-thumb" src="img/education.jpg" alt="">
+          </a>
+          <a class="voice-item" href="articles/coffee.html" data-urg="standard" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg standard" data-i18n="filter.standard">Standard</span><time>24 May 2026</time><span>Agriculture · English</span></p>
+              <h3 data-i18n="home.coffee.t">Coffee export earnings hit USD 1.4 billion — highest on record</h3>
+              <p data-i18n="home.coffee.p">UCDA confirms a 38% year-on-year increase. New processing facilities opened in Mbale and Mbarara.</p>
+              <p class="voice-ch"><span>Website</span><span>Twitter/X</span></p>
+            </div>
+            <img class="voice-thumb" src="img/agriculture.jpg" alt="">
+          </a>
+          <a class="voice-item" href="news.html" data-urg="important" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg important" data-i18n="filter.important">Important</span><time>24 May 2026</time><span>KCCA · English</span></p>
+              <h3 data-i18n="card.roads.t">Kampala road resurfacing — Jinja Road closures this weekend</h3>
+              <p data-i18n="card.roads.p">Motorists advised to use alternative routes. Works expected to complete by Sunday evening.</p>
+              <p class="voice-ch"><span>SMS</span><span>Twitter/X</span><span>Radio</span></p>
+            </div>
+            <img class="voice-thumb" src="img/generic-1.jpg" alt="">
+          </a>
+          <a class="voice-item" href="news.html" data-urg="standard" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg standard" data-i18n="filter.standard">Standard</span><time>24 May 2026</time><span>Foreign Affairs · English</span></p>
+              <h3 data-i18n="card.eac.t">Uganda assumes chair of the East African Community Council of Ministers</h3>
+              <p data-i18n="card.eac.p">President receives mandate at the 24th EAC Ordinary Summit held in Arusha.</p>
+              <p class="voice-ch"><span>Website</span><span>Twitter/X</span></p>
+            </div>
+            <img class="voice-thumb" src="img/envoys.jpg" alt="">
+          </a>
+          <a class="voice-item" href="news.html" data-urg="standard" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg standard" data-i18n="filter.standard">Standard</span><time>24 May 2026</time><span>Governance · English</span></p>
+              <h3 data-i18n="home.wealth">Inspection of wealth-creation programmes in Teso and Lango</h3>
+              <p>Office of the President inspects wealth-creation programmes in Teso and Lango.</p>
+              <p class="voice-ch"><span>Web</span><span>Social</span></p>
+            </div>
+            <img class="voice-thumb" src="img/wealth.jpg" alt="">
+          </a>
+          <a class="voice-item" href="news.html" data-urg="standard" data-lang="en">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg standard" data-i18n="filter.standard">Standard</span><time>31 Aug 2026</time><span>Economy · English</span></p>
+              <h3 data-i18n="home.cma">Capital Markets Authority marks 30 years, targets one million investors</h3>
+              <p>CMA marks three decades and sets a target of one million retail investors on the Uganda Securities Exchange.</p>
+              <p class="voice-ch"><span>Web</span><span>Radio</span></p>
+            </div>
+            <img class="voice-thumb" src="img/cma.jpg" alt="">
+          </a>
+          <a class="voice-item" href="languages.html" data-urg="standard" data-lang="sw">
+            <img class="voice-arms" src="img/coat-of-arms.png" alt="">
+            <div class="voice-body">
+              <p class="voice-meta"><span class="urg standard" data-i18n="filter.standard">Standard</span><time>24 May 2026</time><span>Languages · Kiswahili</span></p>
+              <h3 data-i18n="card.habari.t">Serikali yazindua huduma za Kiswahili katika kila wizara</h3>
+              <p data-i18n="card.habari.p">Matangazo rasmi sasa yanatolewa kwa Kiswahili kwa wakati halisi.</p>
+              <p class="voice-ch"><span>Radio</span><span>Website</span><span>WhatsApp</span></p>
+            </div>
+            <img class="voice-thumb" src="img/alan-speaking.jpg" alt="">
           </a>
         </div>
       </div>

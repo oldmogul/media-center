@@ -290,6 +290,7 @@
 
   document.querySelectorAll("[data-filter]").forEach((btn) => {
     if (btn.closest("[data-min-filters]")) return;
+    if (btn.closest(".feed-sec")) return;
     btn.addEventListener("click", () => {
       const group = btn.closest(".filters") || btn.parentElement;
       group.querySelectorAll("[data-filter]").forEach((b) => b.classList.remove("active"));
@@ -308,6 +309,31 @@
       });
     });
   });
+
+  const feedSec = document.querySelector(".feed-sec");
+  function applyFeed() {
+    if (!feedSec) return;
+    const urg = feedSec.querySelector("[data-feed-urg] .filter.active")?.getAttribute("data-filter") || "all";
+    const lang = feedSec.querySelector("[data-feed-lang] .filter.active")?.getAttribute("data-filter") || "all";
+    let n = 0;
+    feedSec.querySelectorAll(".voice-item").forEach((el) => {
+      const show = (urg === "all" || el.getAttribute("data-urg") === urg)
+        && (lang === "all" || el.getAttribute("data-lang") === lang);
+      el.hidden = !show;
+      if (show) n++;
+    });
+    const count = feedSec.querySelector("[data-feed-n]");
+    if (count) count.textContent = String(n);
+  }
+  feedSec?.querySelectorAll("[data-feed-urg] [data-filter], [data-feed-lang] [data-filter]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const group = btn.parentElement;
+      group.querySelectorAll("[data-filter]").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      applyFeed();
+    });
+  });
+  applyFeed();
 
   const modal = document.getElementById("modal");
   const modalBody = document.getElementById("modalBody");
