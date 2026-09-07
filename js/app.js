@@ -361,6 +361,8 @@
     function paint() {
       slides.forEach((s, n) => s.classList.toggle("is-active", n === i));
       if (dotsWrap) [...dotsWrap.children].forEach((d, n) => d.classList.toggle("active", n === i));
+      const num = rootEl.querySelector("[data-slide-now]");
+      if (num) num.textContent = String(i + 1).padStart(2, "0");
       if (bar) {
         bar.style.animation = "none";
         void bar.offsetWidth;
@@ -381,6 +383,15 @@
     rootEl.querySelector(".slide-next")?.addEventListener("click", () => go(i + 1, true));
     rootEl.addEventListener("mouseenter", () => clearInterval(timer));
     rootEl.addEventListener("mouseleave", restart);
+    document.addEventListener("keydown", (e) => {
+      if (e.target.closest("input, textarea, select, [contenteditable]")) return;
+      if (e.key === "ArrowRight") go(i + 1, true);
+      if (e.key === "ArrowLeft") go(i - 1, true);
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) clearInterval(timer);
+      else restart();
+    });
     let x0 = null;
     rootEl.addEventListener("pointerdown", (e) => { x0 = e.clientX; });
     rootEl.addEventListener("pointerup", (e) => {
