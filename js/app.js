@@ -127,7 +127,8 @@
                 </div>
               </div>`;
             }
-            return `<a href="${root}/${h}" class="${page === id ? "active" : ""}" data-i18n="${key}"></a>`;
+            const on = page === id || (id === "ministries" && page === "ministry");
+            return `<a href="${root}/${h}" class="${on ? "active" : ""}" data-i18n="${key}"></a>`;
           }).join("")}
           <div class="nav-extra">
             <div class="lang-switch" role="group" aria-label="Language">
