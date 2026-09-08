@@ -2159,18 +2159,19 @@ body:not([data-page="home"]) .rel-prose h2,
 .ugov-msg.bot .chat-use { display: block; }
 
 #ugov-widget {
-  position: fixed; right: 16px; bottom: 16px; z-index: 45;
+  position: fixed;
+  right: 16px;
+  top: var(--chat-top, 96px);
+  bottom: 16px;
+  z-index: 25;
   font-family: var(--sans);
-  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; gap: 8px;
   width: min(340px, calc(100vw - 24px));
-  max-height: calc(100dvh - 24px);
   pointer-events: none;
 }
 #ugov-widget > * { pointer-events: auto; }
-body[data-page="home"] #ugov-widget {
-  bottom: 78px;
-  max-height: calc(100dvh - 90px);
-}
+#ugov-widget.is-nav-open { visibility: hidden; pointer-events: none; }
+body[data-page="home"] #ugov-widget { bottom: 72px; }
 .ugov-fab {
   display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto;
   background: var(--gold); color: #111; border: 0; border-radius: 999px;
@@ -2182,12 +2183,12 @@ body[data-page="home"] #ugov-widget {
 .ugov-dock {
   position: relative; right: auto; bottom: auto;
   width: 100%;
-  max-height: calc(100dvh - 88px);
+  max-height: calc(100% - 48px);
   background: #fff; border: 1px solid var(--line); border-radius: 16px;
   box-shadow: var(--shadow); overflow: hidden;
   display: flex; flex-direction: column; min-height: 0;
 }
-body[data-page="home"] .ugov-dock { max-height: calc(100dvh - 150px); }
+body[data-page="home"] .ugov-dock { max-height: calc(100% - 48px); }
 .ugov-dock[hidden] { display: none !important; }
 .ugov-dock .ugov-top {
   padding: 10px 36px 10px 12px; flex-wrap: nowrap; position: relative; align-items: center;
@@ -2227,15 +2228,13 @@ body[data-page="engagement"] #ugov-widget { display: none; }
 @media (max-width: 720px) {
   #ugov-widget, body[data-page="home"] #ugov-widget {
     left: 8px; right: 8px; bottom: 8px; width: auto;
-    max-height: calc(100dvh - 16px);
   }
-  body[data-page="home"] #ugov-widget { bottom: 64px; max-height: calc(100dvh - 72px); }
+  body[data-page="home"] #ugov-widget { bottom: 56px; }
   .ugov-dock, body[data-page="home"] .ugov-dock {
     width: 100%;
-    max-height: calc(100dvh - 72px);
+    max-height: calc(100% - 48px);
     border-radius: 14px;
   }
-  body[data-page="home"] .ugov-dock { max-height: calc(100dvh - 128px); }
   .ugov-fab { align-self: flex-end; }
   body.ugov-open { overflow: hidden; }
 }

@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PORT = int(os.environ.get("PORT", "5173"))
 XAI_URL = "https://api.x.ai/v1/chat/completions"
-MODEL = os.environ.get("XAI_MODEL", "grok-4.5")
+MODEL = os.environ.get("XAI_MODEL", "grok-4.6")
 
 SYSTEM = (
     "You are UGov, the official chatbot of the Uganda Media Centre. "
@@ -107,6 +107,9 @@ class Handler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     os.chdir(ROOT)
+    key = os.environ.get("XAI_API_KEY") or "test-key"
     httpd = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
-    print("UMC server http://127.0.0.1:%s  (chat proxy /api/ugov-chat)" % PORT)
+    print("UMC server http://127.0.0.1:%s  grok=%s  key=%s" % (
+        PORT, MODEL, "set" if key and key != "test-key" else "test-key"
+    ), flush=True)
     httpd.serve_forever()

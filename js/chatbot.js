@@ -2,7 +2,7 @@
 (function () {
     const XAI = {
         endpoint: "https://api.x.ai/v1/chat/completions",
-        model: "grok-4.5",
+        model: "grok-4.6",
         key: (typeof localStorage !== "undefined" && localStorage.getItem("umc-xai-key")) || "test-key"
     };
     const WA = {
@@ -135,15 +135,13 @@
         if (PERSONAL.test(q) && !/\b(nira|nin|id|tax|ura|uce|pdm|passport)\b/i.test(q)) {
             return { html: waHtml(loc), handoff: true };
         }
-        const known = localReply(q, loc);
-        if (known && !isComplex(q))
-            return { html: known, handoff: false };
         const ai = await modelReply(q, loc);
         if (ai) {
             history.push({ role: "user", content: q });
             history.push({ role: "assistant", content: ai });
             return { html: ai.replace(/\n/g, "<br>"), handoff: /whatsapp the uganda media centre|256\s*312\s*261/i.test(ai) };
         }
+        const known = localReply(q, loc);
         if (known)
             return { html: known, handoff: false };
         return { html: waHtml(loc), handoff: true };
@@ -223,6 +221,7 @@
                 greet();
             if (open)
                 input?.focus();
+            placeChat();
         }
         fab?.addEventListener("click", () => openDock(dock?.hidden !== false));
         document.getElementById("ugov-close")?.addEventListener("click", () => openDock(false));
@@ -238,6 +237,16 @@
             if (b)
                 ask(b.textContent || "");
         });
+        function placeChat() {
+            const header = document.querySelector(".header");
+            const top = header ? Math.round(header.getBoundingClientRect().bottom) : 72;
+            document.documentElement.style.setProperty("--chat-top", Math.max(top + 8, 56) + "px");
+            wrap.classList.toggle("is-nav-open", document.body.classList.contains("nav-open"));
+        }
+        placeChat();
+        window.addEventListener("scroll", placeChat, { passive: true });
+        window.addEventListener("resize", placeChat);
+        new MutationObserver(placeChat).observe(document.body, { attributes: true, attributeFilter: ["class"] });
         void rootPath;
     }
     window.UMC_CHAT = { reply, mount, waHtml };
