@@ -78,4 +78,9 @@ interface Window {
   UMC_PRESS_ARCHIVE: PressArchiveItem[];
   UMC?: UmcApi;
   grecaptcha?: Grecaptcha;
+  UMC_CHAT?: {
+    reply: (q: string, lang?: Lang) => Promise<{ html: string; handoff: boolean }>;
+    mount: (rootPath: string) => void;
+    waHtml: (lang: Lang) => string;
+  };
 }

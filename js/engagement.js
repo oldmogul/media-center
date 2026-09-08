@@ -5,7 +5,7 @@
             return;
         const COPY = {
             en: {
-                hello: "Hello, I'm UGov Assistant. I can help you find government services, report problems, and route your concerns to the right ministry. What can I help with today?",
+                hello: "Hello — I’m <b>UGov</b>, the official chatbot of the Uganda Media Centre. I’m trained on Ugandan government affairs. Ask me about IDs, ministries, health, taxes or the Press Room. If I can’t confirm your case, I’ll send you to WhatsApp the Media Centre desk.",
                 chips: ["How do I apply for a national ID?", "There is no clean water in my village", "When are UCE results released?", "How do I report a corrupt official?"],
                 ph: "How do I apply for a national ID?",
                 id: "Apply for a National ID at NIRA (nira.go.ug) with a birth certificate or passport. Lost cards are replaced at NIRA offices. The Cabinet has also adopted NIN as the Tax Identification Number — URA records will use the same number.",
@@ -103,18 +103,23 @@
                 input.placeholder = c.ph;
             thread.scrollTop = thread.scrollHeight;
         }
-        function ask(text) {
-            if (!text.trim())
+        async function ask(text) {
+            if (!text.trim() || !thread)
                 return;
             thread.appendChild(bubble(text, "me"));
             const wait = bubble("…", "bot");
             thread.appendChild(wait);
             thread.scrollTop = thread.scrollHeight;
-            setTimeout(() => {
-                wait.remove();
-                thread.appendChild(bubble(replyFor(text), "bot", true));
-                thread.scrollTop = thread.scrollHeight;
-            }, 420);
+            let html = replyFor(text);
+            let handoff = html === (COPY[lang] || COPY.en).fallback;
+            if (window.UMC_CHAT) {
+                const out = await window.UMC_CHAT.reply(text, lang);
+                html = out.html;
+                handoff = out.handoff;
+            }
+            wait.remove();
+            thread.appendChild(bubble(html, "bot", !handoff));
+            thread.scrollTop = thread.scrollHeight;
         }
         function toast(msg) {
             const el = document.getElementById("toast");

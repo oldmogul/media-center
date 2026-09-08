@@ -646,6 +646,9 @@
                 });
             });
         }
+        const chatSrc = document.createElement("script");
+        chatSrc.src = root + "/js/chatbot.js";
+        document.body.appendChild(chatSrc);
     }
     init();
 })();
