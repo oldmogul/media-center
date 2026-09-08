@@ -1,76 +1,76 @@
-import { UMC_MINISTRIES, UMC_RELEASES, UMC_EVENTS } from "./ministries-data.js";
-import { UMC_I18N } from "./i18n.js";
-function init() {
-    const root = document.body.getAttribute("data-root") || ".";
-    const mins = UMC_MINISTRIES;
-    const releases = UMC_RELEASES;
-    const events = UMC_EVENTS;
-    const mount = document.querySelector("[data-min-desk]");
-    if (!mount)
-        return;
-    const CAT = {
-        communications: "Communications",
-        regional: "Regional",
-        economic: "Economic",
-        security: "Security",
-        social: "Social Services",
-        governance: "Governance",
-        infrastructure: "Infrastructure"
-    };
-    function lang() {
-        const q = new URLSearchParams(location.search).get("lang");
-        if (q && ["en", "lg", "sw"].includes(q))
-            return q;
-        const saved = localStorage.getItem("umc-lang");
-        return ["en", "lg", "sw"].includes(saved) ? saved : "en";
-    }
-    function t(key) {
-        const I = UMC_I18N;
-        const L = lang();
-        return (I[L] && I[L][key]) || (I.en && I.en[key]) || "";
-    }
-    function esc(s) {
-        return String(s || "").replace(/[&<>"']/g, (c) => ({
-            "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-        }[c]));
-    }
-    function webHref(web) {
-        if (!web)
-            return "#";
-        if (web.startsWith("http") || web.includes(".html"))
-            return web;
-        return root + "/" + web;
-    }
-    function webLabel(web) {
-        if (!web)
-            return "";
-        if (web === "languages.html")
-            return t("nav.languages") || "Languages Desk";
-        return web.replace(/^https?:\/\//, "").replace(/\/$/, "");
-    }
-    function telHref(phone) {
-        return "tel:" + String(phone || "").replace(/\s/g, "");
-    }
-    function render() {
-        const id = new URLSearchParams(location.search).get("id");
-        const min = mins.find((m) => m.id === id);
-        if (!min) {
-            location.replace(root + "/ministries.html");
+"use strict";
+(function () {
+    function init() {
+        const root = document.body.getAttribute("data-root") || ".";
+        const mins = UMC_MINISTRIES;
+        const releases = UMC_RELEASES;
+        const events = UMC_EVENTS;
+        const mount = document.querySelector("[data-min-desk]");
+        if (!mount)
             return;
+        const CAT = {
+            communications: "Communications",
+            regional: "Regional",
+            economic: "Economic",
+            security: "Security",
+            social: "Social Services",
+            governance: "Governance",
+            infrastructure: "Infrastructure"
+        };
+        function lang() {
+            const q = new URLSearchParams(location.search).get("lang");
+            if (q && ["en", "lg", "sw"].includes(q))
+                return q;
+            const saved = localStorage.getItem("umc-lang");
+            return ["en", "lg", "sw"].includes(saved) ? saved : "en";
         }
-        const items = releases.filter((r) => r.min === min.id);
-        const live = items.filter((r) => r.urg === "critical" || r.urg === "important");
-        const evs = events.filter((e) => e.min === min.id);
-        const related = mins.filter((m) => m.cat === min.cat && m.id !== min.id).slice(0, 3);
-        const idx = mins.findIndex((m) => m.id === min.id);
-        const prev = mins[idx - 1];
-        const next = mins[idx + 1];
-        const catLabel = CAT[min.cat] || min.cat;
-        const hq = min.hq || "Postel Building, Clement Hill Rd, Kampala";
-        const ext = min.web && min.web.startsWith("http");
-        document.title = min.name + " — Uganda Media Centre";
-        const liveHtml = live.length
-            ? live.map((r) => `<a class="desk-story" href="${esc(r.href)}">
+        function t(key) {
+            const I = UMC_I18N;
+            const L = lang();
+            return (I[L] && I[L][key]) || (I.en && I.en[key]) || "";
+        }
+        function esc(s) {
+            return String(s || "").replace(/[&<>"']/g, (c) => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+            }[c]));
+        }
+        function webHref(web) {
+            if (!web)
+                return "#";
+            if (web.startsWith("http") || web.includes(".html"))
+                return web;
+            return root + "/" + web;
+        }
+        function webLabel(web) {
+            if (!web)
+                return "";
+            if (web === "languages.html")
+                return t("nav.languages") || "Languages Desk";
+            return web.replace(/^https?:\/\//, "").replace(/\/$/, "");
+        }
+        function telHref(phone) {
+            return "tel:" + String(phone || "").replace(/\s/g, "");
+        }
+        function render() {
+            const id = new URLSearchParams(location.search).get("id");
+            const min = mins.find((m) => m.id === id);
+            if (!min) {
+                location.replace(root + "/ministries.html");
+                return;
+            }
+            const items = releases.filter((r) => r.min === min.id);
+            const live = items.filter((r) => r.urg === "critical" || r.urg === "important");
+            const evs = events.filter((e) => e.min === min.id);
+            const related = mins.filter((m) => m.cat === min.cat && m.id !== min.id).slice(0, 3);
+            const idx = mins.findIndex((m) => m.id === min.id);
+            const prev = mins[idx - 1];
+            const next = mins[idx + 1];
+            const catLabel = CAT[min.cat] || min.cat;
+            const hq = min.hq || "Postel Building, Clement Hill Rd, Kampala";
+            const ext = min.web && min.web.startsWith("http");
+            document.title = min.name + " — Uganda Media Centre";
+            const liveHtml = live.length
+                ? live.map((r) => `<a class="desk-story" href="${esc(r.href)}">
           <img src="${esc(r.img)}" alt="">
           <div>
             <p class="voice-meta"><span class="urg ${esc(r.urg)}">${esc(r.urg)}</span><time>${esc(r.date)}</time><span>${esc(r.cat)}</span></p>
@@ -79,29 +79,29 @@ function init() {
             <p class="voice-ch">${(r.ch || []).map((c) => `<span>${esc(c)}</span>`).join("")}</p>
           </div>
         </a>`).join("")
-            : `<div class="desk-empty">
+                : `<div class="desk-empty">
           <span class="desk-empty-ico" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
           </span>
           <p>${t("desk.live.empty")}</p>
         </div>`;
-        const pressHtml = items.length
-            ? items.map((r) => `<a class="desk-press-row" href="${esc(r.href)}">
+            const pressHtml = items.length
+                ? items.map((r) => `<a class="desk-press-row" href="${esc(r.href)}">
           <span>${t("desk.announcement")} · ${esc(r.date)}</span>
           <strong>${esc(r.title)}</strong>
         </a>`).join("")
-            : `<div class="desk-empty slim">
+                : `<div class="desk-empty slim">
           <p>${t("desk.press.empty")}</p>
           <a class="btn-outline" href="${root}/news.html">${t("desk.browse")}</a>
         </div>`;
-        const evHtml = evs.length
-            ? `<div class="desk-events">${evs.map((e) => `<article>
+            const evHtml = evs.length
+                ? `<div class="desk-events">${evs.map((e) => `<article>
           <time>${esc(e.date)}</time>
           <h3>${esc(e.title)}</h3>
           <p>${esc(e.where)}</p>
         </article>`).join("")}</div>`
-            : "";
-        mount.innerHTML = `
+                : "";
+            mount.innerHTML = `
       <section class="desk-hero" data-cat="${esc(min.cat)}">
         <img class="desk-hero-arms" src="${root}/img/coat-of-arms.png" alt="">
         <div class="wrap">
@@ -241,36 +241,37 @@ function init() {
         </div>
       </section>
     `;
-        const form = mount.querySelector("form.desk-fb");
-        const toastForm = (el) => {
-            el.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const toast = document.getElementById("toast");
-                if (toast) {
-                    toast.textContent = el.getAttribute("data-toast") || t("desk.fb.toast").replace("{name}", min.name);
-                    toast.classList.add("show");
-                    el.reset();
-                    const n = el.querySelector("[data-count-n]");
-                    if (n)
-                        n.textContent = "0";
-                    el.querySelectorAll("[data-ident]").forEach((i) => { i.disabled = false; });
-                    setTimeout(() => toast.classList.remove("show"), 3200);
-                }
+            const form = mount.querySelector("form.desk-fb");
+            const toastForm = (el) => {
+                el.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const toast = document.getElementById("toast");
+                    if (toast) {
+                        toast.textContent = el.getAttribute("data-toast") || t("desk.fb.toast").replace("{name}", min.name);
+                        toast.classList.add("show");
+                        el.reset();
+                        const n = el.querySelector("[data-count-n]");
+                        if (n)
+                            n.textContent = "0";
+                        el.querySelectorAll("[data-ident]").forEach((i) => { i.disabled = false; });
+                        setTimeout(() => toast.classList.remove("show"), 3200);
+                    }
+                });
+            };
+            if (form)
+                toastForm(form);
+            mount.querySelector("[data-count]")?.addEventListener("input", (e) => {
+                const n = mount.querySelector("[data-count-n]");
+                if (n)
+                    n.textContent = String(e.target.value.length);
             });
-        };
-        if (form)
-            toastForm(form);
-        mount.querySelector("[data-count]")?.addEventListener("input", (e) => {
-            const n = mount.querySelector("[data-count-n]");
-            if (n)
-                n.textContent = String(e.target.value.length);
-        });
-        mount.querySelector("input[name=anon]")?.addEventListener("change", (e) => {
-            mount.querySelectorAll("[data-ident]").forEach((i) => { i.disabled = e.target.checked; });
-        });
+            mount.querySelector("input[name=anon]")?.addEventListener("change", (e) => {
+                mount.querySelectorAll("[data-ident]").forEach((i) => { i.disabled = e.target.checked; });
+            });
+        }
+        render();
+        document.addEventListener("umc:lang", render);
     }
-    render();
-    document.addEventListener("umc:lang", render);
-}
-init();
+    init();
+})();
 //# sourceMappingURL=ministry.js.map

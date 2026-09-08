@@ -1,3 +1,4 @@
+(function () {
 function init(): void {
   const host = document.getElementById("umc-off");
   if (!host) return;
@@ -64,6 +65,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

@@ -1,7 +1,4 @@
-import { UMC_I18N } from "./i18n.js";
-import type { Lang } from "./types.js";
-
-
+(function () {
 function init(): void {
   const root = document.body.getAttribute("data-root") || ".";
   const page = document.body.getAttribute("data-page") || "";
@@ -152,20 +149,6 @@ function init(): void {
                   <a href="${root}/about.html" data-i18n="nav.about.centre">About Media Centre</a>
                   <a href="${root}/team.html" data-i18n="nav.about.team">Our Team</a>
                   <a href="${root}/history.html" data-i18n="nav.about.history">Ugandan History</a>
-                </div>
-              </div>`;
-            }
-            if (id === "languages") {
-              const langOn = page === "languages";
-              return `<div class="drop">
-                <a href="${root}/${h}" class="drop-trigger ${langOn ? "active" : ""}">
-                  <span data-i18n="${key}"></span>${caretSvg()}
-                </a>
-                <div class="drop-menu">
-                  <a href="${root}/languages.html" data-i18n="nav.languages">Languages Desk</a>
-                  <button type="button" data-set-lang="en">English</button>
-                  <button type="button" data-set-lang="lg">Luganda</button>
-                  <button type="button" data-set-lang="sw">Kiswahili</button>
                 </div>
               </div>`;
             }
@@ -641,6 +624,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

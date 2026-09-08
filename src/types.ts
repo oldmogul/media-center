@@ -1,6 +1,6 @@
-export type Lang = "en" | "lg" | "sw";
+type Lang = "en" | "lg" | "sw";
 
-export type Sector =
+type Sector =
   | "communications"
   | "regional"
   | "economic"
@@ -9,9 +9,9 @@ export type Sector =
   | "governance"
   | "infrastructure";
 
-export type Urgency = "critical" | "important" | "standard";
+type Urgency = "critical" | "important" | "standard";
 
-export interface Ministry {
+interface Ministry {
   id: string;
   cat: Sector;
   code: string;
@@ -26,7 +26,7 @@ export interface Ministry {
   hq?: string;
 }
 
-export interface Release {
+interface Release {
   min: string;
   urg: Urgency;
   date: string;
@@ -38,24 +38,24 @@ export interface Release {
   ch: string[];
 }
 
-export interface MinistryEvent {
+interface MinistryEvent {
   min: string;
   date: string;
   title: string;
   where: string;
 }
 
-export interface UmcApi {
+interface UmcApi {
   t: (key: string) => string;
   applyI18n: () => void;
   getLang: () => Lang;
   setLang: (next: string | null, opts?: { toast?: boolean }) => void;
 }
 
-declare global {
-  interface Window {
-    UMC?: UmcApi;
-  }
+interface Window {
+  UMC_I18N: Record<Lang, Record<string, string>>;
+  UMC_MINISTRIES: Ministry[];
+  UMC_RELEASES: Release[];
+  UMC_EVENTS: MinistryEvent[];
+  UMC?: UmcApi;
 }
-
-export {};

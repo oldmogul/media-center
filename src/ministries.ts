@@ -1,6 +1,4 @@
-import { UMC_RELEASES } from "./ministries-data.js";
-
-
+(function () {
 function init(): void {
   const releases = UMC_RELEASES;
   document.querySelectorAll(".min-card[data-id]").forEach((card) => {
@@ -19,6 +17,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

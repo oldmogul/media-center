@@ -1,3 +1,4 @@
+(function () {
 function init(): void {
   const tabs = [...document.querySelectorAll("[data-path-tab]")];
   const panels = [...document.querySelectorAll("[data-path-panel]")];
@@ -134,6 +135,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

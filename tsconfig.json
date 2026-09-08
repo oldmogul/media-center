@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
-    "moduleResolution": "bundler",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "strict": true,
     "noImplicitAny": false,
@@ -17,7 +16,7 @@
     "noImplicitOverride": true,
     "useUnknownInCatchVariables": true,
     "verbatimModuleSyntax": false,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*.ts"]

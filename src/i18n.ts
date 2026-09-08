@@ -1,6 +1,4 @@
-import type { Lang } from "./types.js";
-
-export const UMC_I18N: Record<Lang, Record<string, string>> = {
+const UMC_I18N: Record<Lang, Record<string, string>> = {
   en: {
     "doc.title": "Uganda Media Centre — One Government, One Voice",
     "skip": "Skip to main content",
@@ -1022,3 +1020,4 @@ export const UMC_I18N: Record<Lang, Record<string, string>> = {
     "video.clip": "Klipu rasmi — matangazo kamili yanapatikana katika chumba cha habari."
   }
 };
+window.UMC_I18N = UMC_I18N;

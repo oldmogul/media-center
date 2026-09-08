@@ -1,3 +1,4 @@
+(function () {
 function init(): void {
   if (document.body.getAttribute("data-page") !== "engagement") return;
 
@@ -170,6 +171,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

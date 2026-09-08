@@ -1,3 +1,4 @@
+(function () {
 function init(): void {
   const LANGS = [
     { id: "en", name: "English", native: "English", region: "official", code: "en" },
@@ -253,6 +254,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

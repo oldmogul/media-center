@@ -1,3 +1,4 @@
+(async function () {
 async function init(): Promise<void> {
   const host = document.getElementById("umc-off");
   if (!host) return;
@@ -50,6 +51,4 @@ async function init(): Promise<void> {
 }
 
 init();
-
-export {};
-
+})();

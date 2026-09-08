@@ -1,4 +1,5 @@
-export const UMC_MINISTRIES = [
+"use strict";
+const UMC_MINISTRIES = [
     { id: "kiswahili", cat: "communications", code: "KD", name: "Dawati La Kiswahili", lead: "Coordinator's Office", mandate: "To coordinate the promotion and use of Kiswahili as an official language across government communication.", web: "languages.html", email: "info@kiswahili.go.ug", phone: "+256 414 707 000", year: "2022", reports: "Ministry of ICT & National Guidance" },
     { id: "kcca", cat: "regional", code: "K", name: "Kampala Capital City Authority", lead: "Hon. Hajat Minsa Kabanda", mandate: "To govern and manage the affairs of Kampala Capital City on behalf of the Central Government.", web: "https://www.kcca.go.ug/", email: "info@kcca.go.ug", phone: "+256 204 660 000", year: "2010", reports: "Ministry of Kampala Capital City and Metropolitan Affairs" },
     { id: "karamoja", cat: "regional", code: "KA", name: "Ministry for Karamoja Affairs", lead: "Hon. Davinia Anyakun", mandate: "To coordinate the implementation of government programmes and development interventions in the Karamoja sub-region.", web: "https://opm.go.ug/", email: "ps@opm.go.ug", phone: "+256 417 770 500", year: "2002", reports: "Office of the Prime Minister" },
@@ -29,7 +30,7 @@ export const UMC_MINISTRIES = [
     { id: "opm", cat: "governance", code: "O", name: "Office of the Prime Minister", lead: "Rt. Hon. Robinah Nabbanja", mandate: "To lead public policy implementation, coordination and monitoring of government business in Cabinet.", web: "https://opm.go.ug/", email: "ps@opm.go.ug", phone: "+256 417 770 500", year: "1962", reports: "Office of the President" },
     { id: "vp", cat: "governance", code: "VP", name: "Office of the Vice President", lead: "H.E. Jessica Alupo", mandate: "Supports the President in the execution of the constitutional mandate.", web: "https://www.vicepresident.go.ug/", email: "info@vicepresident.go.ug", phone: "+256 414 231 900", year: "1962", reports: "Office of the President" }
 ];
-export const UMC_RELEASES = [
+const UMC_RELEASES = [
     { min: "defence", urg: "critical", date: "10 Aug 2026", cat: "security", title: "UPDF recruitment kicks off at Kololo", p: "Hundreds of youths from Kampala Central, Makindye and Nakawa are taking part in the UPDF recruitment exercise at Kololo Ceremonial Grounds today.", href: "articles/updf.html", img: "img/defence.jpg", ch: ["Web", "SMS", "Radio", "Social"] },
     { min: "defence", urg: "important", date: "19 Aug 2026", cat: "security", title: "UPDF to hold second edition of the Chief of Defence Forces Interforces Drill Competition, 2026", p: "The Uganda People’s Defence Forces will stage the second CDF Interforces Drill Competition to strengthen joint readiness across services.", href: "news.html", img: "img/defence.jpg", ch: ["Web", "TV"] },
     { min: "defence", urg: "important", date: "17 Aug 2026", cat: "security", title: "Joint briefing on the 18th Interforces Games and Shooting Championship 2026", p: "The UPDF, Uganda Police and Uganda Prisons Service brief the press on the 18th Interforces Games.", href: "news.html", img: "img/hero-2.jpg", ch: ["Web", "Social"] },
@@ -69,7 +70,7 @@ export const UMC_RELEASES = [
     { min: "northern", urg: "standard", date: "28 Aug 2026", cat: "regional", title: "PRDP review: roads and livelihoods in Acholi and Lango", p: "Ministry for Northern Uganda reviews Peace Recovery and Development Plan projects in Acholi and Lango.", href: "news.html", img: "img/wealth.jpg", ch: ["Web"] },
     { min: "vp", urg: "standard", date: "30 Aug 2026", cat: "governance", title: "Vice President commissions a maternal health wing in Lira", p: "H.E. Jessica Alupo commissions a new maternal health wing and urges districts to protect the girl child.", href: "news.html", img: "img/hospital.jpg", ch: ["Web", "TV"] }
 ];
-export const UMC_EVENTS = [
+const UMC_EVENTS = [
     { min: "kiswahili", date: "Fri 22 May", title: "Dawati La Kiswahili — Walimu workshop", where: "Hotel Africana, Kampala" },
     { min: "defence", date: "Sat 12 Sep", title: "CDF Interforces Drill Competition 2026", where: "Kololo Ceremonial Grounds, Kampala" },
     { min: "health", date: "Wed 2 Sep", title: "4th Health Promotion Conference — abstracts close", where: "Kampala" },
@@ -79,4 +80,7 @@ export const UMC_EVENTS = [
     { min: "karamoja", date: "Mon 21 Sep", title: "Karamoja food-relief field briefing", where: "Moroto" },
     { min: "works", date: "Sat 12 Sep", title: "Jinja Road resurfacing — weekend closures", where: "Kampala" }
 ];
+window.UMC_MINISTRIES = UMC_MINISTRIES;
+window.UMC_RELEASES = UMC_RELEASES;
+window.UMC_EVENTS = UMC_EVENTS;
 //# sourceMappingURL=ministries-data.js.map

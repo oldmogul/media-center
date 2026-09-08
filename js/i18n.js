@@ -1,4 +1,5 @@
-export const UMC_I18N = {
+"use strict";
+const UMC_I18N = {
     en: {
         "doc.title": "Uganda Media Centre — One Government, One Voice",
         "skip": "Skip to main content",
@@ -1020,4 +1021,5 @@ export const UMC_I18N = {
         "video.clip": "Klipu rasmi — matangazo kamili yanapatikana katika chumba cha habari."
     }
 };
+window.UMC_I18N = UMC_I18N;
 //# sourceMappingURL=i18n.js.map

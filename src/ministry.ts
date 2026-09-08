@@ -1,8 +1,4 @@
-import { UMC_MINISTRIES, UMC_RELEASES, UMC_EVENTS } from "./ministries-data.js";
-import { UMC_I18N } from "./i18n.js";
-import type { Lang, Sector } from "./types.js";
-
-
+(function () {
 function init(): void {
   const root = document.body.getAttribute("data-root") || ".";
   const mins = UMC_MINISTRIES;
@@ -279,6 +275,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

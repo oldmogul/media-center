@@ -1,3 +1,4 @@
+(function () {
 function init(): void {
   const KEY = "umc-radio-v2";
   const root = document.body.getAttribute("data-root") || ".";
@@ -538,6 +539,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();

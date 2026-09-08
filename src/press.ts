@@ -1,3 +1,4 @@
+(function () {
 function init(): void {
   if (document.body.getAttribute("data-page") !== "press") return;
 
@@ -101,6 +102,4 @@ function init(): void {
 }
 
 init();
-
-export {};
-
+})();
