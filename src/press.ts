@@ -60,12 +60,10 @@ function init(): void {
     if (nEl) nEl.textContent = String(rows.length);
     const read = t("press.read") || "Read";
     indexEl.innerHTML = rows.map((r) => {
-      const external = /^https?:/i.test(r.href);
-      const extra = external ? ` target="_blank" rel="noopener"` : "";
       const cover = r.img
         ? `<div class="press-row-cover"><img src="${esc(r.img)}" alt="" loading="lazy" onerror="this.closest('.press-row').classList.add('no-img');this.parentNode.remove()"></div>`
         : "";
-      return `<a class="press-row${r.img ? "" : " no-img"}" data-cat="${esc(r.cat)}" href="${esc(r.href)}"${extra}>
+      return `<a class="press-row${r.img ? "" : " no-img"}" data-cat="${esc(r.cat)}" href="${esc(r.href)}">
         ${cover}
         <div class="txt">
           <div class="press-row-meta">

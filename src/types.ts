@@ -54,6 +54,7 @@ interface PressArchiveItem {
   p: string;
   img: string;
   href: string;
+  body?: string;
 }
 
 interface UmcApi {
