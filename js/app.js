@@ -43,6 +43,9 @@
     document.querySelectorAll("[data-set-lang]").forEach((b) => {
       b.classList.toggle("active", b.getAttribute("data-set-lang") === lang);
     });
+    document.querySelectorAll("[data-lang-code]").forEach((el) => {
+      el.textContent = lang.toUpperCase();
+    });
   }
 
   function setLang(next, { toast } = { toast: true }) {
@@ -89,6 +92,25 @@
     return `<div class="ticker"><div class="ticker-track">${bits}</div></div>`;
   }
 
+  function caretSvg() {
+    return `<svg class="drop-caret" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>`;
+  }
+
+  function langDropHtml() {
+    return `<div class="drop lang-drop">
+      <button type="button" class="lang-drop-btn drop-trigger" aria-haspopup="true" aria-expanded="false" data-i18n-aria="nav.lang" aria-label="Language">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        <span data-lang-code>${lang.toUpperCase()}</span>
+        ${caretSvg()}
+      </button>
+      <div class="drop-menu">
+        <button type="button" data-set-lang="en">English</button>
+        <button type="button" data-set-lang="lg">Luganda</button>
+        <button type="button" data-set-lang="sw">Kiswahili</button>
+      </div>
+    </div>`;
+  }
+
   const header = `
     <div class="flag-stripe"></div>
     <div class="util">
@@ -119,7 +141,9 @@
             if (id === "about") {
               const aboutOn = ["about", "team", "history"].includes(page);
               return `<div class="drop">
-                <a href="${root}/${h}" class="${aboutOn ? "active" : ""}" data-i18n="${key}"></a>
+                <a href="${root}/${h}" class="drop-trigger ${aboutOn ? "active" : ""}">
+                  <span data-i18n="${key}"></span>${caretSvg()}
+                </a>
                 <div class="drop-menu">
                   <a href="${root}/about.html" data-i18n="nav.about.centre">About Media Centre</a>
                   <a href="${root}/team.html" data-i18n="nav.about.team">Our Team</a>
@@ -127,30 +151,37 @@
                 </div>
               </div>`;
             }
+            if (id === "languages") {
+              const langOn = page === "languages";
+              return `<div class="drop">
+                <a href="${root}/${h}" class="drop-trigger ${langOn ? "active" : ""}">
+                  <span data-i18n="${key}"></span>${caretSvg()}
+                </a>
+                <div class="drop-menu">
+                  <a href="${root}/languages.html" data-i18n="nav.languages">Languages Desk</a>
+                  <button type="button" data-set-lang="en">English</button>
+                  <button type="button" data-set-lang="lg">Luganda</button>
+                  <button type="button" data-set-lang="sw">Kiswahili</button>
+                </div>
+              </div>`;
+            }
             const on = page === id || (id === "ministries" && page === "ministry");
             return `<a href="${root}/${h}" class="${on ? "active" : ""}" data-i18n="${key}"></a>`;
           }).join("")}
           <div class="nav-extra">
-            <div class="lang-switch" role="group" aria-label="Language">
-              <button type="button" data-set-lang="en">EN</button>
-              <button type="button" data-set-lang="lg">LG</button>
-              <button type="button" data-set-lang="sw">SW</button>
-            </div>
+            ${langDropHtml()}
             <a class="cta-mini" href="${root}/accreditation.html" data-i18n="cta.accredit"></a>
           </div>
         </nav>
         <div class="header-tools">
-          <div class="lang-switch" role="group" aria-label="Language">
-            <button type="button" data-set-lang="en">EN</button>
-            <button type="button" data-set-lang="lg">LG</button>
-            <button type="button" data-set-lang="sw">SW</button>
-          </div>
+          ${langDropHtml()}
           <button class="icon-btn" id="searchBtn" data-i18n-aria="cta.search" aria-label="Search">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
           </button>
           <a class="cta-mini" href="${root}/accreditation.html" data-i18n="cta.accredit"></a>
-          <button class="icon-btn burger" id="burger" aria-label="Menu">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <button class="icon-btn burger" id="burger" aria-label="Menu" aria-controls="nav" aria-expanded="false">
+            <svg class="ico-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            <svg class="ico-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
           </button>
         </div>
       </div>
@@ -165,20 +196,31 @@
 
   const footer = `
     <footer class="footer">
+      <img class="foot-watermark" src="${root}/img/coat-of-arms.png" alt="">
       <div class="wrap foot-grid">
-        <div>
+        <div class="foot-brand-col">
           <div class="foot-brand">
-            <img src="${root}/img/coat.svg" alt="">
+            <img src="${root}/img/coat.svg" alt="Coat of arms of Uganda">
             <div>
               <strong data-i18n="brand.name"></strong>
-              <p class="muted" style="color:#cbbf9d;margin-top:6px;max-width:36ch" data-i18n="footer.voice"></p>
+              <small data-i18n="footer.ministry">Ministry of ICT &amp; National Guidance</small>
+              <small data-i18n="footer.republic">Republic of Uganda</small>
             </div>
           </div>
+          <p class="foot-voice" data-i18n="footer.voice"></p>
           <div class="social">
-            <a href="https://www.facebook.com/UgandaMediaCentre/" aria-label="Facebook">f</a>
-            <a href="https://twitter.com/UgandaMediaCent/" aria-label="X">𝕏</a>
-            <a href="https://www.instagram.com/ugandamediacentre/" aria-label="Instagram">ig</a>
-            <a href="https://www.youtube.com/@ugandamediacentre" aria-label="YouTube">▶</a>
+            <a href="https://www.facebook.com/UgandaMediaCentre/" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v8h4v-8h3.2L17 12h-4V9c0-.6.4-1 1-1z"/></svg>
+            </a>
+            <a href="https://twitter.com/UgandaMediaCent/" aria-label="X">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.6l-5.2-6.8L5.4 22H2.2l7.3-8.4L1 2h6.7l4.7 6.2L18.9 2zm-1.2 18h1.8L6.4 3.9H4.5L17.7 20z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ugandamediacentre/" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@ugandamediacentre" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12.2s0-3.2-.4-4.6c-.2-.9-.9-1.6-1.8-1.8C19.2 5.4 12 5.4 12 5.4s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 9 1 12.2 1 12.2s0 3.2.4 4.6c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.4.4-4.6.4-4.6zM9.8 15.6V8.8l6.2 3.4-6.2 3.4z"/></svg>
+            </a>
           </div>
         </div>
         <div>
@@ -187,37 +229,39 @@
             <li><a href="${root}/index.html" data-i18n="footer.command"></a></li>
             <li><a href="${root}/ministries.html" data-i18n="footer.ministries"></a></li>
             <li><a href="${root}/news.html" data-i18n="footer.press"></a></li>
-            <li><a href="${root}/gallery.html" data-i18n="footer.gallery"></a></li>
-            <li><a href="${root}/videos.html" data-i18n="footer.video"></a></li>
-            <li><a href="${root}/languages.html" data-i18n="footer.languages"></a></li>
-            <li><a href="${root}/radio.html" data-i18n="nav.radio"></a></li>
-            <li><a href="${root}/engagement.html" data-i18n="nav.engagement"></a></li>
-            <li><a href="${root}/history.html" data-i18n="footer.history">Ugandan History</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 data-i18n="footer.about"></h4>
-          <ul>
-            <li><a href="${root}/about.html" data-i18n="footer.centre"></a></li>
-            <li><a href="${root}/team.html" data-i18n="footer.team"></a></li>
             <li><a href="${root}/accreditation.html" data-i18n="footer.accredit"></a></li>
-            <li><a href="${root}/contact.html" data-i18n="footer.contact"></a></li>
-
+            <li><a href="${root}/languages.html" data-i18n="footer.languages"></a></li>
           </ul>
         </div>
         <div>
           <h4 data-i18n="footer.contact"></h4>
-          <ul>
-            <li>Plot 36A, Nile Avenue / Clement Hill Road</li>
-            <li>P.O. Box 2665, Kampala</li>
-            <li>+256 414 237 141 · +256 312 261 525</li>
+          <ul class="foot-contact">
+            <li data-i18n="footer.addr">Plot 15, Nakasero Hill</li>
+            <li data-i18n="footer.po">P.O. Box 7142, Kampala</li>
+            <li><a href="tel:+256414254461">+256 414 254 461</a></li>
+            <li><a href="tel:+256312261525">+256 312 261 525</a></li>
             <li><a href="mailto:info@mediacentre.go.ug">info@mediacentre.go.ug</a></li>
           </ul>
         </div>
+        <div>
+          <h4 data-i18n="footer.help"></h4>
+          <ul class="foot-help">
+            <li><span data-i18n="footer.help.police">Police</span><b><a href="tel:999">999</a> / <a href="tel:112">112</a></b></li>
+            <li><span data-i18n="footer.help.gbv">GBV &amp; child protection</span><b><a href="tel:116">116</a></b></li>
+            <li><span data-i18n="footer.help.health">Health (toll-free)</span><b><a href="tel:0800100066">0800 100 066</a></b></li>
+            <li><span data-i18n="footer.help.anti">Anti-corruption</span><b><a href="tel:0800100227">0800 100 227</a></b></li>
+          </ul>
+        </div>
       </div>
-      <div class="wrap legal">
-        <span data-i18n="footer.legal"></span>
-        <span data-i18n="footer.std"></span>
+      <div class="foot-legal">
+        <div class="wrap legal">
+          <span class="legal-left">
+            <span data-i18n="footer.legal"></span>
+            <i class="legal-pipe" aria-hidden="true"></i>
+            <span data-i18n="footer.legal.mid">Uganda Media Centre · Plot 15, Nakasero Hill, Kampala</span>
+          </span>
+          <span data-i18n="footer.by">Website by NWT</span>
+        </div>
       </div>
     </footer>
     <div class="modal" id="modal"><button class="modal-close" id="modalClose">×</button><div id="modalBody"></div></div>
@@ -229,11 +273,21 @@
   if (top) top.innerHTML = header;
   if (bot) bot.innerHTML = footer;
 
+  function closeDrops(except) {
+    document.querySelectorAll(".drop.open").forEach((d) => {
+      if (d === except) return;
+      d.classList.remove("open");
+      d.querySelector("[aria-expanded]")?.setAttribute("aria-expanded", "false");
+    });
+  }
+
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-set-lang]");
     if (!btn) return;
     e.preventDefault();
     setLang(btn.getAttribute("data-set-lang"));
+    closeDrops();
+    if (window.matchMedia("(max-width: 860px)").matches) setNavOpen(false);
   });
 
   applyI18n();
@@ -242,18 +296,65 @@
 
   const burger = document.getElementById("burger");
   const navEl = document.getElementById("nav");
+  function placeMobileNav() {
+    const header = document.querySelector(".header");
+    if (!navEl || !header) return;
+    const top = Math.round(header.getBoundingClientRect().bottom);
+    navEl.style.top = top + "px";
+    document.documentElement.style.setProperty("--nav-top", top + "px");
+  }
+  function setNavOpen(open) {
+    if (!navEl || !burger) return;
+    navEl.classList.toggle("open", open);
+    document.body.classList.toggle("nav-open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Close menu" : "Menu");
+    if (open) {
+      placeMobileNav();
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      closeDrops();
+    }
+  }
   if (burger && navEl) {
-    burger.onclick = () => {
-      const open = navEl.classList.toggle("open");
-      burger.setAttribute("aria-expanded", open ? "true" : "false");
-    };
+    burger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setNavOpen(!navEl.classList.contains("open"));
+    });
     navEl.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => {
-        navEl.classList.remove("open");
-        burger.setAttribute("aria-expanded", "false");
+        if (a.classList.contains("drop-trigger")) return;
+        setNavOpen(false);
       });
     });
+    window.addEventListener("resize", () => {
+      if (navEl.classList.contains("open")) placeMobileNav();
+      if (window.matchMedia("(min-width: 861px)").matches) setNavOpen(false);
+    });
   }
+
+  document.querySelectorAll(".drop").forEach((drop) => {
+    const trigger = drop.querySelector(":scope > .drop-trigger, :scope > .lang-drop-btn");
+    if (!trigger) return;
+    trigger.addEventListener("click", (e) => {
+      const mobileNav = window.matchMedia("(max-width: 860px)").matches;
+      if (trigger.tagName === "A" && !mobileNav) return;
+      e.preventDefault();
+      const open = !drop.classList.contains("open");
+      closeDrops(drop);
+      drop.classList.toggle("open", open);
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".drop")) closeDrops();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    closeDrops();
+    if (navEl?.classList.contains("open")) setNavOpen(false);
+  });
 
   const search = document.getElementById("search");
   const searchBtn = document.getElementById("searchBtn");
