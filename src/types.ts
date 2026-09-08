@@ -64,6 +64,12 @@ interface UmcApi {
   setLang: (next: string | null, opts?: { toast?: boolean }) => void;
 }
 
+interface Grecaptcha {
+  getResponse(opt_widgetId?: number): string;
+  reset(opt_widgetId?: number): void;
+  ready(cb: () => void): void;
+}
+
 interface Window {
   UMC_I18N: Record<Lang, Record<string, string>>;
   UMC_MINISTRIES: Ministry[];
@@ -71,4 +77,5 @@ interface Window {
   UMC_EVENTS: MinistryEvent[];
   UMC_PRESS_ARCHIVE: PressArchiveItem[];
   UMC?: UmcApi;
+  grecaptcha?: Grecaptcha;
 }

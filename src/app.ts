@@ -451,6 +451,7 @@ function init(): void {
   });
 
   document.querySelectorAll("form[data-toast], form[data-toast-key]").forEach((form) => {
+    if (form.hasAttribute("data-eng-form")) return;
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const toast = document.getElementById("toast");

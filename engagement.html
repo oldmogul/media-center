@@ -7,28 +7,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <title>Citizen Engagement — Uganda Media Centre</title>
-  <meta name="description" content="Talk to UGov Assistant, file feedback and vote in live polls — the Government of Uganda on the record.">
+  <meta name="description" content="Submit feedback, vote in polls and write directly to the Government of Uganda.">
   <link rel="icon" href="img/coat.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="engagement" data-root="." data-title-key="eng.hero.h1">
+  <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
   <div id="site-header"></div>
-  <main id="main">
-    <div class="live-strip">
-      <div class="wrap">
-        <span class="live-flag-inline"><i></i> UGov Assistant online</span>
-        <span>English · Luganda · Kiswahili — not linked to your identity</span>
-      </div>
-    </div>
+  <main id="main" class="eng-page">
+    <img class="eng-watermark" src="img/coat-of-arms.png" alt="" aria-hidden="true">
 
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker-off" data-i18n="eng.hero.k">Citizen engagement</p>
         <h1 data-i18n="eng.hero.h1">Your voice, on the record</h1>
-        <p class="lede" data-i18n="eng.hero.lede">Ask the assistant, file feedback to a ministry, or vote in a live poll. Helplines sit one tap away.</p>
+        <p class="lede" data-i18n="eng.hero.lede">Submit feedback, vote in live polls and write directly to the Government of Uganda — in English, Luganda or Kiswahili.</p>
         <p class="hero-actions">
-          <a class="btn-gold" href="#desk">Talk to UGov</a>
-          <a class="btn-outline" href="#polls">Live polls</a>
+          <a class="btn-gold" href="#desk" data-i18n="eng.tab.assistant">UGov Assistant</a>
+          <a class="btn-outline" href="#feedback" data-i18n="eng.tab.feedback">File feedback</a>
         </p>
       </div>
     </section>
@@ -36,10 +32,10 @@
     <section class="section" style="padding-top:0">
       <div class="wrap">
         <div class="eng-board">
-          <div><b>3,420</b><span>Citizen messages today</span></div>
-          <div><b>18 hrs</b><span>Avg. ministry response</span></div>
-          <div><b>5+</b><span>Languages supported</span></div>
-          <div><b>12,847</b><span>Resolved this month</span></div>
+          <div><b>3,420</b><span data-i18n="eng.stat.msg">Citizen messages today</span></div>
+          <div><b>18 hrs</b><span data-i18n="eng.stat.avg">Avg. ministry response</span></div>
+          <div><b>5+</b><span data-i18n="eng.stat.langs">Languages supported</span></div>
+          <div><b>12,847</b><span data-i18n="eng.stat.done">Resolved this month</span></div>
         </div>
       </div>
     </section>
@@ -47,13 +43,65 @@
     <section class="section" id="desk" style="padding-top:0">
       <div class="wrap">
         <div class="eng-tabs" data-tabs>
-          <button class="on" type="button" data-tab="assistant">UGov Assistant</button>
-          <button type="button" data-tab="feedback">File feedback</button>
-          <button type="button" data-tab="polls">Live polls</button>
+          <button class="on" type="button" data-tab="assistant" data-i18n="eng.tab.assistant">UGov Assistant</button>
+          <button type="button" data-tab="feedback" data-i18n="eng.tab.feedback">File feedback</button>
+          <button type="button" data-tab="polls" data-i18n="eng.tab.polls">Live polls</button>
         </div>
 
-        <div class="tab-panel on" data-tab-panel="assistant">
-          <div class="eng-grid">
+        <div class="eng-layout">
+          <div class="eng-main">
+            <div class="tab-panel on" data-tab-panel="assistant">
+              <div class="panel eng-about">
+                <h3 data-i18n="eng.about.h">About UGov Assistant</h3>
+                <p data-i18n="eng.about.p">An official helper trained on the structure of Uganda’s government. It points you to the right ministry, explains public services, and helps you draft feedback in English, Luganda or Kiswahili.</p>
+              </div>
+              <div class="panel eng-about">
+                <h3 data-i18n="eng.privacy.h">Privacy &amp; accuracy</h3>
+                <ul class="eng-privacy">
+                  <li data-i18n="eng.privacy.1">Conversations are not linked to your identity.</li>
+                  <li data-i18n="eng.privacy.2">Feedback transcripts are held for routing, then deleted after 30 days.</li>
+                  <li data-i18n="eng.privacy.3">For legal, medical or financial matters, consult the relevant ministry or a qualified professional.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="feedback" id="feedback">
+              <form class="panel eng-form" id="feedback-form" data-eng-form>
+                <h3 data-i18n="eng.fb.h">File feedback</h3>
+                <p class="muted" data-i18n="eng.fb.lede">Not linked to your identity. UGov routes the note to the right ministry desk.</p>
+                <label for="fb-desk" data-i18n="eng.fb.desk">Ministry / desk</label>
+                <select id="fb-desk" name="ministry" required></select>
+                <div class="form-row">
+                  <div>
+                    <label for="fb-lang" data-i18n="eng.fb.lang">Language</label>
+                    <select id="fb-lang" name="language">
+                      <option value="en">English</option>
+                      <option value="lg">Luganda</option>
+                      <option value="sw">Kiswahili</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="fb-subject" data-i18n="eng.fb.subject">Subject</label>
+                    <input id="fb-subject" name="subject" required placeholder="Clean water in my parish">
+                  </div>
+                </div>
+                <label for="fb-msg" data-i18n="eng.fb.msg">How can government help?</label>
+                <textarea id="fb-msg" name="message" required placeholder="There is no clean water in my village…"></textarea>
+                <label for="fb-contact" data-i18n="eng.fb.contact">Email or phone (optional, for a reply)</label>
+                <input id="fb-contact" name="contact" autocomplete="off">
+                <div class="eng-captcha">
+                  <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                </div>
+                <button class="btn-gold" type="submit" data-i18n="eng.fb.send">Send to government</button>
+              </form>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="polls" id="polls">
+              <div class="poll-grid" id="poll-grid"></div>
+            </div>
+          </div>
+
+          <aside class="eng-rail">
             <article class="ugov-card">
               <div class="ugov-top">
                 <div class="chat-brand">
@@ -64,9 +112,9 @@
                   </div>
                 </div>
                 <div class="chat-langs" id="chat-langs">
-                  <button class="on" type="button" data-chat-lang="en">English</button>
-                  <button type="button" data-chat-lang="lg">Oluganda</button>
-                  <button type="button" data-chat-lang="sw">Kiswahili</button>
+                  <button class="on" type="button" data-chat-lang="en">EN</button>
+                  <button type="button" data-chat-lang="lg">LG</button>
+                  <button type="button" data-chat-lang="sw">SW</button>
                 </div>
               </div>
               <div class="ugov-thread" id="chat-thread"></div>
@@ -76,57 +124,23 @@
                 <button class="btn-gold" type="submit">Send</button>
               </form>
             </article>
-            <aside>
-              <div class="help-card">
-                <h3>About UGov Assistant</h3>
-                <p style="margin-top:10px">Trained on the structure of Uganda’s government. It points you to the right ministry, explains public services, and drafts feedback in English, Luganda or Kiswahili.</p>
-              </div>
-              <div class="help-card" style="margin-top:14px">
-                <h3>Emergency helplines <span style="float:right;color:var(--red)">24/7</span></h3>
-                <a class="help-row" href="tel:999"><span>Police<small>Life-threatening</small></span><b>999 / 112</b></a>
-                <a class="help-row" href="tel:116"><span>GBV &amp; child protection<small>Life-threatening</small></span><b>116</b></a>
-                <a class="help-row" href="tel:0800100066"><span>Health (toll-free)</span><b>0800 100 066</b></a>
-                <a class="help-row" href="tel:0800100227"><span>Anti-corruption</span><b>0800 100 227</b></a>
-              </div>
-            </aside>
-          </div>
-        </div>
-
-        <div class="tab-panel" data-tab-panel="feedback">
-          <form class="panel" id="feedback-form" data-toast="Feedback received. UGov will route it to the right ministry.">
-            <h3>File feedback</h3>
-            <p class="muted">Not linked to your identity. Transcripts are deleted after 30 days.</p>
-            <label for="fb-desk">Ministry / desk</label>
-            <select id="fb-desk">
-              <option>Office of the Prime Minister</option>
-              <option>Ministry of Health</option>
-              <option>Ministry of Education and Sports</option>
-              <option>Ministry of ICT and National Guidance</option>
-              <option>NIRA / National ID</option>
-              <option>URA / Taxes</option>
-              <option>Other</option>
-            </select>
-            <label for="fb-lang">Language</label>
-            <select id="fb-lang">
-              <option>English</option>
-              <option>Luganda</option>
-              <option>Kiswahili</option>
-            </select>
-            <label for="q">How can we help?</label>
-            <textarea id="q" required placeholder="There is no clean water in my village…"></textarea>
-            <button class="btn-gold" type="submit">Send to government</button>
-          </form>
-        </div>
-
-        <div class="tab-panel" data-tab-panel="polls" id="polls">
-          <div class="poll-grid" id="poll-grid"></div>
+            <div class="help-card">
+              <h3 data-i18n="eng.help.h">Emergency helplines <span style="float:right;color:var(--red)">24/7</span></h3>
+              <a class="help-row" href="tel:999"><span>Police<small>Life-threatening</small></span><b>999 / 112</b></a>
+              <a class="help-row" href="tel:116"><span>GBV &amp; child protection<small>Life-threatening</small></span><b>116</b></a>
+              <a class="help-row" href="tel:0800100066"><span>Health (toll-free)</span><b>0800 100 066</b></a>
+              <a class="help-row" href="tel:0800100227"><span>Anti-corruption</span><b>0800 100 227</b></a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
   </main>
   <div id="site-footer"></div>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/ministries-data.js"></script>
   <script src="js/engagement.js"></script>
 </body>
 </html>

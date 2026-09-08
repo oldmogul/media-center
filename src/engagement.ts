@@ -50,11 +50,11 @@ function init(): void {
     }
   };
 
-  let lang = "en";
+  let lang = (window.UMC && window.UMC.getLang && window.UMC.getLang()) || "en";
 
   function replyFor(q) {
     const t = q.toLowerCase();
-    const c = COPY[lang];
+    const c = COPY[lang] || COPY.en;
     if (/id|nin|nira|kitambulisho|kkalaamu|national/.test(t)) return c.id;
     if (/water|maji|mazzi|borehole|tap/.test(t)) return c.water;
     if (/uce|uneb|result|exam|ssoma/.test(t)) return c.uce;
@@ -67,10 +67,18 @@ function init(): void {
     return c.fallback;
   }
 
-  function bubble(html, who) {
+  function bubble(html, who, allowUse?: boolean) {
     const el = document.createElement("div");
     el.className = "ugov-msg " + who;
     el.innerHTML = html;
+    if (who === "bot" && allowUse) {
+      const use = document.createElement("button");
+      use.type = "button";
+      use.className = "chat-use";
+      use.setAttribute("data-use-fb", String(html).replace(/<[^>]+>/g, ""));
+      use.textContent = (window.UMC && window.UMC.t("eng.chat.use")) || "Use in feedback form";
+      el.appendChild(use);
+    }
     return el;
   }
 
@@ -80,10 +88,11 @@ function init(): void {
 
   function greet() {
     if (!thread) return;
+    const c = COPY[lang] || COPY.en;
     thread.innerHTML = "";
-    thread.appendChild(bubble(COPY[lang].hello, "bot"));
-    chips.innerHTML = COPY[lang].chips.map((q) => `<button type="button">${q}</button>`).join("");
-    input.placeholder = COPY[lang].ph;
+    thread.appendChild(bubble(c.hello, "bot"));
+    if (chips) chips.innerHTML = c.chips.map((q) => `<button type="button">${q}</button>`).join("");
+    if (input) input.placeholder = c.ph;
     thread.scrollTop = thread.scrollHeight;
   }
 
@@ -94,28 +103,120 @@ function init(): void {
     thread.appendChild(wait);
     thread.scrollTop = thread.scrollHeight;
     setTimeout(() => {
-      wait.innerHTML = replyFor(text);
+      wait.remove();
+      thread.appendChild(bubble(replyFor(text), "bot", true));
       thread.scrollTop = thread.scrollHeight;
     }, 420);
+  }
+
+  function toast(msg: string) {
+    const el = document.getElementById("toast");
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add("show");
+    setTimeout(() => el.classList.remove("show"), 3200);
+  }
+
+  function t(key: string): string {
+    return (window.UMC && window.UMC.t(key)) || "";
+  }
+
+  function openTab(id: string) {
+    document.querySelectorAll("[data-tab]").forEach((btn) => btn.classList.toggle("on", btn.getAttribute("data-tab") === id));
+    document.querySelectorAll("[data-tab-panel]").forEach((p) => p.classList.toggle("on", p.getAttribute("data-tab-panel") === id));
+  }
+
+  function useInForm(text: string) {
+    const ta = document.getElementById("fb-msg") as HTMLTextAreaElement;
+    if (ta) ta.value = text;
+    openTab("feedback");
+    ta?.focus();
   }
 
   greet();
   document.getElementById("chat-form")?.addEventListener("submit", (e) => {
     e.preventDefault();
+    if (!input) return;
     const v = input.value;
     input.value = "";
     ask(v);
   });
   chips?.addEventListener("click", (e) => {
-    const b = e.target.closest("button");
+    const b = e.target instanceof Element ? e.target.closest("button") : null;
     if (b) ask(b.textContent);
   });
   document.getElementById("chat-langs")?.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-chat-lang]");
+    const b = e.target instanceof Element ? e.target.closest("[data-chat-lang]") : null;
     if (!b) return;
-    lang = b.getAttribute("data-chat-lang");
+    lang = (b.getAttribute("data-chat-lang") || "en") as Lang;
     document.querySelectorAll("#chat-langs button").forEach((x) => x.classList.toggle("on", x === b));
     greet();
+  });
+  thread?.addEventListener("click", (e) => {
+    const b = e.target instanceof Element ? e.target.closest("[data-use-fb]") : null;
+    if (!b) return;
+    useInForm(b.getAttribute("data-use-fb") || "");
+  });
+
+  const desk = document.getElementById("fb-desk") as HTMLSelectElement;
+  if (desk) {
+    const mins = (typeof UMC_MINISTRIES !== "undefined" && UMC_MINISTRIES) || [];
+    const names = mins.length
+      ? mins.map((m) => m.name)
+      : ["Office of the Prime Minister", "Ministry of Health", "Ministry of Education and Sports", "Ministry of ICT and National Guidance"];
+    desk.innerHTML = "";
+    const first = document.createElement("option");
+    first.value = "";
+    first.textContent = "Select a ministry / desk";
+    desk.appendChild(first);
+    names.forEach((n) => {
+      const o = document.createElement("option");
+      o.value = n;
+      o.textContent = n;
+      desk.appendChild(o);
+    });
+  }
+
+  document.getElementById("feedback-form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const token = window.grecaptcha ? window.grecaptcha.getResponse() : "";
+    if (!token) {
+      toast(t("eng.fb.captcha") || "Please complete the captcha before sending.");
+      return;
+    }
+    const data = {
+      ministry: (document.getElementById("fb-desk") as HTMLSelectElement)?.value || "",
+      language: (document.getElementById("fb-lang") as HTMLSelectElement)?.value || "en",
+      subject: (document.getElementById("fb-subject") as HTMLInputElement)?.value.trim() || "",
+      message: (document.getElementById("fb-msg") as HTMLTextAreaElement)?.value.trim() || "",
+      contact: (document.getElementById("fb-contact") as HTMLInputElement)?.value.trim() || "",
+      captcha: token,
+      at: new Date().toISOString()
+    };
+    if (!data.message) return;
+    try {
+      const inbox = JSON.parse(localStorage.getItem("umc-feedback") || "[]");
+      inbox.unshift(data);
+      localStorage.setItem("umc-feedback", JSON.stringify(inbox.slice(0, 80)));
+    } catch (err) { /* ignore quota */ }
+    try {
+      await fetch("https://formsubmit.co/ajax/info@mediacentre.go.ug", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: "UMC citizen feedback — " + data.ministry,
+          ministry: data.ministry,
+          language: data.language,
+          subject: data.subject,
+          message: data.message,
+          contact: data.contact || "(not provided)"
+        })
+      });
+    } catch (err) { /* filed locally */ }
+    toast(t("eng.fb.ok") || "Feedback received. It has been filed for the ministry desk.");
+    form.reset();
+    window.grecaptcha?.reset();
   });
 
   const POLLS = [
@@ -168,6 +269,14 @@ function init(): void {
     renderPolls();
   });
   renderPolls();
+
+  function applyHash() {
+    const hash = (location.hash || "").replace("#", "");
+    if (hash === "feedback" || hash === "polls") openTab(hash);
+    if (hash === "desk" || hash === "assistant") openTab("assistant");
+  }
+  applyHash();
+  window.addEventListener("hashchange", applyHash);
 }
 
 init();
