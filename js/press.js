@@ -3,6 +3,88 @@
     function init() {
         if (document.body.getAttribute("data-page") !== "press")
             return;
+        const archive = UMC_PRESS_ARCHIVE || [];
+        const indexEl = document.getElementById("press-index");
+        const filterEl = document.getElementById("press-filters");
+        const sortEl = document.getElementById("press-sort");
+        let cat = "all";
+        function esc(s) {
+            return String(s || "").replace(/[&<>"']/g, (c) => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+            }[c]));
+        }
+        function catLabel(key) {
+            if (key === "foreign-affairs")
+                return "Foreign affairs";
+            if (key === "public notice")
+                return "Public notice";
+            if (key === "communiqué")
+                return "Communiqué";
+            return key ? key.charAt(0).toUpperCase() + key.slice(1) : "National";
+        }
+        function t(key) {
+            return (window.UMC && window.UMC.t(key)) || "";
+        }
+        const counts = {};
+        archive.forEach((r) => {
+            counts[r.cat] = (counts[r.cat] || 0) + 1;
+        });
+        const catOrder = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+        if (filterEl) {
+            filterEl.innerHTML = [
+                `<button class="filter active" type="button" data-filter="all">All ${archive.length}</button>`,
+                ...catOrder.map((k) => `<button class="filter" type="button" data-filter="${esc(k)}">${esc(catLabel(k))} ${counts[k]}</button>`)
+            ].join("");
+            filterEl.addEventListener("click", (e) => {
+                const btn = e.target instanceof Element ? e.target.closest("[data-filter]") : null;
+                if (!btn)
+                    return;
+                cat = btn.getAttribute("data-filter") || "all";
+                filterEl.querySelectorAll("[data-filter]").forEach((b) => b.classList.toggle("active", b === btn));
+                renderList();
+            });
+        }
+        document.querySelectorAll("[data-press-total]").forEach((el) => {
+            el.textContent = String(archive.length);
+        });
+        function renderList() {
+            if (!indexEl)
+                return;
+            const newest = !sortEl || sortEl.value !== "old";
+            const rows = archive
+                .filter((r) => cat === "all" || r.cat === cat)
+                .slice()
+                .sort((a, b) => newest ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date));
+            const nEl = document.querySelector("[data-press-n]");
+            if (nEl)
+                nEl.textContent = String(rows.length);
+            const read = t("press.read") || "Read";
+            indexEl.innerHTML = rows.map((r) => {
+                const external = /^https?:/i.test(r.href);
+                const extra = external ? ` target="_blank" rel="noopener"` : "";
+                const cover = r.img
+                    ? `<div class="press-row-cover"><img src="${esc(r.img)}" alt="" loading="lazy" onerror="this.closest('.press-row').classList.add('no-img');this.parentNode.remove()"></div>`
+                    : "";
+                return `<a class="press-row${r.img ? "" : " no-img"}" data-cat="${esc(r.cat)}" href="${esc(r.href)}"${extra}>
+        ${cover}
+        <div class="txt">
+          <div class="press-row-meta">
+            <time>${esc(r.date)}</time>
+            <span class="press-cat">${esc(r.cat)}</span>
+            <span class="press-min">${esc(r.ministry)}</span>
+          </div>
+          <h3>${esc(r.title)}</h3>
+          ${r.p ? `<p>${esc(r.p)}</p>` : ""}
+          <span class="press-read">${esc(read)} →</span>
+        </div>
+      </a>`;
+            }).join("") || `<p class="muted">No press releases match your filters.</p>`;
+        }
+        sortEl?.addEventListener("change", renderList);
+        document.addEventListener("umc:lang", renderList);
+        renderList();
+        document.getElementById("releases")?.classList.add("in");
+        window.UMC?.applyI18n();
         const CHANNEL = "UCobG6xQoAv_uULa4W7zA1gA";
         const FALLBACK = {
             id: "J_7bkyMV1Cg",

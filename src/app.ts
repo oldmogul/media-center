@@ -379,6 +379,7 @@ function init(): void {
 
   document.querySelectorAll("[data-filter]").forEach((btn) => {
     if (btn.closest("[data-min-filters]")) return;
+    if (btn.closest("[data-press-filters]")) return;
     if (btn.closest(".feed-sec")) return;
     btn.addEventListener("click", () => {
       const group = btn.closest(".filters") || btn.parentElement;

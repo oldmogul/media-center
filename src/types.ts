@@ -45,6 +45,17 @@ interface MinistryEvent {
   where: string;
 }
 
+interface PressArchiveItem {
+  slug: string;
+  title: string;
+  date: string;
+  cat: string;
+  ministry: string;
+  p: string;
+  img: string;
+  href: string;
+}
+
 interface UmcApi {
   t: (key: string) => string;
   applyI18n: () => void;
@@ -57,5 +68,6 @@ interface Window {
   UMC_MINISTRIES: Ministry[];
   UMC_RELEASES: Release[];
   UMC_EVENTS: MinistryEvent[];
+  UMC_PRESS_ARCHIVE: PressArchiveItem[];
   UMC?: UmcApi;
 }

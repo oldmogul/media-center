@@ -70,105 +70,38 @@
 
     <div class="flag-rule"></div>
     <div class="stat-board">
-      <div class="stat"><b>162</b><span>Releases archived</span><p class="muted" style="margin-top:6px">Since 2014</p></div>
+      <div class="stat"><b data-press-total>176</b><span data-i18n="press.archived">Releases archived</span><p class="muted" style="margin-top:6px">Since 2014</p></div>
       <div class="stat"><b>4</b><span>Watch live</span><p class="muted" style="margin-top:6px">YouTube, Facebook, X, Instagram</p></div>
     </div>
 
     <section class="section" id="releases">
       <div class="wrap">
-        <div class="rail" data-rail>
-          <div class="section-head">
-            <div>
-              <p class="kicker-off">Official record</p>
-              <h2>Every release. Indexed.</h2>
-            </div>
-            <div class="rail-nav">
-              <button class="rail-prev" type="button" aria-label="Previous">‹</button>
-              <button class="rail-next" type="button" aria-label="Next">›</button>
-            </div>
-          </div>
-          <p class="lede" style="margin:-8px 0 16px">162 statements across 29 ministries. Use the tags, then slide.</p>
-          <div class="filters">
-            <button class="filter active" data-filter="all">All</button>
-            <button class="filter" data-filter="education">Education</button>
-            <button class="filter" data-filter="health">Health</button>
-            <button class="filter" data-filter="security">Security</button>
-            <button class="filter" data-filter="economy">Economy</button>
-            <button class="filter" data-filter="governance">Governance</button>
-            <button class="filter" data-filter="foreign">Foreign affairs</button>
-          </div>
-          <div class="rail-track release-slider">
-            <a class="rel-card" data-cat="education" href="articles/afcon.html">
-              <div class="rel-cover"><img src="img/hoima.png" alt=""><span class="tag gold">Education</span></div>
-              <div class="txt">
-                <small>2 Sep 2026 · Min. of Education</small>
-                <h3>LOC public update on CAF AFCON PAMOJA 2027</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="governance" href="articles/nin.html">
-              <div class="rel-cover"><img src="img/wealth.jpg" alt=""><span class="tag gold">Governance</span></div>
-              <div class="txt">
-                <small>2 Sep 2026 · Office of the President</small>
-                <h3>Wealth-creation programmes in Teso and Lango</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="economy" href="articles/nin.html">
-              <div class="rel-cover"><img src="img/nin.jpg" alt=""><span class="tag gold">Economy</span></div>
-              <div class="txt">
-                <small>1 Sep 2026 · Min. of ICT</small>
-                <h3>Cabinet adopts NIN as Tax Identification Number</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="economy" href="articles/coffee.html">
-              <div class="rel-cover"><img src="img/cma.jpg" alt=""><span class="tag gold">Economy</span></div>
-              <div class="txt">
-                <small>1 Sep 2026 · Trade</small>
-                <h3>Capital Markets Authority marks 30 years</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="foreign" href="news.html">
-              <div class="rel-cover"><img src="img/envoys.jpg" alt=""><span class="tag gold">Foreign</span></div>
-              <div class="txt">
-                <small>1 Sep 2026 · State House</small>
-                <h3>President receives credentials from five new envoys</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="health" href="articles/ebola.html">
-              <div class="rel-cover"><img src="img/hospital.jpg" alt=""><span class="tag red">Health</span></div>
-              <div class="txt">
-                <small>28 Jul 2026 · Ministry of Health</small>
-                <h3>Uganda declares the end of the 2026 Ebola outbreak</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="security" href="articles/updf.html">
-              <div class="rel-cover"><img src="img/defence.jpg" alt=""><span class="tag ink">Security</span></div>
-              <div class="txt">
-                <small>10 Aug 2026 · Defence</small>
-                <h3>UPDF recruitment kicks off at Kololo</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="governance" href="articles/karamoja.html">
-              <div class="rel-cover"><img src="img/food.jpg" alt=""><span class="tag gold">OPM</span></div>
-              <div class="txt">
-                <small>20 Jul 2026 · Prime Minister</small>
-                <h3>Karamoja gets 9 million kilos of relief food</h3>
-              </div>
-            </a>
-            <a class="rel-card" data-cat="economy" href="articles/coffee.html">
-              <div class="rel-cover"><img src="img/agriculture.jpg" alt=""><span class="tag gold">Agriculture</span></div>
-              <div class="txt">
-                <small>24 May 2026 · MAAIF</small>
-                <h3>Coffee export earnings hit USD 1.4 billion</h3>
-              </div>
-            </a>
+        <div class="section-head">
+          <div>
+            <p class="kicker-off" data-i18n="press.index.k">Official record</p>
+            <h2 data-i18n="press.index.h2">Every release. Indexed.</h2>
           </div>
         </div>
+        <p class="lede press-index-lede"><span data-press-total>176</span> <span data-i18n="press.index.lede">statements across 29 ministries, organised for fast retrieval.</span></p>
+        <div class="press-index-bar">
+          <p class="press-index-n"><b data-press-n>176</b> <span data-i18n="press.index.results">results</span></p>
+          <label class="press-sort">
+            <span data-i18n="press.index.sort">Sort</span>
+            <select id="press-sort">
+              <option value="new" data-i18n="press.index.new">Newest first</option>
+              <option value="old" data-i18n="press.index.old">Oldest first</option>
+            </select>
+          </label>
+        </div>
+        <div class="filters" data-press-filters id="press-filters"></div>
+        <div class="press-index" id="press-index"></div>
       </div>
     </section>
   </main>
   <div id="site-footer"></div>
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/press-archive.js"></script>
   <script src="js/press.js"></script>
 </body>
 </html>
