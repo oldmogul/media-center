@@ -119,10 +119,6 @@ function init(): void {
           <span class="hide-sm" data-i18n="util.republic"></span>
           ${tickerHtml()}
         </div>
-        <div class="util-right">
-          <button type="button" class="text-link" data-set-lang="sw">Kiswahili</button>
-          <a href="${root}/accreditation.html" data-i18n="util.accredit"></a>
-        </div>
       </div>
     </div>
     <header class="header">
