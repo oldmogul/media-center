@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "start": "tsc && npx --yes serve -l 5173 ."
+    "start": "tsc && python scripts/umc-server.py"
   },
   "dependencies": {
     "playwright": "^1.62.1"

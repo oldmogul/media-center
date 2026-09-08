@@ -10,7 +10,7 @@
     href: "https://wa.me/256312261525?text=" + encodeURIComponent("Hello Uganda Media Centre, I have a question the chatbot could not confirm.")
   };
 
-  const SYSTEM = "You are UGov, the official chatbot of the Uganda Media Centre. You are trained on Ugandan government affairs: ministries, public services (NIRA IDs, passports, URA taxes, PDM, UNEB), health and emergency lines, press briefings, languages, and national programmes. Be concise, factual and official in tone. If you are not sure, or the question is a personal legal, medical, land or court case, do not guess. Tell the citizen to WhatsApp the Uganda Media Centre desk on +256 312 261 525, +256 414 254 461 or +256 414 237 141.";
+  const SYSTEM = "You are UGov, the official chatbot of the Uganda Media Centre. You are trained on Ugandan government affairs (ministries, NIRA IDs, passports, URA taxes, PDM, UNEB, health lines, press, languages, radio) and you may also answer ordinary general questions briefly and helpfully. Keep replies short (under 90 words). Official, clear tone. If the user has a personal legal, land, court or medical-diagnosis case, do not guess — tell them to WhatsApp the Uganda Media Centre on +256 312 261 525, +256 414 254 461 or +256 414 237 141.";
 
   type CopyLang = "en" | "lg" | "sw";
 
@@ -18,10 +18,10 @@
     en: {
       fab: "Chat",
       title: "UGov chatbot",
-      sub: "Trained on Ugandan affairs · Media Centre",
+      sub: "Ugandan affairs · live",
       ph: "Ask about IDs, ministries, taxes…",
-      hello: "Hello — I’m <b>UGov</b>, the official chatbot of the Uganda Media Centre. I’m trained on Ugandan government affairs: national IDs, ministries, health, taxes, press briefings and more. Ask me anything. If your question is too specific for me to confirm, I’ll send you to WhatsApp the Media Centre desk.",
-      chips: ["How do I apply for a national ID?", "Who do I call in an emergency?", "What does the Media Centre do?", "When are UCE results released?"],
+      hello: "I’m <b>UGov</b>, the Media Centre chatbot. Ask about government services — or anything else. Personal legal or land cases go to WhatsApp.",
+      chips: ["National ID?", "Emergency numbers?"],
       wa: "That’s a detailed case I shouldn’t guess on. WhatsApp the Uganda Media Centre and an officer will take it from here.",
       waBtn: "WhatsApp the desk"
     },
@@ -30,8 +30,8 @@
       title: "UGov chatbot",
       sub: "Ebya Uganda · Media Centre",
       ph: "Buuza ku NIN, minisitule, emisolo…",
-      hello: "Nze <b>UGov</b>, chatbot eya Uganda Media Centre. Ntendekebwa ku bya Gavumenti ya Uganda. Bwe kiba nti ekibuuzo kyo kyekenneenye, nkutumira ku WhatsApp ya Media Centre.",
-      chips: ["Nfunye NIN ntya?", "Nkuwaako ani mu mbeera ey’amangu?", "Media Centre ekola ki?", "UCE evaateebwa ddi?"],
+      hello: "Nze <b>UGov</b>, chatbot eya Media Centre. Buuza ku Gavumenti — oba ekirala. Ebyamateeka by’ettaka bijja ku WhatsApp.",
+      chips: ["NIN?", "Amangu?"],
       wa: "Kino kya wala okunnyonnyola wano. WhatsApp Uganda Media Centre, omukozi ajja kukuwuliriza.",
       waBtn: "WhatsApp ku ddeesike"
     },
@@ -40,8 +40,8 @@
       title: "UGov chatbot",
       sub: "Mambo ya Uganda · Media Centre",
       ph: "Uliza kuhusu vitambulisho, wizara…",
-      hello: "Mimi ni <b>UGov</b>, chatbot rasmi wa Uganda Media Centre. Nimefunzwa kuhusu mambo ya Serikali ya Uganda. Ikiwa swali lako ni gumu kuthibitisha, nitakuelekeza WhatsApp ya Media Centre.",
-      chips: ["Nitaomba kitambulisho vipi?", "Nipige simu nani dharura?", "Media Centre inafanya nini?", "Matokeo ya UCE lini?"],
+      hello: "Mimi ni <b>UGov</b>, chatbot wa Media Centre. Uliza kuhusu serikali — au kitu kingine. Kesi za ardhi na sheria: WhatsApp.",
+      chips: ["Kitambulisho?", "Simu za dharura?"],
       wa: "Hili ni suala la kina nisiweze kukisia. WhatsApp Uganda Media Centre, afisa atakushughulikia.",
       waBtn: "WhatsApp dawati"
     }
@@ -93,7 +93,29 @@
     return words > 36 || marks > 1 || PERSONAL.test(q);
   }
 
+  const history: { role: string; content: string }[] = [];
+
+  async function readAi(res: Response): Promise<string | null> {
+    if (!res.ok) return null;
+    const data = await res.json();
+    const text = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+    return text ? String(text).trim() : null;
+  }
+
   async function modelReply(q: string, L: CopyLang): Promise<string | null> {
+    const payload = {
+      lang: L,
+      messages: history.slice(-8).concat([{ role: "user", content: q }])
+    };
+    try {
+      const local = await fetch("/api/ugov-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const viaProxy = await readAi(local);
+      if (viaProxy) return viaProxy;
+    } catch (e) { /* proxy not running */ }
     if (!XAI.key || XAI.key === "test-key") return null;
     try {
       const res = await fetch(XAI.endpoint, {
@@ -101,17 +123,15 @@
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + XAI.key },
         body: JSON.stringify({
           model: XAI.model,
-          temperature: 0.2,
+          temperature: 0.4,
           messages: [
             { role: "system", content: SYSTEM + " Reply in " + (L === "lg" ? "Luganda" : L === "sw" ? "Kiswahili" : "English") + "." },
+            ...history.slice(-8),
             { role: "user", content: q }
           ]
         })
       });
-      if (!res.ok) return null;
-      const data = await res.json();
-      const text = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
-      return text ? String(text).trim() : null;
+      return await readAi(res);
     } catch (e) {
       return null;
     }
@@ -119,11 +139,18 @@
 
   async function reply(q: string, L?: CopyLang): Promise<{ html: string; handoff: boolean }> {
     const loc = L || lang();
+    if (PERSONAL.test(q) && !/\b(nira|nin|id|tax|ura|uce|pdm|passport)\b/i.test(q)) {
+      return { html: waHtml(loc), handoff: true };
+    }
     const known = localReply(q, loc);
     if (known && !isComplex(q)) return { html: known, handoff: false };
-    if (known && isComplex(q)) return { html: known, handoff: false };
     const ai = await modelReply(q, loc);
-    if (ai) return { html: ai.replace(/\n/g, "<br>"), handoff: /whatsapp|256\s*312|256\s*414/i.test(ai) };
+    if (ai) {
+      history.push({ role: "user", content: q });
+      history.push({ role: "assistant", content: ai });
+      return { html: ai.replace(/\n/g, "<br>"), handoff: /whatsapp the uganda media centre|256\s*312\s*261/i.test(ai) };
+    }
+    if (known) return { html: known, handoff: false };
     return { html: waHtml(loc), handoff: true };
   }
 
@@ -141,10 +168,6 @@
     const wrap = document.createElement("div");
     wrap.id = "ugov-widget";
     wrap.innerHTML = `
-      <button type="button" class="ugov-fab" id="ugov-fab" aria-controls="ugov-dock" aria-expanded="false" aria-label="${u.title}">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
-        <span>${u.fab}</span>
-      </button>
       <div class="ugov-dock" id="ugov-dock" hidden>
         <div class="ugov-top">
           <div class="chat-brand">
@@ -162,7 +185,11 @@
           <input id="ugov-q" required placeholder="${u.ph}" autocomplete="off">
           <button class="btn-gold" type="submit">Send</button>
         </form>
-      </div>`;
+      </div>
+      <button type="button" class="ugov-fab" id="ugov-fab" aria-controls="ugov-dock" aria-expanded="false" aria-label="${u.title}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+        <span>${u.fab}</span>
+      </button>`;
     document.body.appendChild(wrap);
 
     const fab = document.getElementById("ugov-fab");
@@ -213,7 +240,6 @@
       const b = e.target instanceof Element ? e.target.closest("button") : null;
       if (b) ask(b.textContent || "");
     });
-    greet();
     void rootPath;
   }
 
