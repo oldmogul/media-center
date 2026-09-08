@@ -73,9 +73,7 @@ function init(): void {
     ["index.html", "nav.home", "home"],
     ["ministries.html", "nav.ministries", "ministries"],
     ["news.html", "nav.press", "press"],
-    ["languages.html", "nav.languages", "languages"],
-    ["radio.html", "nav.radio", "radio"],
-    ["engagement.html", "nav.engagement", "engagement"],
+    ["languages.html", "nav.pulse", "pulse"],
     ["about.html", "nav.about", "about"],
   ];
 
@@ -122,7 +120,6 @@ function init(): void {
           ${tickerHtml()}
         </div>
         <div class="util-right">
-          <button type="button" class="text-link" data-set-lang="lg">Luganda</button>
           <button type="button" class="text-link" data-set-lang="sw">Kiswahili</button>
           <a href="${root}/accreditation.html" data-i18n="util.accredit"></a>
         </div>
@@ -139,6 +136,19 @@ function init(): void {
         </a>
         <nav class="nav" id="nav">
           ${nav.map(([h, key, id]) => {
+            if (id === "pulse") {
+              const pulseOn = ["languages", "radio", "engagement"].includes(page);
+              return `<div class="drop">
+                <a href="${root}/${h}" class="drop-trigger ${pulseOn ? "active" : ""}">
+                  <span data-i18n="${key}"></span>${caretSvg()}
+                </a>
+                <div class="drop-menu">
+                  <a href="${root}/languages.html" data-i18n="nav.languages">Languages Desk</a>
+                  <a href="${root}/radio.html" data-i18n="nav.radio">Radio</a>
+                  <a href="${root}/engagement.html" data-i18n="nav.engagement">Engagement</a>
+                </div>
+              </div>`;
+            }
             if (id === "about") {
               const aboutOn = ["about", "team", "history"].includes(page);
               return `<div class="drop">

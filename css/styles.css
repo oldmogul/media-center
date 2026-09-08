@@ -124,7 +124,7 @@ p { margin: 0; }
 }
 .brand small { display: block; color: var(--muted); font-size: 11px; }
 
-.nav { display: flex; gap: 14px; margin-left: auto; align-items: center; }
+.nav { display: flex; gap: 22px; margin-left: auto; align-items: center; }
 .nav a {
   font-size: 13px; font-weight: 600; letter-spacing: .01em;
   text-transform: none; color: var(--ink-2); padding: 8px 0;
