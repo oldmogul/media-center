@@ -568,7 +568,7 @@ textarea { min-height: 140px; resize: vertical; }
   background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 16px;
   min-height: 150px;
 }
-.min-card:hover { border-color: #cbb56a; }
+.min-card:hover { border-color: var(--flag-y); }
 .min-card small { color: var(--muted); letter-spacing: .1em; text-transform: uppercase; font-size: 11px; font-weight: 800; }
 .min-card h3 { font-size: 17px; margin: 8px 0 6px; }
 
@@ -1211,13 +1211,13 @@ body[data-page="ministries"] .filter.active:hover {
 .min-card::before {
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px;
 }
-.min-card[data-cat="communications"]::before { background: #7c3aed; }
-.min-card[data-cat="regional"]::before { background: #22c55e; }
-.min-card[data-cat="economic"]::before { background: #eab308; }
-.min-card[data-cat="security"]::before { background: #ef4444; }
-.min-card[data-cat="social"]::before { background: #3b82f6; }
-.min-card[data-cat="governance"]::before { background: #64748b; }
-.min-card[data-cat="infrastructure"]::before { background: #14b8a6; }
+.min-card[data-cat="communications"]::before { background: #0A0A0B; }
+.min-card[data-cat="regional"]::before { background: var(--flag-y); }
+.min-card[data-cat="economic"]::before { background: var(--flag-y); }
+.min-card[data-cat="security"]::before { background: var(--flag-r); }
+.min-card[data-cat="social"]::before { background: var(--flag-r); }
+.min-card[data-cat="governance"]::before { background: #0A0A0B; }
+.min-card[data-cat="infrastructure"]::before { background: var(--flag-y); }
 .min-card .arms-sm { width: 48px; height: 48px; object-fit: contain; margin-bottom: 12px; }
 .min-card h3 { font-size: 22px; font-weight: 500; letter-spacing: -.02em; margin: 4px 0 6px; line-height: 1.2; }
 .min-card .badge {
@@ -1225,13 +1225,13 @@ body[data-page="ministries"] .filter.active:hover {
   font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
   border-radius: 999px; padding: 4px 8px; font-weight: 700;
 }
-.min-card[data-cat="communications"] .badge { background: #ede9fe; color: #6d28d9; }
-.min-card[data-cat="regional"] .badge { background: #dcfce7; color: #15803d; }
-.min-card[data-cat="economic"] .badge { background: #fef9c3; color: #a16207; }
-.min-card[data-cat="security"] .badge { background: #fee2e2; color: #b91c1c; }
-.min-card[data-cat="social"] .badge { background: #dbeafe; color: #1d4ed8; }
-.min-card[data-cat="governance"] .badge { background: #e2e8f0; color: #475569; }
-.min-card[data-cat="infrastructure"] .badge { background: #ccfbf1; color: #0f766e; }
+.min-card[data-cat="communications"] .badge { background: #0A0A0B; color: #fff; }
+.min-card[data-cat="regional"] .badge { background: var(--flag-y); color: #111; }
+.min-card[data-cat="economic"] .badge { background: var(--flag-y); color: #111; }
+.min-card[data-cat="security"] .badge { background: var(--flag-r); color: #fff; }
+.min-card[data-cat="social"] .badge { background: var(--flag-r); color: #fff; }
+.min-card[data-cat="governance"] .badge { background: #0A0A0B; color: #fff; }
+.min-card[data-cat="infrastructure"] .badge { background: var(--flag-y); color: #111; }
 .min-card p.mandate { color: var(--ink-2); font-size: 13px; margin-top: 8px; line-height: 1.45; }
 .min-contact { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .min-contact a {
@@ -1308,13 +1308,13 @@ body[data-page="ministries"] .filter.active:hover {
 .desk-hero::before {
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
 }
-.desk-hero[data-cat="communications"]::before { background: #7c3aed; }
-.desk-hero[data-cat="regional"]::before { background: #22c55e; }
-.desk-hero[data-cat="economic"]::before { background: #eab308; }
-.desk-hero[data-cat="security"]::before { background: #ef4444; }
-.desk-hero[data-cat="social"]::before { background: #3b82f6; }
-.desk-hero[data-cat="governance"]::before { background: #94a3b8; }
-.desk-hero[data-cat="infrastructure"]::before { background: #14b8a6; }
+.desk-hero[data-cat="communications"]::before { background: #0A0A0B; }
+.desk-hero[data-cat="regional"]::before { background: var(--flag-y); }
+.desk-hero[data-cat="economic"]::before { background: var(--flag-y); }
+.desk-hero[data-cat="security"]::before { background: var(--flag-r); }
+.desk-hero[data-cat="social"]::before { background: var(--flag-r); }
+.desk-hero[data-cat="governance"]::before { background: #0A0A0B; }
+.desk-hero[data-cat="infrastructure"]::before { background: var(--flag-y); }
 .desk-hero-arms {
   position: absolute; right: 0; top: 50%; transform: translateY(-48%);
   width: min(560px, 52vw); opacity: .18; pointer-events: none;
@@ -1334,14 +1334,14 @@ body[data-page="ministries"] .filter.active:hover {
 .desk-badge {
   display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em;
   text-transform: uppercase; border-radius: 999px; padding: 4px 9px;
-  background: rgba(237,233,254,.92); color: #6d28d9; margin-bottom: 10px;
+  background: #0A0A0B; color: #fff; margin-bottom: 10px;
 }
-.desk-hero[data-cat="regional"] .desk-badge { background: #dcfce7; color: #15803d; }
-.desk-hero[data-cat="economic"] .desk-badge { background: #fef9c3; color: #a16207; }
-.desk-hero[data-cat="security"] .desk-badge { background: #fee2e2; color: #b91c1c; }
-.desk-hero[data-cat="social"] .desk-badge { background: #dbeafe; color: #1d4ed8; }
-.desk-hero[data-cat="governance"] .desk-badge { background: #e2e8f0; color: #334155; }
-.desk-hero[data-cat="infrastructure"] .desk-badge { background: #ccfbf1; color: #0f766e; }
+.desk-hero[data-cat="regional"] .desk-badge { background: var(--flag-y); color: #111; }
+.desk-hero[data-cat="economic"] .desk-badge { background: var(--flag-y); color: #111; }
+.desk-hero[data-cat="security"] .desk-badge { background: var(--flag-r); color: #fff; }
+.desk-hero[data-cat="social"] .desk-badge { background: var(--flag-r); color: #fff; }
+.desk-hero[data-cat="governance"] .desk-badge { background: #0A0A0B; color: #fff; }
+.desk-hero[data-cat="infrastructure"] .desk-badge { background: var(--flag-y); color: #111; }
 .desk-hero h1 {
   font-family: var(--display); font-weight: 400; color: #fff;
   font-size: clamp(36px, 5.4vw, 72px); letter-spacing: -.045em; line-height: .95;
@@ -1438,7 +1438,7 @@ body[data-page="ministries"] .filter.active:hover {
   display: grid; grid-template-columns: 168px 1fr; gap: 18px;
   background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
 }
-.desk-story:hover { border-color: #cbb56a; }
+.desk-story:hover { border-color: var(--flag-y); }
 .desk-story img { width: 100%; height: 148px; object-fit: cover; }
 .desk-story > div { padding: 14px 16px 16px 0; }
 .desk-story h3 {
@@ -1483,13 +1483,13 @@ body[data-page="ministries"] .filter.active:hover {
 }
 .desk-related a:hover { border-color: var(--flag-y); }
 .desk-badge.sm { align-self: flex-start; margin-bottom: 0; }
-.desk-related a[data-cat="communications"] .desk-badge { background: #ede9fe; color: #6d28d9; }
-.desk-related a[data-cat="regional"] .desk-badge { background: #dcfce7; color: #15803d; }
-.desk-related a[data-cat="economic"] .desk-badge { background: #fef9c3; color: #a16207; }
-.desk-related a[data-cat="security"] .desk-badge { background: #fee2e2; color: #b91c1c; }
-.desk-related a[data-cat="social"] .desk-badge { background: #dbeafe; color: #1d4ed8; }
-.desk-related a[data-cat="governance"] .desk-badge { background: #e2e8f0; color: #334155; }
-.desk-related a[data-cat="infrastructure"] .desk-badge { background: #ccfbf1; color: #0f766e; }
+.desk-related a[data-cat="communications"] .desk-badge { background: #0A0A0B; color: #fff; }
+.desk-related a[data-cat="regional"] .desk-badge { background: var(--flag-y); color: #111; }
+.desk-related a[data-cat="economic"] .desk-badge { background: var(--flag-y); color: #111; }
+.desk-related a[data-cat="security"] .desk-badge { background: var(--flag-r); color: #fff; }
+.desk-related a[data-cat="social"] .desk-badge { background: var(--flag-r); color: #fff; }
+.desk-related a[data-cat="governance"] .desk-badge { background: #0A0A0B; color: #fff; }
+.desk-related a[data-cat="infrastructure"] .desk-badge { background: var(--flag-y); color: #111; }
 .desk-related strong { font-size: 15px; line-height: 1.25; }
 .desk-related small { color: var(--muted); }
 .desk-fb { display: grid; gap: 14px; }
